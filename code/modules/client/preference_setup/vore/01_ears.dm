@@ -1,6 +1,6 @@
 // Global stuff that will put us on the map
 /datum/category_group/player_setup_category/vore
-	name = "VORE"
+	name = "Eros"	//Eros edit
 	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/vore
 
@@ -8,9 +8,15 @@
 /datum/preferences
 	var/ear_style		// Type of selected ear style
 	var/tail_style		// Type of selected tail style
+	var/wings_style		// Type of selected wings style //Eros edit
 	var/r_tail = 30		// Tail/Taur color
 	var/g_tail = 30		// Tail/Taur color
 	var/b_tail = 30		// Tail/Taur color
+	//Eros edit START
+	var/r_wings = 30
+	var/g_wings = 30
+	var/b_wings = 30
+	//Eros edit END
 	var/dress_mob = TRUE
 
 // Definition of the stuff for Ears
@@ -21,6 +27,7 @@
 /datum/category_item/player_setup_item/vore/ears/load_character(var/savefile/S)
 	S["ear_style"]		>> pref.ear_style
 	S["tail_style"]		>> pref.tail_style
+	S["wings_style"]	>> pref.wings_style
 	S["r_tail"]			>> pref.r_tail
 	S["g_tail"]			>> pref.g_tail
 	S["b_tail"]			>> pref.b_tail
@@ -28,6 +35,7 @@
 /datum/category_item/player_setup_item/vore/ears/save_character(var/savefile/S)
 	S["ear_style"]		<< pref.ear_style
 	S["tail_style"]		<< pref.tail_style
+	S["wings_style"]	<< pref.wings_style
 	S["r_tail"]			<< pref.r_tail
 	S["g_tail"]			<< pref.g_tail
 	S["b_tail"]			<< pref.b_tail
@@ -44,6 +52,7 @@
 /datum/category_item/player_setup_item/vore/ears/copy_to_mob(var/mob/living/carbon/human/character)
 	character.ear_style			= ear_styles_list[pref.ear_style]
 	character.tail_style		= tail_styles_list[pref.tail_style]
+	character.wings_style		= wings_styles_list[pref.wings_style]
 	character.r_tail			= pref.r_tail
 	character.b_tail			= pref.b_tail
 	character.g_tail			= pref.g_tail
@@ -81,6 +90,20 @@
 		var/datum/sprite_accessory/tail/T = tail_styles_list[pref.tail_style]
 		if (T.do_colouration)
 			. += "<a href='?src=\ref[src];tail_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_tail, 2)][num2hex(pref.g_tail, 2)][num2hex(pref.b_tail, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_tail, 2)][num2hex(pref.g_tail, 2)][num2hex(pref.b_tail)]'><tr><td>__</td></tr></table> </font><br>"
+
+	var/wings_display = "None"
+	if(pref.wings_style && (pref.wings_style in wings_styles_list))
+		var/datum/sprite_accessory/wings/instance = wings_styles_list[pref.wings_style]
+		wings_display = instance.name
+	else if(pref.wings_style)
+		wings_display = "REQUIRES UPDATE"
+	. += "<b>Wings</b><br>"
+	. += " Style: <a href='?src=\ref[src];wings_style=1'>[wings_display]</a><br>"
+
+	if(wings_styles_list[pref.wings_style])
+		var/datum/sprite_accessory/wings/W = wings_styles_list[pref.wings_style]
+		if (W.do_colouration)
+			. += "<a href='?src=\ref[src];wings_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_wings, 2)][num2hex(pref.g_wings, 2)][num2hex(pref.b_wings, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_wings, 2)][num2hex(pref.g_wings, 2)][num2hex(pref.b_wings)]'><tr><td>__</td></tr></table> </font><br>"
 
 /datum/category_item/player_setup_item/vore/ears/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(!CanUseTopic(user))
@@ -121,6 +144,29 @@
 			pref.r_tail = hex2num(copytext(new_tailc, 2, 4))
 			pref.g_tail = hex2num(copytext(new_tailc, 4, 6))
 			pref.b_tail = hex2num(copytext(new_tailc, 6, 8))
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["wings_style"])
+		// Construct the list of names allowed for this user.
+		var/list/pretty_wings_styles = list("Normal" = null)
+		for(var/path in wings_styles_list)
+			var/datum/sprite_accessory/wings/instance = wings_styles_list[path]
+			if((!instance.ckeys_allowed) || (user.ckey in instance.ckeys_allowed))
+				pretty_wings_styles[instance.name] = path
+
+		// Present choice to user
+		var/selection = input(user, "Pick wings", "Character Preference") as null|anything in pretty_wings_styles
+		pref.wings_style = pretty_wings_styles[selection]
+
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["wings_color"])
+		var/new_wingsc = input(user, "Choose your character's wings colour:", "Character Preference",
+			rgb(pref.r_wings, pref.g_wings, pref.b_wings)) as color|null
+		if(new_wingsc)
+			pref.r_wings = hex2num(copytext(new_wingsc, 2, 4))
+			pref.g_wings = hex2num(copytext(new_wingsc, 4, 6))
+			pref.b_wings = hex2num(copytext(new_wingsc, 6, 8))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["toggle_clothing"])

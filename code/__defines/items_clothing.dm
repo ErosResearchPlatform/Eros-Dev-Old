@@ -54,6 +54,7 @@
 #define HIDETAIL        0x10
 #define HIDETIE         0x20
 #define HIDEHOLSTER     0x40 //Some clothing hides holsters, but not all accessories
+#define HIDEWINGS		0x80 //Eros edit, hides wings
 
 // WARNING: The following flags apply only to the helmets and masks!
 #define HIDEMASK 0x1
