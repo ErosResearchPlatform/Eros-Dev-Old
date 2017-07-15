@@ -11,15 +11,21 @@
 	var/persistence_settings = PERSIST_DEFAULT	// Control what if anything is persisted for this character between rounds.
 
 // Definition of the stuff for Sizing
+/datum/category_item/player_setup_item/eros/persistence
 	name = "Persistence"
+	sort_order = 3
 
+/datum/category_item/player_setup_item/eros/persistence/load_character(var/savefile/S)
 	S["persistence_settings"]		>> pref.persistence_settings
 	sanitize_character() // Don't let new characters start off with nulls
 
+/datum/category_item/player_setup_item/eros/persistence/save_character(var/savefile/S)
 	S["persistence_settings"]		<< pref.persistence_settings
 
+/datum/category_item/player_setup_item/eros/persistence/sanitize_character()
 	pref.persistence_settings		= sanitize_integer(pref.persistence_settings, 0, (1<<(PERSIST_COUNT+1)-1), initial(pref.persistence_settings))
 
+/datum/category_item/player_setup_item/eros/persistence/content(var/mob/user)
 	. = list()
 	. += "<b>Round-to-Round Persistence</b><br>"
 	. += "<table>"
@@ -47,11 +53,13 @@
 	. += "</table>"
 	return jointext(., "")
 
+/datum/category_item/player_setup_item/eros/persistence/proc/make_yesno(var/bit)
 	if(pref.persistence_settings & bit)
 		return "<td><span class='linkOn'><b>Yes</b></span></td> <td><a href='?src=\ref[src];toggle_off=[bit]'>No</a></td>"
 	else
 		return "<td><a href='?src=\ref[src];toggle_on=[bit]'>Yes</a></td> <td><span class='linkOn'><b>No</b></span></td>"
 
+/datum/category_item/player_setup_item/eros/persistence/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["toggle_on"])
 		var/bit = text2num(href_list["toggle_on"])
 		pref.persistence_settings |= bit

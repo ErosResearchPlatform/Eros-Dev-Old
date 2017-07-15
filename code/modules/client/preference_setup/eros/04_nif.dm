@@ -7,6 +7,7 @@
 // Definition of the stuff for NIFs
 /datum/category_item/player_setup_item/vore/nif
 	name = "NIF Data"
+	sort_order = 4
 
 /datum/category_item/player_setup_item/vore/nif/load_character(var/savefile/S)
 	S["nif_path"]		>> pref.nif_path

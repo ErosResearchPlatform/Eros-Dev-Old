@@ -22,4 +22,6 @@
 	if(breast_style && !(wear_suit && wear_suit.flags_inv & HIDEBREAST))
 		var/icon/breast_s = new/icon("icon" = breast_style.icon)
 		if(breast_style.use_skin_color)
+			breast_s.Blend(rgb(skin_r, skin_g, skin_b), ICON_MULTIPLY)
 
+		return breast_s

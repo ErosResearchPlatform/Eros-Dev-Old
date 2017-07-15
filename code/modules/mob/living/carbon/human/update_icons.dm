@@ -342,6 +342,7 @@ var/global/list/damage_icon_parts = list()
 	update_tail_showing(0)
 
 	//Eros: Genital layer, wing layer
+//	update_anatomy_showing()
 	update_wings_showing()
 
 //UNDERWEAR OVERLAY
