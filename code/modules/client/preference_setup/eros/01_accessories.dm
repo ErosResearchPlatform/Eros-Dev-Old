@@ -23,6 +23,9 @@
 	var/r_anatomy = 30
 	var/g_anatomy = 30
 	var/b_anatomy = 30
+	var/r_breast = 30
+	var/g_breast = 30
+	var/b_breast = 30
 	//Eros edit END
 	var/dress_mob = TRUE
 
@@ -47,6 +50,9 @@
 	S["r_anatomy"]		<< pref.r_anatomy
 	S["r_anatomy"]		<< pref.r_anatomy
 	S["r_anatomy"]		<< pref.r_anatomy
+	S["r_breast"]		<< pref.r_breast
+	S["g_breast"]		<< pref.g_breast
+	S["b_breast"]		<< pref.b_breast
 	//Eros edit END
 
 
@@ -67,6 +73,9 @@
 	S["r_anatomy"]		<< pref.r_anatomy
 	S["r_anatomy"]		<< pref.r_anatomy
 	S["r_anatomy"]		<< pref.r_anatomy
+	S["r_breast"]		<< pref.r_breast
+	S["g_breast"]		<< pref.g_breast
+	S["b_breast"]		<< pref.b_breast
 	//Eros edit END
 
 /datum/category_item/player_setup_item/eros/accessories/sanitize_character()
@@ -81,6 +90,9 @@
 	pref.r_anatomy		= sanitize_integer(pref.r_anatomy, 0, 255, initial(pref.r_anatomy))
 	pref.g_anatomy		= sanitize_integer(pref.g_anatomy, 0, 255, initial(pref.g_anatomy))
 	pref.b_anatomy		= sanitize_integer(pref.b_anatomy, 0, 255, initial(pref.b_anatomy))
+	pref.r_breast		= sanitize_integer(pref.r_breast, 0, 255, initial(pref.r_breast))
+	pref.g_breast		= sanitize_integer(pref.g_breast, 0, 255, initial(pref.g_breast))
+	pref.b_breast		= sanitize_integer(pref.b_breast, 0, 255, initial(pref.b_breast))
 	//Eros edit END
 
 	if(pref.ear_style)
@@ -103,6 +115,12 @@
 	character.r_tail			= pref.r_tail
 	character.b_tail			= pref.b_tail
 	character.g_tail			= pref.g_tail
+	character.r_anatomy			= pref.r_anatomy
+	character.g_anatomy			= pref.g_anatomy
+	character.b_anatomy			= pref.b_anatomy
+	character.r_breast			= pref.r_breast
+	character.g_breast			= pref.g_breast
+	character.b_breast			= pref.b_breast
 	//Eros edit START
 	character.wings_style		= wings_styles_list[pref.wings_style]
 	character.anatomy_style		= anatomy_styles_list[pref.wings_style]
@@ -113,6 +131,9 @@
 	character.r_anatomy			= pref.r_anatomy
 	character.g_anatomy			= pref.g_anatomy
 	character.b_anatomy			= pref.b_anatomy
+	character.r_breast			= pref.r_breast
+	character.g_breast			= pref.g_breast
+	character.b_breast			= pref.b_breast
 	//Eros edit END
 
 /datum/category_item/player_setup_item/eros/ears/content(var/mob/user)
@@ -255,15 +276,6 @@
 			pref.b_wings = hex2num(copytext(new_wingsc, 6, 8))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["anatomy_color"])
-		var/new_anatomyc = input(user, "Choose your character's anatomy colour:", "Character Preference",
-			rgb(pref.r_anatomy, pref.g_anatomy, pref.b_anatomy)) as color|null
-		if(new_anatomyc)
-			pref.r_anatomy = hex2num(copytext(new_anatomyc, 2, 4))
-			pref.g_anatomy = hex2num(copytext(new_anatomyc, 4, 6))
-			pref.b_anatomy = hex2num(copytext(new_anatomyc, 6, 8))
-			return TOPIC_REFRESH_UPDATE_PREVIEW
-
 	else if(href_list["anatomy_style"])
 	// Construct the list of names allowed for this user.
 		var/list/pretty_anatomy_styles = list("Normal" = null)
@@ -278,6 +290,15 @@
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	else if(href_list["anatomy_color"])
+		var/new_anatomyc = input(user, "Choose your character's anatomy colour:", "Character Preference",
+			rgb(pref.r_anatomy, pref.g_anatomy, pref.b_anatomy)) as color|null
+		if(new_anatomyc)
+			pref.r_anatomy = hex2num(copytext(new_anatomyc, 2, 4))
+			pref.g_anatomy = hex2num(copytext(new_anatomyc, 4, 6))
+			pref.b_anatomy = hex2num(copytext(new_anatomyc, 6, 8))
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["breast_style"])
 		// Construct the list of names allowed for this user.
 		var/list/pretty_breast_styles = list("Normal" = null)
@@ -291,6 +312,15 @@
 		pref.breast_style = pretty_breast_styles[selection]
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["breast_color"])
+		var/new_breastc = input(user, "Choose your character's breast colour:", "Character Preference",
+			rgb(pref.r_breast, pref.g_breast, pref.b_breast)) as color|null
+		if(new_breastc)
+			pref.r_breast = hex2num(copytext(new_breastc, 2, 4))
+			pref.g_breast = hex2num(copytext(new_breastc, 4, 6))
+			pref.b_breast = hex2num(copytext(new_breastc, 6, 8))
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 //Eros edit END
 

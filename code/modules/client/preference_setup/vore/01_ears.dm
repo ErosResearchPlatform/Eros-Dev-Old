@@ -1,19 +1,18 @@
 // Global stuff that will put us on the map
 /datum/category_group/player_setup_category/vore
-	name = "VORE"	//Eros edit
+	name = "VORE"
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/vore
 
 // Define a place to save appearance in character setup
 /datum/preferences
 	var/ear_style		// Type of selected ear style
 	var/tail_style		// Type of selected tail style
+	var/wings_style		// Type of selected wings style //Eros edit
 	var/r_tail = 30		// Tail/Taur color
 	var/g_tail = 30		// Tail/Taur color
 	var/b_tail = 30		// Tail/Taur color
 	//Eros edit START
-	var/wings_style		// Type of selected wings style
-	var/anatomy_style	// Type of selected anatomy style
-	var/breast_style	// Type of selected breast style
 	var/r_wings = 30
 	var/g_wings = 30
 	var/b_wings = 30
