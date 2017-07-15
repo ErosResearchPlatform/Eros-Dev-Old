@@ -111,6 +111,7 @@
 
 /datum/category_item/player_setup_item/eros/accessories/copy_to_mob(var/mob/living/carbon/human/character)
 	character.ear_style			= ear_styles_list[pref.ear_style]
+	character.anatomy_style		= anatomy_styles_list[pref.anatomy_style]
 	character.tail_style		= tail_styles_list[pref.tail_style]
 	character.r_tail			= pref.r_tail
 	character.b_tail			= pref.b_tail
@@ -123,7 +124,7 @@
 	character.b_breast			= pref.b_breast
 	//Eros edit START
 	character.wings_style		= wings_styles_list[pref.wings_style]
-	character.anatomy_style		= anatomy_styles_list[pref.wings_style]
+	character.anatomy_style		= anatomy_styles_list[pref.anatomy_style]
 	character.breast_style		= breast_styles_list[pref.breast_style]
 	character.r_wings			= pref.r_wings
 	character.g_wings			= pref.g_wings
@@ -205,7 +206,7 @@
 		breast_display = instance.name
 	else if(pref.breast_style)
 		breast_display = "REQUIRES UPDATE"
-	. += "<b>breast</b><br>"
+	. += "<b>Breast</b><br>"
 	. += " Style: <a href='?src=\ref[src];breast_style=1'>[breast_display]</a><br>"
 
 	if(breast_styles_list[pref.breast_style])
