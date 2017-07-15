@@ -327,8 +327,8 @@
 	ASSERT(istype(B))
 	var/datum/category_item/player_setup_item/general/basic/G = CG.items_by_name["Basic"]
 	ASSERT(istype(G))
-	CG = CC.categories_by_name["VORE"]
-	var/datum/category_item/player_setup_item/vore/ears/E = CG.items_by_name["Appearance"]
+	CG = CC.categories_by_name["Eros"]
+	var/datum/category_item/player_setup_item/eros/ears/E = CG.items_by_name["Appearance"]
 	ASSERT(istype(E))
 
 	if(href_list["bio_gender"])

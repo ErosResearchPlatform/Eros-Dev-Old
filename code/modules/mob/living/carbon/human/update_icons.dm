@@ -109,7 +109,7 @@ Please contact me on #coderbus IRC. ~Carn x
 #define MUTATIONS_LAYER			1
 #define DAMAGE_LAYER			2
 #define SURGERY_LEVEL			3		//bs12 specific.
-#define GENITALS_LAYER			4		//Eros
+#define ANATOMY_LAYER			4		//Eros
 #define UNDERWEAR_LAYER  		5
 #define SHOES_LAYER_ALT			6
 #define UNIFORM_LAYER			7
@@ -342,7 +342,6 @@ var/global/list/damage_icon_parts = list()
 	update_tail_showing(0)
 
 	//Eros: Genital layer, wing layer
-	update_genitals_showing()
 	update_wings_showing()
 
 //UNDERWEAR OVERLAY
@@ -845,7 +844,7 @@ var/global/list/damage_icon_parts = list()
 
 	//Eros edit
 	update_wings_showing(0)
-	update_genitals_showing(0)
+	update_anatomy_showing(0)
 
 	if(update_icons)   update_icons()
 
@@ -1218,7 +1217,7 @@ var/global/list/damage_icon_parts = list()
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
 #undef SURGERY_LEVEL
-#undef GENITALS_LAYER
+#undef anatomy_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER
 #undef SHOES_LAYER
