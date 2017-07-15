@@ -5,21 +5,21 @@
 	var/list/nif_savedata
 
 // Definition of the stuff for NIFs
-/datum/category_item/player_setup_item/vore/nif
+/datum/category_item/player_setup_item/eros/nif
 	name = "NIF Data"
 	sort_order = 4
 
-/datum/category_item/player_setup_item/vore/nif/load_character(var/savefile/S)
+/datum/category_item/player_setup_item/eros/nif/load_character(var/savefile/S)
 	S["nif_path"]		>> pref.nif_path
 	S["nif_durability"]	>> pref.nif_durability
 	S["nif_savedata"]	>> pref.nif_savedata
 
-/datum/category_item/player_setup_item/vore/nif/save_character(var/savefile/S)
+/datum/category_item/player_setup_item/eros/nif/save_character(var/savefile/S)
 	S["nif_path"]		<< pref.nif_path
 	S["nif_durability"]	<< pref.nif_durability
 	S["nif_savedata"]	<< pref.nif_savedata
 
-/datum/category_item/player_setup_item/vore/nif/sanitize_character()
+/datum/category_item/player_setup_item/eros/nif/sanitize_character()
 	if(pref.nif_path && !ispath(pref.nif_path))		//We have at least a text string that should be a path.
 		pref.nif_path = text2path(pref.nif_path) 	//Try to convert it to a hard path.
 		if(!pref.nif_path)							//If we couldn't, kill it.
@@ -33,7 +33,7 @@
 	if(!islist(pref.nif_savedata))
 		pref.nif_savedata = list()
 
-/datum/category_item/player_setup_item/vore/nif/copy_to_mob(var/mob/living/carbon/human/character)
+/datum/category_item/player_setup_item/eros/nif/copy_to_mob(var/mob/living/carbon/human/character)
 	//If you had a NIF...
 	if((character.type == /mob/living/carbon/human) && ispath(pref.nif_path) && pref.nif_durability)
 		new pref.nif_path(character,pref.nif_durability,pref.nif_savedata)
@@ -48,5 +48,5 @@
 		S.cd = "/character[pref.default_slot]"
 		save_character(S)
 
-/datum/category_item/player_setup_item/vore/nif/content(var/mob/user)
+/datum/category_item/player_setup_item/eros/nif/content(var/mob/user)
 	. += "<b>NIF:</b> [ispath(pref.nif_path) ? "Present" : "None"]"

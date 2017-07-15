@@ -343,8 +343,9 @@ var/global/list/damage_icon_parts = list()
 	update_tail_showing(0)
 
 	//Eros: Genital layer, wing layer
-//	update_anatomy_showing()
 	update_wings_showing()
+	update_anatomy_showing()
+	update_breast_showing()
 
 //UNDERWEAR OVERLAY
 /mob/living/carbon/human/proc/update_underwear(var/update_icons=1)
@@ -847,6 +848,7 @@ var/global/list/damage_icon_parts = list()
 	//Eros edit
 	update_wings_showing(0)
 	update_anatomy_showing(0)
+	update_breast_showing(0)
 
 	if(update_icons)   update_icons()
 

@@ -2,6 +2,7 @@ var/global/list/wings_styles_list 	= list() //Stores /datum/sprite_accessory/win
 var/global/list/anatomy_styles_list = list() //Stores /datum/sprite_accessory/anatomy indexed by type
 var/global/list/breast_styles_list	= list() //Stores /datum/sprite_accessory/breast indexed by type
 
+
 /hook/startup/proc/init_eros_datum_ref_lists()
 	var/paths
 
@@ -22,3 +23,5 @@ var/global/list/breast_styles_list	= list() //Stores /datum/sprite_accessory/bre
 	for(var/path in paths)
 		var/datum/sprite_accessory/breast/instance = new path()
 		breast_styles_list[path] = instance
+
+	return 1 // Hooks must return 1

@@ -33,6 +33,7 @@
 
 /datum/sprite_accessory/anatomy/knotted
 	name = "Knotted"
+	icon_state = "knotted"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
@@ -45,5 +46,6 @@
 
 /datum/sprite_accessory/breast/normal
 	name = "Normal breasts"
+	icon_state = "normal_e"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY

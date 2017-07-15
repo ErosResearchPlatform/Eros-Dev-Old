@@ -136,7 +136,7 @@
 	character.b_breast			= pref.b_breast
 	//Eros edit END
 
-/datum/category_item/player_setup_item/eros/ears/content(var/mob/user)
+/datum/category_item/player_setup_item/eros/accessories/content(var/mob/user)
 	. += "<h2>Eros Settings</h2>"
 
 	if(!pref.preview_icon)
@@ -186,7 +186,7 @@
 			. += "<a href='?src=\ref[src];wings_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_wings, 2)][num2hex(pref.g_wings, 2)][num2hex(pref.b_wings, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_wings, 2)][num2hex(pref.g_wings, 2)][num2hex(pref.b_wings)]'><tr><td>__</td></tr></table> </font><br>"
 
 	var/anatomy_display = "None"
-	if(pref.anatomy_style && (pref.anatomy_style in wings_styles_list))
+	if(pref.anatomy_style && (pref.anatomy_style in anatomy_styles_list))
 		var/datum/sprite_accessory/anatomy/instance = anatomy_styles_list[pref.anatomy_style]
 		anatomy_display = instance.name
 	else if(pref.anatomy_style)
@@ -208,9 +208,15 @@
 	. += "<b>breast</b><br>"
 	. += " Style: <a href='?src=\ref[src];breast_style=1'>[breast_display]</a><br>"
 
+	if(breast_styles_list[pref.breast_style])
+		var/datum/sprite_accessory/breast/W = breast_styles_list[pref.breast_style]
+		if (W.do_colouration)
+			. += "<a href='?src=\ref[src];breast_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_breast, 2)][num2hex(pref.g_breast, 2)][num2hex(pref.b_breast, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_breast, 2)][num2hex(pref.g_breast, 2)][num2hex(pref.b_breast)]'><tr><td>__</td></tr></table> </font><br>"
+
+
 //Eros edit END
 
-/datum/category_item/player_setup_item/accessories/ears/OnTopic(var/href,var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/eros/accessories/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(!CanUseTopic(user))
 		return TOPIC_NOACTION
 
@@ -303,7 +309,7 @@
 		// Construct the list of names allowed for this user.
 		var/list/pretty_breast_styles = list("Normal" = null)
 		for(var/path in breast_styles_list)
-			var/datum/sprite_accessory/breasts/instance = breast_styles_list[path]
+			var/datum/sprite_accessory/breast/instance = breast_styles_list[path]
 			if((!instance.ckeys_allowed) || (usr.ckey in instance.ckeys_allowed))
 				pretty_breast_styles[instance.name] = path
 
