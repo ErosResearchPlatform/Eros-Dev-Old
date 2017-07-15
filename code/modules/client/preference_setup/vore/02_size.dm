@@ -15,7 +15,6 @@
 // Definition of the stuff for Sizing
 /datum/category_item/player_setup_item/vore/size
 	name = "Size"
-	sort_order = 2
 
 /datum/category_item/player_setup_item/vore/size/load_character(var/savefile/S)
 	S["size_multiplier"]	>> pref.size_multiplier

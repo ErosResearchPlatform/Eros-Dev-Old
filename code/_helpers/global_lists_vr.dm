@@ -86,7 +86,6 @@ var/global/list/struggle_sounds = list(
 		"Squish3" = 'sound/vore/squish3.ogg',
 		"Squish4" = 'sound/vore/squish4.ogg')
 
-
 var/global/list/global_egg_types = list(
 		"Unathi" 		= UNATHI_EGG,
 		"Tajaran" 		= TAJARAN_EGG,
@@ -125,7 +124,6 @@ var/global/list/tf_egg_types = list(
 	for(var/path in paths)
 		var/datum/sprite_accessory/tail/instance = new path()
 		tail_styles_list[path] = instance
-
 	// Custom species traits
 	paths = typesof(/datum/trait) - /datum/trait
 	for(var/path in paths)

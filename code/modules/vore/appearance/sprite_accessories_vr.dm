@@ -327,12 +327,14 @@
 	icon_state = "bunny"
 	do_colouration = 1
 
+/*
 /datum/sprite_accessory/tail/mothc
 	name = "moth wings, colorable"
 	desc = ""
 	icon_state = "moth"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
+*/
 
 /datum/sprite_accessory/tail/moth
 	name = "moth wings"
@@ -416,12 +418,14 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+/*
 /datum/sprite_accessory/tail/faintailwings
 	name = "avian fantail, colorable (+wings)"
 	desc = ""
 	icon_state= "fantailwings"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
+*/
 
 /datum/sprite_accessory/tail/wagtail
 	name = "avian wagtail, colorable"
