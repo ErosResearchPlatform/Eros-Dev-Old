@@ -16,7 +16,7 @@
 	melee_damage_upper = 25
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
-	minbodytemp = 270
+	minbodytemp = 200
 	maxbodytemp = 370
 	heat_damage_per_tick = 15
 	cold_damage_per_tick = 10
@@ -37,3 +37,6 @@
 	vore_active = 1
 	swallowTime = 1 SECOND // Hungry little bastards.
 	vore_icons = SA_ICON_LIVING
+
+/mob/living/simple_animal/hostile/dino/virgo3b
+	faction = "virgo3b"
