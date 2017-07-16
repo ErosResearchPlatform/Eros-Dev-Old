@@ -109,33 +109,36 @@ Please contact me on #coderbus IRC. ~Carn x
 #define MUTATIONS_LAYER			1
 #define DAMAGE_LAYER			2
 #define SURGERY_LEVEL			3		//bs12 specific.
-#define UNDERWEAR_LAYER  		4
-#define SHOES_LAYER_ALT			5
-#define UNIFORM_LAYER			6
-#define ID_LAYER				7
-#define SHOES_LAYER				8
-#define GLOVES_LAYER			9
-#define BELT_LAYER				10
-#define SUIT_LAYER				11
-#define TAIL_LAYER				12		//bs12 specific.	//In a perfect world the parts of the tail that show between legs would be on a new layer. Until then, sprite's been tweaked
-#define GLASSES_LAYER			13
-#define BELT_LAYER_ALT			14
-#define SUIT_STORE_LAYER		15
-#define BACK_LAYER				16
-#define HAIR_LAYER				17		//TODO: make part of head layer?
-#define EARS_LAYER				18
-#define FACEMASK_LAYER			19
-#define HEAD_LAYER				20
-#define COLLAR_LAYER			21
-#define HANDCUFF_LAYER			22
-#define LEGCUFF_LAYER			23
-#define L_HAND_LAYER			24
-#define R_HAND_LAYER			25
-#define MODIFIER_EFFECTS_LAYER	26
-#define FIRE_LAYER				27		//If you're on fire
-#define WATER_LAYER				28		//If you're submerged in water.
-#define TARGETED_LAYER			29		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			30
+#define ANATOMY_LAYER			4		//Eros
+#define BREAST_LAYER			5
+#define UNDERWEAR_LAYER  		6
+#define SHOES_LAYER_ALT			7
+#define UNIFORM_LAYER			8
+#define ID_LAYER				9
+#define SHOES_LAYER				10
+#define GLOVES_LAYER			11
+#define BELT_LAYER				12
+#define SUIT_LAYER				13
+#define TAIL_LAYER				14		//bs12 specific.	//In a perfect world the parts of the tail that show between legs would be on a new layer. Until then, sprite's been tweaked
+#define WINGS_LAYER				15
+#define GLASSES_LAYER			16
+#define BELT_LAYER_ALT			17
+#define SUIT_STORE_LAYER		18
+#define BACK_LAYER				19
+#define HAIR_LAYER				20		//TODO: make part of head layer?
+#define EARS_LAYER				21
+#define FACEMASK_LAYER			22
+#define HEAD_LAYER				23
+#define COLLAR_LAYER			24
+#define HANDCUFF_LAYER			25
+#define LEGCUFF_LAYER			26
+#define L_HAND_LAYER			27
+#define R_HAND_LAYER			28
+#define MODIFIER_EFFECTS_LAYER	29
+#define FIRE_LAYER				30		//If you're on fire
+#define WATER_LAYER				31		//If you're submerged in water.
+#define TARGETED_LAYER			32		//BS12: Layer for the target overlay from weapon targeting system
+#define TOTAL_LAYERS			32
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -338,6 +341,11 @@ var/global/list/damage_icon_parts = list()
 
 	//tail
 	update_tail_showing(0)
+
+	//Eros: Genital layer, wing layer
+	update_wings_showing()
+	update_anatomy_showing()
+	update_breast_showing()
 
 //UNDERWEAR OVERLAY
 /mob/living/carbon/human/proc/update_underwear(var/update_icons=1)
@@ -837,6 +845,11 @@ var/global/list/damage_icon_parts = list()
 	update_inv_shoes(0)
 	update_tail_showing(0)
 
+	//Eros edit
+	update_wings_showing(0)
+	update_anatomy_showing(0)
+	update_breast_showing(0)
+
 	if(update_icons)   update_icons()
 
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
@@ -1135,6 +1148,52 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		update_icons()
 
+//Eros edit START
+/mob/living/carbon/human/proc/update_wings_showing(var/update_icons=1)
+
+	overlays_standing[WINGS_LAYER] = null
+
+	if(wings_style && !(wear_suit && wear_suit.flags_inv & HIDEWINGS))
+		var/icon/wings_s = get_wings_icon()
+		overlays_standing[WINGS_LAYER] = image(wings_s, icon_state = "[wings_style.icon_state]")
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/update_anatomy_showing(var/update_icons=1)
+
+	overlays_standing[ANATOMY_LAYER] = null
+
+	var/datum/category_item/underwear/bottom/underwear = all_underwear["Underwear, bottom"]
+	var/underwear_name = underwear.name
+
+	if(underwear_name == "None" || hide_underwear["Underwear, bottom"])
+		if(anatomy_style && !(wear_suit && wear_suit.flags_inv & HIDEANATOMY))
+			var/icon/anatomy_s = get_anatomy_icon()
+			overlays_standing[ANATOMY_LAYER] = image(anatomy_s, icon_state = "[anatomy_style.icon_state]")
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/update_breast_showing(var/update_icons=1)
+
+	overlays_standing[BREAST_LAYER] = null
+
+	var/datum/category_item/underwear/undershirt/undershirt = all_underwear["Undershirt"]
+	var/undershirt_name = undershirt.name
+	var/datum/category_item/underwear/top/underwear = all_underwear["Underwear, top"]
+	var/underwear_name = underwear.name
+
+	if(underwear_name == "None" || hide_underwear["Underwear, top"])
+		if(undershirt_name == "None" || hide_underwear["Undershirt"])
+			if(breast_style && !(wear_suit && wear_suit.flags_inv & HIDEBREAST))
+				var/icon/breast_s = get_breast_icon()
+				overlays_standing[BREAST_LAYER] = image(breast_s, icon_state = "[breast_style.icon_state]")
+
+	if(update_icons)
+		update_icons()
+//Eros edit END
+
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi
@@ -1195,6 +1254,7 @@ var/global/list/damage_icon_parts = list()
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
 #undef SURGERY_LEVEL
+#undef anatomy_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER
 #undef SHOES_LAYER
@@ -1202,6 +1262,7 @@ var/global/list/damage_icon_parts = list()
 #undef EARS_LAYER
 #undef SUIT_LAYER
 #undef TAIL_LAYER
+#undef WINGS_LAYER
 #undef GLASSES_LAYER
 #undef FACEMASK_LAYER
 #undef BELT_LAYER
