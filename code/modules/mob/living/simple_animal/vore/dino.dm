@@ -34,7 +34,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/dino
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	swallowTime = 1 SECOND // Hungry little bastards.
 	vore_icons = SA_ICON_LIVING
 

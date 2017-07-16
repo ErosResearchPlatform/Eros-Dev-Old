@@ -48,7 +48,7 @@
 // Activate Noms!
 
 /mob/living/simple_animal/otie
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_capacity = 1
 	vore_pounce_chance = 20
 	vore_icons = SA_ICON_LIVING

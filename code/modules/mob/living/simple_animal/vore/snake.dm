@@ -20,7 +20,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/snake
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_pounce_chance = 25
 	vore_icons = SA_ICON_LIVING
 	swallowTime = 2 SECONDS // Hungry little bastards.
