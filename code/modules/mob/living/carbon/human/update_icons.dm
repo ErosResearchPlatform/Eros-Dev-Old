@@ -1164,9 +1164,13 @@ var/global/list/damage_icon_parts = list()
 
 	overlays_standing[ANATOMY_LAYER] = null
 
-	if(anatomy_style && !(wear_suit && wear_suit.flags_inv & HIDEANATOMY))
-		var/icon/anatomy_s = get_anatomy_icon()
-		overlays_standing[ANATOMY_LAYER] = image(anatomy_s, icon_state = "[anatomy_style.icon_state]")
+	var/datum/category_item/underwear/bottom/underwear = all_underwear["Underwear, bottom"]
+	var/underwear_name = underwear.name
+
+	if(underwear_name == "None" || hide_underwear["Underwear, bottom"])
+		if(anatomy_style && !(wear_suit && wear_suit.flags_inv & HIDEANATOMY))
+			var/icon/anatomy_s = get_anatomy_icon()
+			overlays_standing[ANATOMY_LAYER] = image(anatomy_s, icon_state = "[anatomy_style.icon_state]")
 
 	if(update_icons)
 		update_icons()
@@ -1175,9 +1179,16 @@ var/global/list/damage_icon_parts = list()
 
 	overlays_standing[BREAST_LAYER] = null
 
-	if(breast_style && !(wear_suit && wear_suit.flags_inv & HIDEBREAST))
-		var/icon/breast_s = get_breast_icon()
-		overlays_standing[BREAST_LAYER] = image(breast_s, icon_state = "[breast_style.icon_state]")
+	var/datum/category_item/underwear/undershirt/undershirt = all_underwear["Undershirt"]
+	var/undershirt_name = undershirt.name
+	var/datum/category_item/underwear/top/underwear = all_underwear["Underwear, top"]
+	var/underwear_name = underwear.name
+
+	if(underwear_name == "None" || hide_underwear["Underwear, top"])
+		if(undershirt_name == "None" || hide_underwear["Undershirt"])
+			if(breast_style && !(wear_suit && wear_suit.flags_inv & HIDEBREAST))
+				var/icon/breast_s = get_breast_icon()
+				overlays_standing[BREAST_LAYER] = image(breast_s, icon_state = "[breast_style.icon_state]")
 
 	if(update_icons)
 		update_icons()
