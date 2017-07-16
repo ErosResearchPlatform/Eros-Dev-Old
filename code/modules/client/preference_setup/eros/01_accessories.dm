@@ -28,6 +28,7 @@
 	var/b_breast = 30
 	//Eros edit END
 	var/dress_mob = TRUE
+	var/underwear_showing = TRUE //Eros edit
 
 // Definition of the stuff for Ears
 /datum/category_item/player_setup_item/eros/accessories
@@ -135,6 +136,7 @@
 	character.r_breast			= pref.r_breast
 	character.g_breast			= pref.g_breast
 	character.b_breast			= pref.b_breast
+	character.underwear_showing	= pref.underwear_showing
 	//Eros edit END
 
 /datum/category_item/player_setup_item/eros/accessories/content(var/mob/user)
@@ -146,7 +148,8 @@
 
 	. += "<b>Preview</b><br>"
 	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
-	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a><br>"
+	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a>"
+	. += "<br><a href='?src=\ref[src];toggle_underwear=1'>[pref.underwear_showing ? "Hide underwear" : "Show underwear"]</a><br>" //Eros edit
 
 	var/ear_display = "Normal"
 	if(pref.ear_style && (pref.ear_style in ear_styles_list))
@@ -328,6 +331,10 @@
 			pref.g_breast = hex2num(copytext(new_breastc, 4, 6))
 			pref.b_breast = hex2num(copytext(new_breastc, 6, 8))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_underwear"])
+		pref.underwear_showing = !pref.underwear_showing
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 //Eros edit END
 

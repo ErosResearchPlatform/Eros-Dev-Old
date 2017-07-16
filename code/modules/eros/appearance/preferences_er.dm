@@ -15,3 +15,5 @@
 	var/r_breast = 30
 	var/g_breast = 30
 	var/b_breast = 30
+
+	var/underwear_showing
