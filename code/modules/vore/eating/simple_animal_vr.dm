@@ -3,6 +3,7 @@
 	var/swallowTime = 30 				//How long it takes to eat its prey in 1/10 of a second. The default is 3 seconds.
 	var/list/prey_excludes = list()		//For excluding people from being eaten.
 
+/* Eros edit -- Vore removal
 //
 // Simple nom proc for if you get ckey'd into a simple_animal mob! Avoids grabs.
 //
@@ -43,3 +44,4 @@
 		var/confirm = alert(user, "This mob is currently set to digest all stomach contents. Do you want to disable this?", "Disabling [name]'s Digestion", "Disable", "Cancel")
 		if(confirm == "Disable")
 			B.digest_mode = "Hold"
+*/

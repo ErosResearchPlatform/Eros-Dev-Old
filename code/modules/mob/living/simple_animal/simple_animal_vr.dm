@@ -28,7 +28,7 @@
 	..()
 	if(vore_active)
 		init_belly()
-	verbs |= /mob/living/proc/animal_nom
+	//verbs |= /mob/living/proc/animal_nom //Eros edit -- No need for nom verbs.
 
 // Release belly contents beforey being gc'd!
 /mob/living/simple_animal/Destroy()
@@ -104,6 +104,7 @@
 // Attempt to eat target
 // TODO - Review this.  Could be some issues here
 /mob/living/simple_animal/proc/EatTarget()
+	return
 	ai_log("vr/EatTarget() [target_mob]",2)
 	init_belly()
 	stop_automated_movement = 1
