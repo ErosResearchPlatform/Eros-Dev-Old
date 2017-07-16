@@ -45,6 +45,7 @@
 	drop_prey()
 	return ..()
 
+/*
 /mob/living/silicon/ai/verb/holo_nom()
 	set name = "Hardlight Nom"
 	set category = "AI Commands"
@@ -81,6 +82,7 @@
 	src << "<span class='notice'>You begin engulfing [prey] in hardlight holograms.</span>" //Can't be part of the above, because the above is from the hologram.
 	if(do_after(user=eyeobj,delay=50,target=prey,needhand=0) && holo && hologram && !hologram.bellied) //Didn't move and still projecting and effect exists and no other bellied people
 		hologram.get_prey(prey)
+*/
 
 /*	Can't, lets them examine things in camera blackout areas
 //I basically have to do this, you know?

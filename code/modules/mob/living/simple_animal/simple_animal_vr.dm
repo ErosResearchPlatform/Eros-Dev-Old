@@ -110,7 +110,7 @@
 	stop_automated_movement = 1
 	var/old_target = target_mob
 	handle_stance(STANCE_BUSY)
-	. = animal_nom(target_mob)
+	//. = animal_nom(target_mob)
 	update_icon()
 	if(.)
 		// If we succesfully ate them, lose the target
