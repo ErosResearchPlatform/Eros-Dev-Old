@@ -513,3 +513,200 @@
 	name = "Synthvagina, Scorpius"
 	icon_state = "robov-unbranded"
 	do_colouration = 0
+
+
+// EARS BEGIN
+
+
+/datum/sprite_accessory/ears/eros/
+	name = "You should not see this..."
+	icon = 'icons/eros/mob/ears_er.dmi'
+	do_colouration = 0
+	var/extra_overlay
+	var/desc = "You should not see this..."
+	var/color_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/ears/eros/hornscurled
+	name = "Horns, Curled"
+	icon_state = "horns_curled"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/hornsram
+	name = "Horns, Ram"
+	icon_state = "horns_ram"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/kitsune
+	name = "Kitsune Ears"
+	icon_state = "kitsune"
+	do_colouration = 1
+	extra_overlay = "kitsune_e"
+
+/datum/sprite_accessory/ears/eros/deer
+	name = "Deer Antlers & Ears"
+	icon_state = "deer2"
+	do_colouration = 1
+	extra_overlay = "deer2_e"
+
+/datum/sprite_accessory/ears/eros/deerears
+	name = "Deer Ears"
+	icon_state = "deer"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/deerantlers
+	name = "Deer Antlers, Brown"
+	icon_state = "antlers"
+	do_colouration = 0
+
+/datum/sprite_accessory/ears/eros/deeraltnersc
+	name = "Deer Antlers, Colorable"
+	icon_state = "antlers_c"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/angler
+	name = "Angler Lure"
+	icon_state = "angler"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/cow
+	name = "Cow Ears & Horns"
+	icon_state = "cow"
+	extra_overlay = "cow_e"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/doge
+	name = "Doggy Ears"
+	icon_state = "lab"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/bunbun
+	name = "Long Bunny Ears"
+	icon_state = "lopbunny"
+	do_colouration = 1
+
+// Redefined virgo ears
+
+/datum/sprite_accessory/ears/eros/fox
+	name = "Fox Ears"
+	icon = 'icons/mob/vore/ears_vr.dmi'
+	icon_state = "foxearshc"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/fennec
+	name = "Fennec Fox Ears"
+	icon = 'icons/mob/vore/ears_vr.dmi'
+	icon_state = "fenearshc"
+	do_colouration = 1
+
+/datum/sprite_accessory/ears/eros/tiger
+	name = "Tiger Ears"
+	icon = 'icons/mob/vore/ears_vr.dmi'
+	icon_state = "tigressears"
+	do_colouration = 1
+
+
+// TAILS BEGIN
+
+
+/datum/sprite_accessory/tails/eros/
+	name = "You should not see this..."
+	icon = 'icons/eros/mob/tails_er.dmi'
+	do_colouration = 0
+	var/extra_overlay
+	var/desc = "You should not see this..."
+	var/color_blend_mode = ICON_MULTIPLY
+	var/ani_state //State when wagging/animated
+
+/datum/sprite_accessory/tails/eros/squirrel
+	name = "Colorable Fluffy Squirrel Tail"
+	icon_state = "squirrel"
+	do_colouration = 1
+	ani_state = "squirrel_ani"
+
+/datum/sprite_accessory/tails/eros/squirrelalt
+	name = "Colorable Squirrel Tail"
+	icon_state = "squirrel_alt"
+	do_colouration = 1
+	ani_state = "squirrel_alt_ani"
+
+/datum/sprite_accessory/tails/eros/fox
+	name = "Fluffy Fox Tail"
+	icon_state = "fox_fluffy"
+	extra_overlay = "fox_fluffy_e"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/kitsune
+	name = "Fluffy Kitsune Tails"
+	icon_state = "kitsune"
+	extra_overlay = "kitsune_e"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/corgi
+	name = "Corgi Tail"
+	icon_state = "corgi"
+	do_colouration = 1
+	ani_state = "corgi_ani"
+
+/datum/sprite_accessory/tails/eros/doge
+	name = "Dog Tail"
+	icon_state = "lab"
+	do_colouration = 1
+	ani_state = "lab_ani"
+
+/datum/sprite_accessory/tails/eros/wagwoof
+	name = "Alt Wolf Tail"
+	icon_state = "altwolf"
+	do_colouration = 1
+	ani_state = "altwolf_ani"
+
+/datum/sprite_accessory/tails/eros/cow
+	name = "Alt Cow Tail"
+	icon_state = "altcow"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/spiny
+	name = "Spiny Tail"
+	icon_state = "spiny"
+	extra_overlay = "spiny_e"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/spadetail
+	name = "Colorable Spadetail"
+	icon_state = "spadetail"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/dragon
+	name = "Dragon Tail"
+	icon_state = "dragon"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/puff
+	name = "Puff Tail"
+	icon_state = "puff"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/husky
+	name = "Husky Tail"
+	icon_state = "husky"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/redpanda
+	name = "Ring Tail Alt"
+	icon_state = "ailurus_1"
+	extra_overlay = "ailurus_2"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/feathers
+	name = "Bird Tail"
+	icon_state = "feathers"
+	do_colouration = 1
+
+/datum/sprite_accessory/tails/eros/scorpius
+	name = "Scorpius Synthetic Tail"
+	icon_state = "scorpius"
+	do_colouration = 0
+
+/datum/sprite_accessory/tails/eros/tiger
+	name = "Tiger Tail"
+	icon_state = "tigresstail"
+	do_colouration = 1

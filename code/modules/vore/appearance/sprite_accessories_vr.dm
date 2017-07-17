@@ -277,13 +277,13 @@
 	name = "squirrel, red"
 	desc = ""
 	icon_state = "squirrel-red"
-
+/*
 /datum/sprite_accessory/tail/squirrel
 	name = "squirrel, colorable"
 	desc = ""
 	icon_state = "squirrel"
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/tail/kitty
 	name = "kitty, colorable, downwards"
 	desc = ""
