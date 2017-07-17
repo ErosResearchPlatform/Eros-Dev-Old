@@ -5,7 +5,7 @@
 	if(ear_style && !(head && (head.flags_inv & BLOCKHEADHAIR)))
 		var/icon/ears_s = new/icon("icon" = ear_style.icon, "icon_state" = ear_style.icon_state)
 		if(ear_style.do_colouration)
-			ears_s.Blend(rgb(src.r_hair, src.g_hair, src.b_hair), ear_style.color_blend_mode)
+			ears_s.Blend(rgb(src.r_ears, src.g_ears, src.b_ears), ear_style.color_blend_mode)
 		if(ear_style.extra_overlay)
 			var/icon/overlay = new/icon("icon" = ear_style.icon, "icon_state" = ear_style.extra_overlay)
 			ears_s.Blend(overlay, ICON_OVERLAY)

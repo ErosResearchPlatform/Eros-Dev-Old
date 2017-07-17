@@ -39,7 +39,7 @@ script:
   - python tools/TagMatcher/tag-matcher.py ../..
   - echo "#define UNIT_TEST 1" > code/_unit_tests.dm
   - cp config/example/* config/
-  - DreamMaker vorestation.dme
-  - travis_wait DreamDaemon vorestation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+  - DreamMaker eros.dme
+  - travis_wait DreamDaemon eros.dmb -invisible -trusted -core 2>&1 | tee log.txt
   - grep "All Unit Tests Passed" log.txt
 
