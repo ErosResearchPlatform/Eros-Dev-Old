@@ -104,13 +104,13 @@
 // Attempt to eat target
 // TODO - Review this.  Could be some issues here
 /mob/living/simple_animal/proc/EatTarget()
-	return
+	return //Eros edit -- Just in case somehow this proc gets called, it will do nothing.
 	ai_log("vr/EatTarget() [target_mob]",2)
 	init_belly()
 	stop_automated_movement = 1
 	var/old_target = target_mob
 	handle_stance(STANCE_BUSY)
-	//. = animal_nom(target_mob)
+	//. = animal_nom(target_mob) //Eros edit -- Proc removal, for compiling purposes.
 	update_icon()
 	if(.)
 		// If we succesfully ate them, lose the target

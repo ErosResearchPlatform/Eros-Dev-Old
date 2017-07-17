@@ -70,7 +70,7 @@
 
 	//Return 1 to hook-caller
 	return 1
-/*
+/* Eros edit -- Vore removal
 //
 // Handle being clicked, perhaps with something to devour
 //

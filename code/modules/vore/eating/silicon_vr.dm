@@ -45,7 +45,7 @@
 	drop_prey()
 	return ..()
 
-/*
+/* Eros edit -- Vore removal
 /mob/living/silicon/ai/verb/holo_nom()
 	set name = "Hardlight Nom"
 	set category = "AI Commands"
