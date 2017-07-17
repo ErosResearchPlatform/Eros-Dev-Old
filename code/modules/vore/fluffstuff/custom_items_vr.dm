@@ -971,12 +971,14 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 		return ..()
 
 /obj/item/device/perfect_tele/attack_self(mob/user)
+/* Eros edit -- Removed Televore, so no need for this warning.
 	if(!(user.ckey in warned_users))
 		warned_users |= user.ckey
 		alert(user,"This device can be easily used to break ERP preferences due to the nature of teleporting \
 		and tele-vore. Make sure you carefully examine someone's OOC prefs before teleporting them if you are \
 		going to use this device for ERP purposes. This device records all warnings given and teleport events for \
 		admin review in case of pref-breaking, so just don't do it.","OOC WARNING")
+*/
 
 	var/choice = alert(user,"What do you want to do?","[src]","Create Beacon","Cancel","Target Beacon")
 	switch(choice)
@@ -1205,6 +1207,7 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 	return ..()
 
 /obj/item/device/perfect_tele_beacon/attack_hand(mob/user)
+/* Eros edit -- Again, no televore, no need for this warning.
 	if((user.ckey != creator) && !(user.ckey in warned_users))
 		warned_users |= user.ckey
 		var/choice = alert(user,"This device is a translocator beacon. Having it on your person may mean that anyone \
@@ -1213,6 +1216,7 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 		not carry this around.","OOC WARNING","Take It","Leave It")
 		if(choice == "Leave It")
 			return
+*/
 
 	..()
 
@@ -1220,6 +1224,7 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 	if(!isliving(user))
 		return
 	var/mob/living/L = user
+/* Eros edit -- No need for this.
 	var/confirm = alert(user, "You COULD eat the beacon...", "Eat beacon?", "Eat it!", "No, thanks.")
 	if(confirm == "Eat it!")
 		var/bellychoice = input("Which belly?","Select A Belly") in L.vore_organs|null
@@ -1232,6 +1237,7 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 				B.internal_contents |= src
 				user.visible_message("<span class='warning'>[user] eats a telebeacon!</span>","You eat the the beacon!")
 				playsound(user, B.vore_sound, 70, 1)
+*/
 
 //InterroLouis: Ruda Lizden
 /obj/item/clothing/accessory/badge/holo/detective/ruda
