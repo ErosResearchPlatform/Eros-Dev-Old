@@ -1,3 +1,5 @@
+(Very heavily WIP. Most things here do not reflect the final product.)
+
 # Eros
 
 [Forums](http://www.erosresearchplatform.com/forums/index.php) - [Wiki](http://www.erosresearchplatform.com/wiki/index.php?title=Main_Page)

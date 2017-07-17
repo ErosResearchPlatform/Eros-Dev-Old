@@ -470,6 +470,7 @@
 		// VOREStation
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
+	new_character.underwear_showing = 1 //Eros edit, cleans the preview window variable
 	new_character.name = real_name
 	new_character.dna.ready_dna(new_character)
 	new_character.dna.b_type = client.prefs.b_type
