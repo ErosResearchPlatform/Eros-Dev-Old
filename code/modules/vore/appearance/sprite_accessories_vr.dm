@@ -57,7 +57,7 @@
 	name = "wolf, grey"
 	desc = ""
 	icon_state = "wolf-grey"
-
+/* //EROS EDIT -- We don't need these.
 /datum/sprite_accessory/ears/wolf_green
 	name = "wolf, green"
 	desc = ""
@@ -67,7 +67,7 @@
 	name = "wolf, wise"
 	desc = ""
 	icon_state = "wolf-wise"
-
+*/
 /datum/sprite_accessory/ears/mouse_grey
 	name = "mouse, grey"
 	desc = ""
@@ -94,7 +94,7 @@
 	name = "demon horns"
 	desc = ""
 	icon_state = "demon-horns1"
-
+/* //EROS EDIT - Don't have these races.
 /datum/sprite_accessory/ears/foxears
 	name = "highlander zorren ears"
 	desc = ""
@@ -125,7 +125,7 @@
 	name = "Sergal ears, colorable"
 	icon_state = "serg_plain_s"
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/ears/mousehc
 	name = "mouse, colorable"
 	desc = ""
@@ -177,7 +177,7 @@
 	icon_state = "antlers"
 
 // Special snowflake ears go below here.
-
+/* //EROS EDIT -- Virgo slowflakes are for Virgo
 /datum/sprite_accessory/ears/molenar_kitsune
 	name = "quintail kitsune ears (Molenar)"
 	desc = ""
@@ -243,7 +243,7 @@
 	desc = ""
 	icon_state = "shock"
 	ckeys_allowed = list("icowom")
-
+*/
 /*
 ////////////////////////////
 /  =--------------------=  /
@@ -277,13 +277,13 @@
 	name = "squirrel, red"
 	desc = ""
 	icon_state = "squirrel-red"
-
+/*
 /datum/sprite_accessory/tail/squirrel
 	name = "squirrel, colorable"
 	desc = ""
 	icon_state = "squirrel"
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/tail/kitty
 	name = "kitty, colorable, downwards"
 	desc = ""
@@ -327,20 +327,19 @@
 	icon_state = "bunny"
 	do_colouration = 1
 
-/*
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/mothc
 	name = "moth wings, colorable"
 	desc = ""
 	icon_state = "moth"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
-*/
 
 /datum/sprite_accessory/tail/moth
 	name = "moth wings"
 	desc = ""
 	icon_state = "moth"
-
+*/
 /datum/sprite_accessory/tail/bear_brown
 	name = "bear, brown"
 	desc = ""
@@ -351,18 +350,18 @@
 	desc = ""
 	icon_state = "bear"
 	do_colouration = 1
-
+/* //EROS EDIT -- Split from wings, moved to Eros
 /datum/sprite_accessory/tail/dragon
 	name = "dragon, colorable"
 	desc = ""
 	icon_state = "dragon"
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/tail/wolf_grey
 	name = "wolf, grey"
 	desc = ""
 	icon_state = "wolf-grey"
-
+/* //EROS EDIT -- Nope
 /datum/sprite_accessory/tail/wolf_green
 	name = "wolf, green"
 	desc = ""
@@ -372,7 +371,7 @@
 	name = "wolf, wise"
 	desc = ""
 	icon_state = "wolf-wise"
-
+*/
 /datum/sprite_accessory/tail/blackwolf
 	name = "wolf, black"
 	desc = ""
@@ -418,7 +417,7 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-/*
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/faintailwings
 	name = "avian fantail, colorable (+wings)"
 	desc = ""
@@ -434,28 +433,29 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/wagtailwings
 	name = "avian wagtail, colorable (+wings)"
 	desc = ""
 	icon_state = "wagtailwings"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
-
+*/
 /datum/sprite_accessory/tail/crossfox
 	name = "cross fox"
 	desc = ""
 	icon_state = "crossfox"
-
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/bee
 	name = "bee thorax (+wings)"
 	desc = ""
 	icon_state = "bee"
-
+*/
 /datum/sprite_accessory/tail/beethorax
 	name = "bee thorax"
 	desc = ""
 	icon_state = "beethorax"
-
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/beewings
 	name = "bee wings"
 	desc = ""
@@ -465,7 +465,7 @@
 	name = "moth antenna and wings"
 	desc = ""
 	icon_state = "moth_full"
-
+v v v -- Split from wings, moved to Eros
 /datum/sprite_accessory/tail/succubus_purple
 	name = "succubus, purple (+wings)"
 	desc = ""
@@ -493,13 +493,13 @@
 	desc = ""
 	icon_state = "succubus-black"
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/tail/spade_color
 	name = "spade-tail (colorable)"
 	desc = ""
 	icon_state = "spadetail-black"
 	do_colouration = 1
-
+/* //EROS EDIT -- Moved to wings
 /datum/sprite_accessory/tail/bat_black
 	name = "bat wings, black"
 	desc = ""
@@ -518,7 +518,7 @@
 	desc = ""
 	icon_state = "bat-red"
 	show_species_tail = 1
-
+*/
 /datum/sprite_accessory/tail/snag
 	name = "xenomorph tail w/ backplate"
 	desc = ""
@@ -528,7 +528,7 @@
 	name = "xenomorph tail"
 	desc = ""
 	icon_state = "xenotail"
-
+/*
 /datum/sprite_accessory/tail/molenar_kitsune
 	name = "quintail kitsune tails (Molenar)"
 	desc = ""
@@ -622,7 +622,7 @@
 	show_species_tail = 1
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
-
+*/
 /datum/sprite_accessory/tail/redpanda
 	name = "red panda"
 	desc = ""
@@ -633,7 +633,7 @@
 	desc = ""
 	icon_state = "ringtail"
 	do_colouration = 1
-
+/*
 /datum/sprite_accessory/tail/holly
 	name = "tigress tail (Holly)"
 	desc = ""
@@ -646,7 +646,7 @@
 	icon_state = "tailmaw"
 	color_blend_mode = ICON_MULTIPLY
 	do_colouration = 1
-
+*/
 /datum/sprite_accessory/tail/curltail
 	name = "curltail (vwag)"
 	desc = ""
@@ -667,7 +667,7 @@
 	icon_state = "tigertail"
 	ani_state = "tigertail_w"
 	do_colouration = 1
-
+/*
 /datum/sprite_accessory/tail/vulp_new
 	name = "new vulp tail (vwag)"
 	desc = ""
@@ -680,7 +680,7 @@
 	desc = ""
 	icon_state = "shock"
 	ckeys_allowed = list("icowom")
-
+*/
 //For all species tails. Includes haircolored tails.
 /datum/sprite_accessory/tail/special
 	name = "Blank tail. Do not select."
