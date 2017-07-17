@@ -351,7 +351,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_underwear(var/update_icons=1)
 	overlays_standing[UNDERWEAR_LAYER] = null
 
-	if((species.appearance_flags & HAS_UNDERWEAR) && underwear_showing)
+	if(species.appearance_flags & HAS_UNDERWEAR)
 		overlays_standing[UNDERWEAR_LAYER] = list()
 		for(var/category in all_underwear)
 			if(hide_underwear[category])

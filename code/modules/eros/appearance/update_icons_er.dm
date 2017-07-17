@@ -4,7 +4,7 @@
 	if(wings_style && !(wear_suit && wear_suit.flags_inv & HIDEWINGS))
 		var/icon/wings_s = new/icon("icon" = wings_style.icon)
 		if(wings_style.do_colouration)
-			wings_s.Blend(rgb(src.r_wings, src.g_wings, src.b_wings), wings_style.color_blend_mode)
+			wings_s.Blend(rgb(r_wings, g_wings, b_wings), wings_style.color_blend_mode)
 
 		return wings_s
 
