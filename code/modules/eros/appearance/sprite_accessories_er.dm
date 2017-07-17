@@ -178,7 +178,7 @@
 	color_blend_mode = ICON_MULTIPLY
 
 
-// Breasts begin
+// breasts begin
 
 
 /datum/sprite_accessory/breast
@@ -189,82 +189,82 @@
 	var/color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/breast/sizea
-	name = "Size 1 Breasts"
+	name = "size 1 breasts"
 	desc = ""
 	icon_state = "normal_a"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/breast/sizeb
-	name = "Size 2 Breasts"
+	name = "size 2 breasts"
 	desc = ""
 	icon_state = "normal_b"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/breast/sizec
-	name = "Size 3 Breasts"
+	name = "size 3 breasts"
 	desc = ""
 	icon_state = "normal_c"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/breast/sized
-	name = "Size 4 Breasts"
+	name = "size 4 breasts"
 	desc = ""
 	icon_state = "normal_d"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/breast/sizee
-	name = "Size 5 Breasts"
+	name = "size 5 breasts"
 	desc = ""
 	icon_state = "normal_e"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/breast/robo-bishop
-	name = "Synthbreasts, Bishop"
+/datum/sprite_accessory/breast/robobishop
+	name = "synthbreasts, Bishop"
 	desc = ""
 	icon_state = "robo-bishop"
 
-/datum/sprite_accessory/breast/robo-hesphiastos
-	name = "Synthbreasts, Hesphiastos"
+/datum/sprite_accessory/breast/robohesphiastos
+	name = "synthbreasts, Hesphiastos"
 	desc = ""
 	icon_state = "robo-hesphiastos"
 
-/datum/sprite_accessory/breast/robo-morpheus
-	name = "Synthbreasts, Morpheus"
+/datum/sprite_accessory/breast/robomorpheus
+	name = "synthbreasts, Morpheus"
 	desc = ""
 	icon_state = "robo-morpheus"
 
-/datum/sprite_accessory/breast/robo-wardtakahashi
-	name = "Synthbreasts, Ward-Takahashi"
+/datum/sprite_accessory/breast/robowardtakahashi
+	name = "synthbreasts, Ward-Takahashi"
 	desc = ""
 	icon_state = "robo-wardtakahashi"
 
-/datum/sprite_accessory/breast/robo-zenghu
-	name = "Synthbreasts, Zeng-Hu"
+/datum/sprite_accessory/breast/robozenghu
+	name = "synthbreasts, Zeng-Hu"
 	desc = ""
 	icon_state = "robo-zenghu"
 
-/datum/sprite_accessory/breast/robo-xion
-	name = "Synthbreasts, Xion"
+/datum/sprite_accessory/breast/roboxion
+	name = "synthbreasts, Xion"
 	desc = ""
 	icon_state = "robo-xion"
 
-/datum/sprite_accessory/breast/robo-nanotrasen
-	name = "Synthbreasts, NanoTrasen"
+/datum/sprite_accessory/breast/robonanotrasen
+	name = "synthbreasts, NanoTrasen"
 	desc = ""
 	icon_state = "robo-nanotrasen"
 
-/datum/sprite_accessory/breast/robo-scorpius
-	name = "Synthbreasts, Scorpius"
+/datum/sprite_accessory/breast/roboscorpius
+	name = "synthbreasts, Scorpius"
 	desc = ""
 	icon_state = "robo-scorpius"
 
-/datum/sprite_accessory/breast/robo-unbranded
-	name = "Synthbreasts, Unbranded"
+/datum/sprite_accessory/breast/robounbranded
+	name = "synthbreasts, Unbranded"
 	desc = ""
 	icon_state = "robo-unbranded"
 
@@ -281,229 +281,229 @@
 	var/desc = "You should not see this..."
 
 /datum/sprite_accessory/anatomy/pnormal
-	name = "Penis, Average"
+	name = "penis, average"
 	desc = ""
 	icon_state = "normal_p"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pcut
-	name = "Penis, Circumcised"
+	name = "penis, circumcised"
 	desc = ""
 	icon_state = "cut"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/plarge
-	name = "Penis, Large"
+	name = "penis, large"
 	desc = ""
 	icon_state = "large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/psmall
-	name = "Penis, Small"
+	name = "penis, small"
 	desc = ""
 	icon_state = "small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pknot
-	name = "Penis, Knotted"
+	name = "penis, knotted"
 	desc = ""
 	icon_state = "knot"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pknotlarge
-	name = "Penis, Knotted, Large"
+	name = "penis, knotted, large"
 	desc = ""
 	icon_state = "knot_large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pknotsmall
-	name = "Penis, Knotted, Small"
+	name = "penis, knotted, small"
 	desc = ""
 	icon_state = "knot_small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarb
-	name = "Penis, Barbed"
+	name = "penis, barbed"
 	desc = ""
 	icon_state = "barb"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarbsmall
-	name = "Penis, Barbed, Small"
+	name = "penis, barbed, small"
 	desc = ""
 	icon_state = "barb_small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarblarge
-	name = "Penis, Barbed, Large"
+	name = "penis, barbed, large"
 	desc = ""
 	icon_state = "barb_large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarbknot
-	name = "Penis, Barbed & Knotted"
+	name = "penis, barbed & knotted"
 	desc = ""
 	icon_state = "barbknot"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarbknotsmall
-	name = "Penis, Barbed & Knotted, Small"
+	name = "penis, barbed & knotted, small"
 	desc = ""
 	icon_state = "barbknot_small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pbarbknotlarge
-	name = "Penis, Barbed & Knotted, Large"
+	name = "penis, barbed & knotted, large"
 	desc = ""
 	icon_state = "barbknot_large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/ptapersmall
-	name = "Penis, Tapered"
+	name = "penis, tapered"
 	icon_state = "tapered"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/ptapersmall
-	name = "Penis, Tapered, Small"
+	name = "penis, tapered, small"
 	desc = ""
 	icon_state = "tapered_small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/ptaperlarge
-	name = "Penis, Tapered, Large"
+	name = "penis, tapered, large"
 	desc = ""
 	icon_state = "tapered_large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pflared
-	name = "Penis, Flared"
+	name = "penis, flared"
 	desc = ""
 	icon_state = "flared"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pflaredsmall
-	name = "Penis, Flared, Small"
+	name = "penis, flared, small"
 	desc = ""
 	icon_state = "flared_small"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pflaredlarge
-	name = "Penis, Flared, Large"
+	name = "penis, flared, large"
 	desc = ""
 	icon_state = "flared_large"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/pdual
-	name = "Penis, Hemipenes / Claspers"
+	name = "penis, hemipenes / claspers"
 	desc = ""
-	icon_state = "hemipenes"
+	icon_state = "hemi"
 	do_colouration = 1
 
-/datum/sprite_accessory/anatomy/robop-bishop
-	name = "Synthpenis, Bishop"
+/datum/sprite_accessory/anatomy/robopbishop
+	name = "synthpenis, Bishop"
 	desc = ""
 	icon_state = "robop-bishop"
 
-/datum/sprite_accessory/anatomy/robop-hesphiastos
-	name = "Synthpenis, Hesphiastos"
+/datum/sprite_accessory/anatomy/robophesphiastos
+	name = "synthpenis, Hesphiastos"
 	desc = ""
 	icon_state = "robop-hesphiastos"
 
-/datum/sprite_accessory/anatomy/robop-morpheus
-	name = "Synthpenis, Morpheus"
+/datum/sprite_accessory/anatomy/robopmorpheus
+	name = "synthpenis, Morpheus"
 	desc = ""
 	icon_state = "robop-morpheus"
 
-/datum/sprite_accessory/anatomy/robop-wardtakahashi
-	name = "Synthpenis, Ward-Takahashi"
+/datum/sprite_accessory/anatomy/robopwardtakahashi
+	name = "synthpenis, Ward-Takahashi"
 	desc = ""
 	icon_state = "robop-wardtakahashi"
 
-/datum/sprite_accessory/anatomy/robop-zenghu
-	name = "Synthpenis, Zeng-Hu"
+/datum/sprite_accessory/anatomy/robopzenghu
+	name = "synthpenis, Zeng-Hu"
 	desc = ""
 	icon_state = "robop-zenghu"
 
-/datum/sprite_accessory/anatomy/robop-xion
-	name = "Synthpenis, Xion"
+/datum/sprite_accessory/anatomy/robopxion
+	name = "synthpenis, Xion"
 	desc = ""
 	icon_state = "robop-xion"
 
-/datum/sprite_accessory/anatomy/robop-nanotrasen
-	name = "Synthpenis, NanoTrasen"
+/datum/sprite_accessory/anatomy/robopnanotrasen
+	name = "synthpenis, NanoTrasen"
 	desc = ""
 	icon_state = "robop-nanotrasen"
 
-/datum/sprite_accessory/anatomy/robop-scorpius
-	name = "Synthpenis, Scorpius"
+/datum/sprite_accessory/anatomy/robopscorpius
+	name = "synthpenis, Scorpius"
 	desc = ""
 	icon_state = "robop-scorpius"
 
-/datum/sprite_accessory/anatomy/robop-unbranded
-	name = "Synthpenis, Unbranded"
+/datum/sprite_accessory/anatomy/robopunbranded
+	name = "synthpenis, Unbranded"
 	desc = ""
 	icon_state = "robop-unbranded"
 
 /datum/sprite_accessory/anatomy/vnormal
-	name = "Vagina, Normal"
+	name = "vagina, normal"
 	desc = ""
 	icon_state = "normal_v"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/vwide
-	name = "Vagina, Gaping"
+	name = "vagina, gaping"
 	desc = ""
 	icon_state = "gaping"
 	do_colouration = 1
 
 /datum/sprite_accessory/anatomy/vhairy
-	name = "Vagina, Hairy"
+	name = "vagina, hairy"
 	desc = ""
 	icon_state = "hairy"
 	do_colouration = 1
 
-/datum/sprite_accessory/anatomy/robov-bishop
-	name = "Synthvagina, Bishop"
+/datum/sprite_accessory/anatomy/robovbishop
+	name = "synthvagina, Bishop"
 	desc = ""
 	icon_state = "robov-bishop"
 
-/datum/sprite_accessory/anatomy/robov-hesphiastos
-	name = "Synthvagina, Hesphiastos"
+/datum/sprite_accessory/anatomy/robovhesphiastos
+	name = "synthvagina, Hesphiastos"
 	desc = ""
 	icon_state = "robov-hesphiastos"
 
-/datum/sprite_accessory/anatomy/robov-morpheus
-	name = "Synthvagina, Morpheus"
+/datum/sprite_accessory/anatomy/robovmorpheus
+	name = "synthvagina, Morpheus"
 	desc = ""
 	icon_state = "robov-morpheus"
 
-/datum/sprite_accessory/anatomy/robov-wardtakahashi
-	name = "Synthvagina, Ward-Takahashi"
+/datum/sprite_accessory/anatomy/robovwardtakahashi
+	name = "synthvagina, Ward-Takahashi"
 	desc = ""
 	icon_state = "robov-wardtakahashi"
 
-/datum/sprite_accessory/anatomy/robov-zenghu
-	name = "Synthvagina, Zenh-Hu"
+/datum/sprite_accessory/anatomy/robovzenghu
+	name = "synthvagina, Zenh-Hu"
 	desc = ""
 	icon_state = "robov-zenghu"
 
-/datum/sprite_accessory/anatomy/robov-xion
-	name = "Synthvagina, Xion"
+/datum/sprite_accessory/anatomy/robovxion
+	name = "synthvagina, Xion"
 	desc = ""
 	icon_state = "robov-xion"
 
-/datum/sprite_accessory/anatomy/robov-nanotrasen
-	name = "Synthvagina, NanoTrasen"
+/datum/sprite_accessory/anatomy/robovnanotrasen
+	name = "synthvagina, NanoTrasen"
 	desc = ""
 	icon_state = "robov-nanotrasen"
 
-/datum/sprite_accessory/anatomy/robov-scorpius
-	name = "Synthvagina, Scorpius"
+/datum/sprite_accessory/anatomy/robovscorpius
+	name = "synthvagina, Scorpius"
 	desc = ""
 	icon_state = "robov-scorpius"
 
-/datum/sprite_accessory/anatomy/robov-unbranded
-	name = "Synthvagina, Scorpius"
+/datum/sprite_accessory/anatomy/robovunbranded
+	name = "synthvagina, Scorpius"
 	desc = ""
 	icon_state = "robov-unbranded"
 
@@ -511,78 +511,77 @@
 // EARS BEGIN
 
 
-/datum/sprite_accessory/ears/eros/
+/datum/sprite_accessory/ears/eros
 	name = "You should not see this..."
 	icon = 'icons/eros/mob/ears_er.dmi'
 	do_colouration = 0
-	var/extra_overlay
-	var/desc = "You should not see this..."
-	var/color_blend_mode = ICON_MULTIPLY
+	desc = "You should not see this..."
+	color_blend_mode = ICON_MULTIPLY
 
 /datum/sprite_accessory/ears/eros/hornscurled
-	name = "Horns, Curled"
+	name = "horns, curled"
 	desc = ""
 	icon_state = "horns_curled"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/hornsram
-	name = "Horns, Ram"
+	name = "horns, ram"
 	desc = ""
 	icon_state = "horns_ram"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/kitsune
-	name = "Kitsune Ears"
+	name = "kitsune ears"
 	desc = ""
 	icon_state = "kitsune"
 	do_colouration = 1
 	extra_overlay = "kitsune_e"
 
 /datum/sprite_accessory/ears/eros/deer
-	name = "Deer Antlers & Ears"
+	name = "deer antlers & ears"
 	desc = ""
 	icon_state = "deer2"
 	do_colouration = 1
 	extra_overlay = "deer2_e"
 
 /datum/sprite_accessory/ears/eros/deerears
-	name = "Deer Ears"
+	name = "deer ears"
 	desc = ""
-	icon_state = "deer"
+	icon_state = "deer1"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/deerantlers
-	name = "Deer Antlers, Brown"
+	name = "deer antlers, brown"
 	desc = ""
 	icon_state = "antlers"
 
 /datum/sprite_accessory/ears/eros/deeraltnersc
-	name = "Deer Antlers, Colorable"
+	name = "deer antlers, colorable"
 	desc = ""
 	icon_state = "antlers_c"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/angler
-	name = "Angler Lure"
+	name = "angler lure"
 	desc = ""
 	icon_state = "angler"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/cow
-	name = "Cow Ears & Horns"
+	name = "cow ears & horns"
 	desc = ""
 	icon_state = "cow"
 	extra_overlay = "cow_e"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/doge
-	name = "Doggy Ears"
+	name = "doggy ears"
 	desc = ""
 	icon_state = "lab"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/bunbun
-	name = "Long Bunny Ears"
+	name = "long bunny ears"
 	desc = ""
 	icon_state = "lopbunny"
 	do_colouration = 1
@@ -590,21 +589,21 @@
 // Redefined virgo ears
 
 /datum/sprite_accessory/ears/eros/fox
-	name = "Fox Ears"
+	name = "fox ears"
 	desc = ""
 	icon = 'icons/mob/vore/ears_vr.dmi'
 	icon_state = "foxearshc"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/fennec
-	name = "Fennec Fox Ears"
+	name = "fennec fox ears"
 	desc = ""
 	icon = 'icons/mob/vore/ears_vr.dmi'
 	icon_state = "fenearshc"
 	do_colouration = 1
 
 /datum/sprite_accessory/ears/eros/tiger
-	name = "Tiger Ears"
+	name = "tiger ears"
 	desc = ""
 	icon = 'icons/mob/vore/ears_vr.dmi'
 	icon_state = "tigressears"
@@ -614,120 +613,119 @@
 // TAILS BEGIN
 
 
-/datum/sprite_accessory/tails/eros/
+/datum/sprite_accessory/tail/eros
 	name = "You should not see this..."
 	icon = 'icons/eros/mob/tails_er.dmi'
 	do_colouration = 0
-	var/extra_overlay
-	var/desc = "You should not see this..."
-	var/color_blend_mode = ICON_MULTIPLY
-	var/ani_state //State when wagging/animated
+	desc = "You should not see this..."
+	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/tails/eros/squirrel
-	name = "Colorable Fluffy Squirrel Tail"
+/datum/sprite_accessory/tail/eros/squirrel
+	name = "colorable fluffy squirrel tail"
 	desc = ""
 	icon_state = "squirrel"
 	do_colouration = 1
 	ani_state = "squirrel_ani"
 
-/datum/sprite_accessory/tails/eros/squirrelalt
-	name = "Colorable Squirrel Tail"
+/datum/sprite_accessory/tail/eros/squirrelalt
+	name = "colorable squirrel tail"
 	desc = ""
 	icon_state = "squirrel_alt"
 	do_colouration = 1
 	ani_state = "squirrel_alt_ani"
 
-/datum/sprite_accessory/tails/eros/fox
-	name = "Fluffy Fox Tail"
+/datum/sprite_accessory/tail/eros/fox
+	name = "fluffy fox tail"
 	desc = ""
 	icon_state = "fox_fluffy"
 	extra_overlay = "fox_fluffy_e"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/kitsune
-	name = "Fluffy Kitsune Tails"
+/datum/sprite_accessory/tail/eros/kitsune
+	name = "fluffy kitsune tails"
 	desc = ""
 	icon_state = "kitsune"
 	extra_overlay = "kitsune_e"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/corgi
-	name = "Corgi Tail"
+/datum/sprite_accessory/tail/eros/corgi
+	name = "corgi tail"
 	desc = ""
 	icon_state = "corgi"
 	do_colouration = 1
 	ani_state = "corgi_ani"
 
-/datum/sprite_accessory/tails/eros/doge
-	name = "Dog Tail"
+/datum/sprite_accessory/tail/eros/doge
+	name = "dog tail"
 	desc = ""
 	icon_state = "lab"
 	do_colouration = 1
 	ani_state = "lab_ani"
 
-/datum/sprite_accessory/tails/eros/wagwoof
-	name = "Alt Wolf Tail"
+/datum/sprite_accessory/tail/eros/wagwoof
+	name = "alt wolf tail"
 	desc = ""
 	icon_state = "altwolf"
 	do_colouration = 1
 	ani_state = "altwolf_ani"
 
-/datum/sprite_accessory/tails/eros/cow
-	name = "Alt Cow Tail"
+/datum/sprite_accessory/tail/eros/cow
+	name = "alt cow tail"
 	desc = ""
 	icon_state = "altcow"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/spiny
-	name = "Spiny Tail"
+/datum/sprite_accessory/tail/eros/spiny
+	name = "spiny tail"
 	icon_state = "spiny"
 	extra_overlay = "spiny_e"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/spadetail
-	name = "Colorable Spadetail"
+/datum/sprite_accessory/tail/eros/spadetail
+	name = "colorable spadetail"
 	desc = ""
 	icon_state = "spadetail"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/dragon
-	name = "Dragon Tail"
+/datum/sprite_accessory/tail/eros/dragon
+	name = "dragon tail"
 	desc = ""
 	icon_state = "dragon"
 	do_colouration = 1
+	color_blend_mode = ICON_ADD
 
-/datum/sprite_accessory/tails/eros/puff
-	name = "Puff Tail"
+/datum/sprite_accessory/tail/eros/puff
+	name = "Puff tail"
 	desc = ""
 	icon_state = "puff"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/husky
-	name = "Husky Tail"
+/datum/sprite_accessory/tail/eros/husky
+	name = "husky tail"
 	desc = ""
 	icon_state = "husky"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/redpanda
-	name = "Ring Tail Alt"
+/datum/sprite_accessory/tail/eros/redpanda
+	name = "ring tail alt"
 	desc = ""
 	icon_state = "ailurus_1"
 	extra_overlay = "ailurus_2"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/feathers
-	name = "Bird Tail"
+/datum/sprite_accessory/tail/eros/feathers
+	name = "bird tail"
 	desc = ""
 	icon_state = "feathers"
 	do_colouration = 1
 
-/datum/sprite_accessory/tails/eros/scorpius
-	name = "Scorpius Synthetic Tail"
+/datum/sprite_accessory/tail/eros/scorpius
+	name = "Scorpius synthetic tail"
 	desc = ""
 	icon_state = "scorpius"
 
-/datum/sprite_accessory/tails/eros/tiger
-	name = "Tiger Tail"
+/datum/sprite_accessory/tail/eros/tiger
+	name = "tiger tail"
 	desc = ""
 	icon_state = "tigresstail"
 	do_colouration = 1
