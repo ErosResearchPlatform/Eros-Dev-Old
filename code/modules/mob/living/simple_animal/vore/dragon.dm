@@ -39,7 +39,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/dragon
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_capacity = 2
 	vore_pounce_chance = 0 // Beat them into crit before eating.
 	vore_icons = SA_ICON_LIVING
