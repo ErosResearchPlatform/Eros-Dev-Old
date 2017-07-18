@@ -1223,8 +1223,8 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 /obj/item/device/perfect_tele_beacon/attack_self(mob/user)
 	if(!isliving(user))
 		return
-	var/mob/living/L = user
 /* Eros edit -- No need for this.
+	var/mob/living/L = user
 	var/confirm = alert(user, "You COULD eat the beacon...", "Eat beacon?", "Eat it!", "No, thanks.")
 	if(confirm == "Eat it!")
 		var/bellychoice = input("Which belly?","Select A Belly") in L.vore_organs|null
