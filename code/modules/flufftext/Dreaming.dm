@@ -21,7 +21,9 @@ var/list/dreams = list(
 	"a rosary held in human hands","holding hands","two bodies pressed together","a synthetic","Officer Beepsky","the chapel",
 	"a fleeting glance","just a kiss","a forbidden romance","the cute cargo tech's smile","unspeakable things","a sultry gaze","sweaty palms",
 	"endless chittering noises","glowing eyes in the shadows","a distant scream","a fake smile","cold stares","a sinking feeling",
-	"building dread","anxiety","flickering lights","a stranger in a gas mask"
+	"building dread","anxiety","flickering lights","a stranger in a gas mask","a small dog","a purring cat","a girl with squirrel gene-mods",
+	"pools of strange fluid","a synthetic engineer","a tajaran beauty","the neon lights of a city","snow","a fresh start","a new home",
+	"a raging blizzard","the colony","a sticky sensation","taking a shower","hot chocolate"
 	)
 
 mob/living/carbon/proc/dream()
