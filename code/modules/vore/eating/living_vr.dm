@@ -12,18 +12,18 @@
 	var/reviving = 0					// Only used for creatures that have the xenochimera regen ability, so far.
 	var/metabolism = 0.0015
 	var/vore_taste = null				// What the character tastes like
-	var/no_vore = 0 					// If the character/mob can vore.
+	var/no_vore = 1 					// If the character/mob can vore. //Eros edit -- No vore
 
 //
 // Hook for generic creation of stuff on new creatures
 //
 /hook/living_new/proc/vore_setup(mob/living/M)
-	M.verbs += /mob/living/proc/escapeOOC
+	//M.verbs += /mob/living/proc/escapeOOC //Eros edit -- No need for OOC escape.
 	M.verbs += /mob/living/proc/lick
 	if(M.no_vore) //If the mob isn's supposed to have a stomach, let's not give it an insidepanel so it can make one for itself, or a stomach.
-		M << "<span class='warning'>The creature that you are can not eat others.</span>"
+		//M << "<span class='warning'>The creature that you are can not eat others.</span>" //Eros edit -- Just in case.
 		return 1
-	M.verbs += /mob/living/proc/insidePanel
+	//M.verbs += /mob/living/proc/insidePanel //Eros edit -- Just in case some mob somehow gets through the vore disabling.
 
 	M.appearance_flags |= PIXEL_SCALE
 
@@ -70,7 +70,7 @@
 
 	//Return 1 to hook-caller
 	return 1
-
+/* Eros edit -- Vore removal
 //
 // Handle being clicked, perhaps with something to devour
 //
@@ -110,6 +110,7 @@
 				else
 					log_debug("[attacker] attempted to feed [G.affecting] to [src] ([src.type]) but it failed.")
 
+
 	//Handle case: /obj/item/weapon/holder
 	else if(istype(I,/obj/item/weapon/holder))
 		var/obj/item/weapon/holder/H = I
@@ -145,7 +146,7 @@
 				return 1 //You don't get to hit someone 'later'
 
 	return 0
-
+*/
 //
 // Our custom resist catches for /mob/living
 //
@@ -283,6 +284,7 @@
 //
 // OOC Escape code for pref-breaking or AFK preds
 //
+/* Eros edit -- No vore, no need for OOC escape.
 /mob/living/proc/escapeOOC()
 	set name = "OOC Escape"
 	set category = "OOC"
@@ -329,10 +331,11 @@
 
 	else
 		src << "<span class='alert'>You aren't inside anyone, you clod.</span>"
-
+*/
 //
 // Eating procs depending on who clicked what
 //
+
 /mob/living/proc/feed_grabbed_to_self(var/mob/living/user, var/mob/living/prey)
 	var/belly = user.vore_selected
 	return perform_the_nom(user, prey, user, belly)
@@ -416,7 +419,7 @@
 // Magical pred-air breathing for inside preds
 // overrides a proc defined on atom called by breathe.dm
 //
-/mob/living/return_air()
+/mob/living/return_air() //Eros: Keeping this just in case something's missed and someone winds up vore'd somehow.
 	return return_air_for_internal_lifeform()
 
 /mob/living/return_air_for_internal_lifeform()

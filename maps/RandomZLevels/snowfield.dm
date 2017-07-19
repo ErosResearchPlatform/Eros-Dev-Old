@@ -52,7 +52,7 @@
 	icon_dead = "polarbear-dead"
 	icon_gib = "bear-gib"
 	vore_icons = SA_ICON_LIVING
-	vore_active = 1
+	vore_active = 0 //Eros edit
 
 	faction = "polar"
 	maxHealth = 80

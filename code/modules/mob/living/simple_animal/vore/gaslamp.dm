@@ -51,7 +51,7 @@ TODO: Make them light up and heat the air when exposed to oxygen.
 
 // Activate Noms!
 /mob/living/simple_animal/retaliate/gaslamp
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_capacity = 2
 	vore_standing_too = 1 // Defaults to trying to give you that big tentacle hug.
 	vore_default_mode = DM_HOLD

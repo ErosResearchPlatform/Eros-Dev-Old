@@ -41,7 +41,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return 0
 	if(can_operate(src) && I.do_surgery(src,user)) //Surgery
 		return 1
-	if(attempt_vr(src,"vore_attackby",args)) return //VOREStation Code
+	//if(attempt_vr(src,"vore_attackby",args)) return //VOREStation Code -- Eros edit, no need for vore
 	return I.attack(src, user, user.zone_sel.selecting)
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
