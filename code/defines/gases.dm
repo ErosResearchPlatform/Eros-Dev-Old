@@ -17,7 +17,6 @@
 	name = "Carbon Dioxide"
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
-
 /decl/xgm_gas/phoron
 	id = "phoron"
 	name = "Phoron"
@@ -33,7 +32,7 @@
 
 	tile_overlay = "phoron"
 	overlay_limit = 0.7
-	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
+	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT | XGM_GAS_FUSION_FUEL
 
 /decl/xgm_gas/volatile_fuel
 	id = "volatile_fuel"
