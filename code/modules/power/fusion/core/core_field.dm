@@ -126,10 +126,13 @@
 		for(var/gasname in uptake_gas.gas)
 			if(uptake_gas.gas[gasname]*10 > dormant_reactant_quantities[gasname])
 				AddParticles(gasname, uptake_gas.gas[gasname]*10)
-				uptake_gas.adjust_gas(gasname, -(uptake_gas.gas[gasname]), update=FALSE)
+				uptake_gas.adjust_gas(gasname, -(uptake_gas.gas[gasname]), update=1)
 				added_particles = TRUE
 		if(added_particles)
 			uptake_gas.update_values()
+
+	//Eros edit, IC explained as taking in air to both create a vacuum and start the plasma field needed for reaction.
+	src.remove_air(plasma_temperature)
 
 	//let the particles inside the field react
 	React()
@@ -321,7 +324,7 @@
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
 		if(environment && environment.temperature < (T0C+1000)) // Putting an upper bound on it to stop it being used in a TEG.
-			environment.add_thermal_energy(plasma_temperature*20000)
+			environment.add_thermal_energy(plasma_temperature)
 	radiation = 0
 
 /obj/effect/fusion_em_field/proc/change_size(var/newsize = 1)
