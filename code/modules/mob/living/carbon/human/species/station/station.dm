@@ -32,7 +32,7 @@
 	primitive_form = "Stok"
 	darksight = 3
 	ambiguous_genders = TRUE
-	//gluttonous = 1 //VOREStation Edit - Redundant
+	gluttonous = 1 //VOREStation Edit - Redundant	-- Eros edit, re-enable
 	slowdown = 0.5
 	brute_mod = 0.85
 	burn_mod = 0.85
@@ -51,7 +51,7 @@
 	planet, they mostly hold ideals of honesty, virtue, proficiency and bravery above all \
 	else, frequently even their own lives. They prefer warmer temperatures than most species and \
 	their native tongue is a heavy hissing laungage called Sinta'Unathi."
-/* VOREStation Removal
+// VOREStation Removal	-- Eros edit, re-enable
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
 	cold_level_3 = 130 //Default 120
@@ -59,7 +59,7 @@
 	heat_level_1 = 420 //Default 360 - Higher is better
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
-*/
+
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
@@ -67,7 +67,7 @@
 	blood_color = "#b3cbc3"
 	base_color = "#066000"
 
-	//reagent_tag = IS_UNATHI //VOREStation Edit
+	reagent_tag = IS_UNATHI //VOREStation Edit	-- Eros edit, re-enable
 
 	has_limbs = list(
 		BP_TORSO =  list("path" = /obj/item/organ/external/chest/unathi),
@@ -93,14 +93,14 @@
 		)
 
 
-	//heat_discomfort_level = 295 //VOREStation Edit
+	heat_discomfort_level = 295 //VOREStation Edit	-- Eros edit, re-enable
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	//cold_discomfort_level = 292 //VOREStation Removal
+	cold_discomfort_level = 292 //VOREStation Removal	-- Eros edit, re-enable
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
@@ -143,11 +143,11 @@
 	cold_level_1 = 200 //Default 260
 	cold_level_2 = 140 //Default 200
 	cold_level_3 = 80  //Default 120
-/* VOREStation Removal
+// VOREStation Removal	-- Eros edit, re-enable
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 800 //Default 1000
-*/
+
 	primitive_form = "Farwa"
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
@@ -156,15 +156,15 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
-	//reagent_tag = IS_TAJARA //VOREStation Removal
+	reagent_tag = IS_TAJARA //VOREStation Removal	-- Eros edit, re-enable
 
-	//heat_discomfort_level = 292 //VOREStation Removal
+	heat_discomfort_level = 292 //VOREStation Removal	-- Eros edit, re-enable
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 		)
-	//cold_discomfort_level = 275 //VOREStation Removal
+	cold_discomfort_level = 275 //VOREStation Removal	-- Eros edit, re-enable
 
 	has_organ = list(    //No appendix.
 		O_HEART =    /obj/item/organ/internal/heart,
@@ -220,7 +220,7 @@
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
 
-	//reagent_tag = IS_SKRELL //VOREStation Removal
+	reagent_tag = IS_SKRELL //VOREStation Removal	-- Eros edit, re-enable
 
 	has_limbs = list(
 		BP_TORSO =  list("path" = /obj/item/organ/external/chest),
