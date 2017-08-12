@@ -50,6 +50,15 @@
 	reinforced = get_material_by_name(DEFAULT_WALL_MATERIAL)
 	..()
 
+/obj/structure/table/wooden_reinforced
+	icon_state = "reinf_preview"
+	color = "#824B28"
+
+/obj/structure/table/wooden_fancy/New()
+	material = get_material_by_name("wood")
+	reinforced = get_material_by_name("gold")
+	..()
+
 /obj/structure/table/woodentable
 	icon_state = "plain_preview"
 	color = "#824B28"
