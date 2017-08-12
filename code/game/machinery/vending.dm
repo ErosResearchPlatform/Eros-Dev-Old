@@ -1078,3 +1078,13 @@
 	//everything after the power cell had no amounts, I improvised.  -Sayu
 	req_log_access = access_rd
 	has_logs = 1
+
+// Eros Edit
+/obj/machinery/vending/autodrobe
+	name = "AutoDrobe"
+	desc = "A vending machine for costumes."
+	icon = 'icons/obj/vending_er.dmi'
+	icon_state = "theater"
+	icon_deny = "theater-deny"
+	req_access = list(access_bar)
+	products = list(/obj/item/clothing/suit/storage/toggle/labcoat = 0)  // I'll add the proper list of items later. Just reviving the autodrobe for now.
