@@ -139,15 +139,11 @@
 	character.g_breast			= pref.g_breast
 	character.b_breast			= pref.b_breast
 	//Eros edit START
-	character.wings_style		= wings_styles_list[pref.wings_style]
 	character.anatomy_style		= anatomy_styles_list[pref.anatomy_style]
 	character.breast_style		= breast_styles_list[pref.breast_style]
 	character.r_ears			= pref.r_ears
 	character.b_ears			= pref.b_ears
 	character.g_ears			= pref.g_ears
-	character.r_wings			= pref.r_wings
-	character.g_wings			= pref.g_wings
-	character.b_wings			= pref.b_wings
 	character.r_anatomy			= pref.r_anatomy
 	character.g_anatomy			= pref.g_anatomy
 	character.b_anatomy			= pref.b_anatomy
