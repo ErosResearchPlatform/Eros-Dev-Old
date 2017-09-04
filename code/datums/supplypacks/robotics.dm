@@ -68,6 +68,14 @@
 	containername = "Robolimb blueprints (Xion)"
 	access = access_robotics
 
+/datum/supply_packs/robotics/robolimbs/grayson
+	name = "Grayson robolimb blueprints"
+	contains = list(/obj/item/weapon/disk/limb/grayson)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/science
+	containername = "Robolimb blueprints (Grayson)"
+	access = access_robotics
+
 /datum/supply_packs/robotics/robolimbs/hephaestus
 	name = "Hephaestus robolimb blueprints"
 	contains = list(/obj/item/weapon/disk/limb/hephaestus)
@@ -159,14 +167,13 @@
 			/obj/item/device/kit/paint/gygax/recitence
 			)
 	name = "Random Gygax exosuit modkit"
-/*
+
 /datum/supply_packs/robotics/jumper_cables
 	name = "Jumper kit crate"
 	contains = list(
-			/obj/item/device/defib_kit/jumper_kit = 4
+			/obj/item/device/defib_kit/jumper_kit = 2
 			)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure/science
 	containername = "Jumper kit crate"
 	access = access_robotics
-*/

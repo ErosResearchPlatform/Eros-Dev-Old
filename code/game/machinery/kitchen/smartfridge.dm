@@ -218,6 +218,7 @@
 	if(istype(O, /obj/item/weapon/screwdriver))
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
+		playsound(src, O.usesound, 50, 1)
 		overlays.Cut()
 		if(panel_open)
 			overlays += image(icon, icon_panel)
@@ -250,6 +251,16 @@
 			user.visible_message("<span class='notice'>[user] loads \the [src] with \the [P].</span>", "<span class='notice'>You load \the [src] with \the [P].</span>")
 			if(P.contents.len > 0)
 				user << "<span class='notice'>Some items are refused.</span>"
+
+	else if(istype(O, /obj/item/weapon/gripper)) // Grippers. ~Mechoid.
+		var/obj/item/weapon/gripper/B = O	//B, for Borg.
+		if(!B.wrapped)
+			user << "\The [B] is not holding anything."
+			return
+		else
+			var/B_held = B.wrapped
+			user << "You use \the [B] to put \the [B_held] into \the [src]."
+		return
 
 	else
 		user << "<span class='notice'>\The [src] smartly refuses [O].</span>"

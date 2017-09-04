@@ -608,24 +608,28 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 
 
 
-/obj/item/weapon/card/id/fluff/ivyholoid
-	name = "Holo-ID"
-	registered_name = "Unconfigured"
-	desc = "A thin screen that seems to show an ID card's information. It keeps flickering between the ID and being blank."
-	icon = 'icons/vore/custom_items_vr.dmi'
-	icon_state = "ivyholoid"
-	var/configured = 0
+/obj/item/device/fluff/id_kit_ivy
+	name = "Holo-ID reprinter"
+	desc = "Stick your ID in one end and it'll print a new ID out the other!"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "labeler1"
 
-	attack_self(mob/user as mob)
-		if(configured)
-			return ..()
-
-		assignment = user.job
-		user.set_id_info(src)
-		if(user.mind && user.mind.initial_account)
-			associated_account_number = user.mind.initial_account.account_number
-		configured = 1
-		user << "<span class='notice'>Card settings set.</span>"
+	afterattack(obj/O, mob/user as mob)
+		var/new_icon = "ivyholoid"
+		var/new_desc = "Its a thin screen showing ID information, but it seems to be flickering."
+		if(istype(O,/obj/item/weapon/card/id) && O.icon_state != new_icon)
+			//O.icon = src.icon // just in case we're using custom sprite paths with fluff items.
+			O.icon_state = new_icon // Changes the icon without changing the access.
+			O.desc = new_desc
+			playsound(user.loc, 'sound/items/polaroid2.ogg', 100, 1)
+			user.visible_message("<span class='warning'> [user] reprints their ID.</span>")
+			qdel(src)
+		else if(O.icon_state == new_icon)
+			user << "<span class='notice'>[O] already has been reprinted.</span>"
+			return
+		else
+			user << "<span class='warning'>This isn't even an ID card you idiot.</span>"
+			return
 
 //WickedTempest: Chakat Tempest
 /obj/item/weapon/reagent_containers/hypospray/vr/tempest
@@ -768,6 +772,85 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 
 		rimplant.reagents.remove_reagent(rimplant.generated_reagent, rimplant.transfer_amount)
 
+/obj/item/weapon/implant/reagent_generator/pumila_apple
+	name = "apple laying implant"
+	desc = "This is an implant that allows the user to grow apples."
+	generated_reagent = "sugar" //This actually allows them to.
+	usable_volume = 250 //Five apples. Let's not get /too/ crazy here.
+	transfer_amount = 50
+
+	empty_message = list("Your have no apples on you.", "You have a distinct lack of apples..")
+	full_message = list("You have multiple apples on you, ready for harvest!", "There are a multitude of apples awaiting harvest on you!")
+	emote_descriptor = list("an apple right off of Pumila!", "a large apple off Pumila!")
+	var/verb_descriptor = list("grabs", "snatches", "picks")
+	var/self_verb_descriptor = list("grab", "snatch", "pick")
+	var/short_emote_descriptor = list("picks", "grabs")
+	self_emote_descriptor = list("grab", "pick", "snatch")
+	assigned_proc = /mob/living/carbon/human/proc/use_reagent_implant_pumila_apple
+
+/obj/item/weapon/implant/reagent_generator/pumila_apple/implanted(mob/living/carbon/source)
+	processing_objects += src
+	to_chat(source, "<span class='notice'>You implant [source] with \the [src].</span>")
+	source.verbs |= assigned_proc
+	return 1
+
+/obj/item/weapon/implanter/reagent_generator/pumila_apple
+	implant_type = /obj/item/weapon/implant/reagent_generator/pumila_apple
+
+/mob/living/carbon/human/proc/use_reagent_implant_pumila_apple()
+	set name = "Grab Apple"
+	set desc = "Grab an apple off of Pumila."
+	set category = "Object"
+	set src in view(1)
+
+	//do_reagent_implant(usr)
+	if(!isliving(usr) || !usr.canClick())
+		return
+
+	if(usr.incapacitated() || usr.stat > CONSCIOUS)
+		return
+
+	var/obj/item/weapon/implant/reagent_generator/roiz/rimplant
+	for(var/I in src.contents)
+		if(istype(I, /obj/item/weapon/implant/reagent_generator))
+			rimplant = I
+			break
+	if (rimplant)
+		if(rimplant.reagents.total_volume <= rimplant.transfer_amount)
+			to_chat(src, "<span class='notice'>[pick(rimplant.empty_message)]</span>")
+			return
+
+		var/datum/seed/S = plant_controller.seeds["apple"] //crosses fingers.
+		S.harvest(usr,0,0,1)
+
+		var/index = rand(0,2)
+
+		if (usr != src)
+			var/emote = rimplant.emote_descriptor[index]
+			var/verb_desc = rimplant.verb_descriptor[index]
+			var/self_verb_desc = rimplant.self_verb_descriptor[index]
+			usr.visible_message("<span class='notice'>[usr] [verb_desc] [emote]</span>",
+							"<span class='notice'>You [self_verb_desc] [emote]</span>")
+		else
+			src.visible_message("<span class='notice'>[src] [pick(rimplant.short_emote_descriptor)] an apple.</span>",
+								"<span class='notice'>You [pick(rimplant.self_emote_descriptor)] an apple.</span>")
+
+		rimplant.reagents.remove_reagent(rimplant.generated_reagent, rimplant.transfer_amount)
+/*
+/obj/item/weapon/implant/reagent_generator/pumila_nectar //Bugged. Two implants at once messes things up.
+	generated_reagent = "honey"
+	usable_volume = 5000
+
+	empty_message = list("You appear to be all out of nectar", "You feel as though you are lacking a majority of your nectar.")
+	full_message = list("You appear to be full of nectar.", "You feel as though you are full of nectar!")
+	emote_descriptor = list("squeezes nectar", "extracts nectar")
+	self_emote_descriptor = list("squeeze", "extract")
+	verb_name = "Extract Honey"
+	verb_desc = "Obtain pumila's nectar and put it into a container!"
+
+/obj/item/weapon/implanter/reagent_generator/pumila_nectar
+	implant_type = /obj/item/weapon/implant/reagent_generator/pumila_nectar
+*/
 //Egg item
 //-------------
 /obj/item/weapon/reagent_containers/food/snacks/egg/roiz
@@ -1265,3 +1348,33 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
             user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
         else
             user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
+
+/obj/item/weapon/card/id/fluff/xennith
+	name = "\improper Amy Lessen's Central Command ID (Xenobiology Director)"
+	desc = "This ID card identifies Dr. Amelie Lessen as the founder and director of the NanoTrasen Xenobiology Research Department, circa 2553."
+	icon_state = "centcom"
+	registered_name = "Amy Lessen"
+	assignment = "Xenobiology Director"
+	access = list(access_cent_general,access_cent_thunder,access_cent_medical,access_cent_living,access_cent_storage,access_cent_teleporter,access_research,access_xenobiology,access_maint_tunnels,access_xenoarch,access_robotics,access_tox_storage,access_tox) //Yes, this looks awful. I tried calling both central and resarch access but it didn't work.
+	age = 39
+	blood_type = "O-"
+	sex = "Female"
+/obj/item/weapon/fluff/kitchi_injector
+	name = "Kitchi Monkey Injector"
+	desc = "Allows the user (Kitchi) to transform into a monkey. Single use."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "dnainjector"
+
+/obj/item/weapon/fluff/kitchi_injector/attack(mob/living/M, mob/living/user)
+
+	if(M.ckey != "Ketrai")
+		user << "<span class='warning'>Something compels you to <i>not</i> use this injector.</span>"
+		return
+
+	if(usr == M) //Is the person using it on theirself?
+		if(ishuman(M)) //If so, monkify them.
+			var/mob/living/carbon/human/H = user
+			H.monkeyize()
+			qdel(src) //One time use.
+	else //If not, do nothing.
+		to_chat(user,"<span class='warning'> You are unable to inject other people.</span>")
