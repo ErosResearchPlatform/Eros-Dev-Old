@@ -13,6 +13,7 @@
 	var/metabolism = 0.0015
 	var/vore_taste = null				// What the character tastes like
 	var/no_vore = 1 					// If the character/mob can vore. //Eros edit -- No vore
+	var/openpanel = 0					// Is the vore panel open?
 
 //
 // Hook for generic creation of stuff on new creatures
@@ -405,8 +406,8 @@
 	user.update_icons()
 
 	// Flavor handling
-	if(prey.get_taste_message(0))
-		to_chat(src, "<span class='notice'>[prey] tastes of [prey.get_taste_message(0)].</span>")
+	if(belly_target.can_taste && prey.get_taste_message(0))
+		to_chat(belly_target.owner, "<span class='notice'>[prey] tastes of [prey.get_taste_message(0)].</span>")
 
 	// Inform Admins
 	if (pred == user)

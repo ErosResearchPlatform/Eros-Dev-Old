@@ -15,6 +15,7 @@
 	var/list/injection_chems = list("dexalin", "bicaridine", "kelotane","anti_toxin", "alkysine", "imidazoline", "spaceacillin", "paracetamol") //The borg is able to heal every damage type. As a nerf, they use 750 charge per injection.
 	var/eject_port = "ingestion"
 	var/list/items_preserved = list()
+	var/UI_open = 0
 
 /obj/item/device/dogborg/sleeper/New()
 	..()
@@ -50,6 +51,8 @@
 			user.visible_message("<span class='warning'>[hound.name]'s medical pod lights up as [target.name] slips inside into their [src.name].</span>", "<span class='notice'>Your medical pod lights up as [target] slips into your [src]. Life support functions engaged.</span>")
 			message_admins("[key_name(hound)] has eaten [key_name(patient)] as a dogborg. ([hound ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[hound.x];Y=[hound.y];Z=[hound.z]'>JMP</a>" : "null"])")
 			playsound(hound, 'sound/vore/gulp.ogg', 100, 1) //POLARISTODO
+			if(UI_open == 1)
+				sleeperUI(usr)
 
 /obj/item/device/dogborg/sleeper/proc/go_out(var/target)
 	hound = src.loc
@@ -88,6 +91,7 @@
 	if(..())
 		return
 	sleeperUI(user)
+	UI_open = 1
 
 /obj/item/device/dogborg/sleeper/proc/sleeperUI(mob/user)
 	var/dat
@@ -174,9 +178,11 @@
 	dat += "</div>"
 
 	var/datum/browser/popup = new(user, "sleeper", "Sleeper Console", 520, 540)	//Set up the popup browser window
-	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
+	//popup.set_title_image(user.browse_rsc_icon(icon, icon_state)) //I have no idea what this is, but it feels irrelevant and causes runtimes idk.
 	popup.set_content(dat)
 	popup.open()
+	onclose(user, "sleeper")
+	UI_open = 0
 	return
 
 /obj/item/device/dogborg/sleeper/Topic(href, href_list)
@@ -292,6 +298,8 @@
 	patient_laststat = null
 	patient = null
 	hound.updateicon()
+	if(UI_open == 1)
+		sleeperUI(usr)
 	return
 
 //Gurgleborg process
@@ -368,30 +376,50 @@
 				for(var/mob/hearer in range(1,src.hound))
 					hearer << deathsound
 				T << deathsound
-				for(var/obj/item/I in T.contents)//Placeholder for proper spill proc
-					T.drop_from_inventory(I, src)
+				if(is_vore_predator(T))
+					for (var/bellytype in T.vore_organs)
+						var/datum/belly/belly = T.vore_organs[bellytype]
+						for (var/obj/thing in belly.internal_contents)
+							thing.loc = src
+							belly.internal_contents -= thing
+						for (var/mob/subprey in belly.internal_contents)
+							subprey.loc = src
+							belly.internal_contents -= subprey
+							subprey << "As [T] melts away around you, you find yourself in [hound]'s [name]"
+				for(var/obj/item/I in T)
+					if(istype(I,/obj/item/organ/internal/mmi_holder/posibrain))
+						var/obj/item/organ/internal/mmi_holder/MMI = I
+						var/atom/movable/brain = MMI.removed()
+						if(brain)
+							hound.remove_from_mob(brain,src)
+							brain.forceMove(src)
+							items_preserved += brain
+					else
+						T.drop_from_inventory(I, src)
 				qdel(T)
 				src.update_patient()
+				if(UI_open == 1)
+					sleeperUI(hound)
 
 		//Handle the target being anything but a /mob/living/carbon/human
 		else
 			var/obj/T = target
-
-			//If the object is in the items_preserved global list //POLARISTODO
-
-			if(T.type in important_items)
-				src.items_preserved += T
-
-			//If the object is not one to preserve
-			else
-				//Special case for PDAs as they are dumb. TODO fix Del on PDAs to be less dumb.
+			if(!(T in items_preserved))
+				if(T.type in important_items)
+					src.items_preserved += T
+					return
+				if(T in items_preserved)
+					return
+				//If the object is not one to preserve
 				if(istype(T, /obj/item/device/pda))
 					var/obj/item/device/pda/PDA = T
 					if (PDA.id)
 						PDA.id.forceMove(src)
 						PDA.id = null
+					src.hound.cell.charge += (50 * T.w_class)
+					contents -= T
 					qdel(T)
-
+					src.update_patient()
 				//Special case for IDs to make them digested
 				if(istype(T, /obj/item/weapon/card/id))
 					var/obj/item/weapon/card/id/ID = T
@@ -400,24 +428,29 @@
 					ID.icon_state = "digested"
 					ID.access = list() // No access
 					src.items_preserved += ID
-
-				//Anything not perserved, PDA, or ID
+					return
+				//Anything not preserved, PDA, or ID
 				else if(istype(T, /obj/item))
-					if(istype(T, /obj/item/weapon/storage))
-						var/obj/item/weapon/storage/S = T
-						for(var/obj/item/I in S.contents)//Placeholder for proper spill proc
-							S.remove_from_storage(I, src)
-						src.hound.cell.charge += (50 * S.w_class)
-						qdel(S)
-						src.update_patient()
-					else
-						src.hound.cell.charge += (50 * T.w_class)
-						qdel(T)
-						src.update_patient()
-				else
-					src.hound.cell.charge += 120
+					for(var/obj/item/SubItem in T)
+						if(istype(SubItem,/obj/item/weapon/storage/internal))
+							var/obj/item/weapon/storage/internal/SI = SubItem
+							for(var/obj/item/SubSubItem in SI)
+								SubSubItem.forceMove(src)
+							qdel(SI)
+						else
+							SubItem.forceMove(src)
+					src.hound.cell.charge += (50 * T.w_class)
+					contents -= T
 					qdel(T)
 					src.update_patient()
+				else
+					src.hound.cell.charge += 120
+					contents -= T
+					qdel(T)
+					src.update_patient()
+				if(UI_open == 1)
+					sleeperUI(hound)
+
 		return
 
 /obj/item/device/dogborg/sleeper/process()
@@ -475,6 +508,8 @@
 		return
 	if(target.anchored)
 		return
+	if(target in hound.module.modules)
+		return
 	if(length(contents) > (max_item_count - 1))
 		user << "<span class='warning'>Your [src.name] is full. Eject or process contents to continue.</span>"
 		return
@@ -488,10 +523,12 @@
 		if(do_after(user, 30, target) && length(contents) < max_item_count)
 			target.forceMove(src)
 			user.visible_message("<span class='warning'>[hound.name]'s garbage processor groans lightly as [target.name] slips inside.</span>", "<span class='notice'>Your garbage compactor groans lightly as [target] slips inside.</span>")
-			playsound(hound, 'sound/vore/gulp.ogg', 50, 1)
+			playsound(hound, 'sound/vore/gulp.ogg', 30, 1)
 			if(length(contents) > 11) //grow that tum after a certain junk amount
 				hound.sleeper_r = 1
 				hound.updateicon()
+			if(UI_open == 1)
+				sleeperUI(usr)
 		return
 
 	if(istype(target, /mob/living/simple_animal/mouse)) //Edible mice, dead or alive whatever. Mostly for carcass picking you cruel bastard :v
@@ -501,10 +538,12 @@
 			trashmouse.forceMove(src)
 			trashmouse.reset_view(src)
 			user.visible_message("<span class='warning'>[hound.name]'s garbage processor groans lightly as [trashmouse] slips inside.</span>", "<span class='notice'>Your garbage compactor groans lightly as [trashmouse] slips inside.</span>")
-			playsound(hound, 'sound/vore/gulp.ogg', 50, 1)
+			playsound(hound, 'sound/vore/gulp.ogg', 30, 1)
 			if(length(contents) > 11) //grow that tum after a certain junk amount
 				hound.sleeper_r = 1
 				hound.updateicon()
+			if(UI_open == 1)
+				sleeperUI(usr)
 		return
 
 	else if(ishuman(target))
@@ -525,6 +564,8 @@
 			playsound(hound, 'sound/vore/gulp.ogg', 80, 1)
 			hound.sleeper_r = 1
 			hound.updateicon()
+			if(UI_open == 1)
+				sleeperUI(usr)
 		return
 	return
 
@@ -549,7 +590,7 @@
 				usr << "<font color='blue'>You install the [W.name].</font>"
 
 				return
-	
+
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if (src == user)
@@ -638,7 +679,7 @@
 				user << "You open the cover."
 				opened = 1
 				updateicon()
-	
+
 	else if (istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
 		var/datum/robot_component/C = components["power cell"]
 		if(wiresexposed)
@@ -659,7 +700,7 @@
 			//This will mean that removing and replacing a power cell will repair the mount, but I don't care at this point. ~Z
 			C.brute_damage = 0
 			C.electronics_damage = 0
-	
+
 	else if (istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/device/multitool))
 		if (wiresexposed)
 			wires.Interact(user)
@@ -722,7 +763,7 @@
 			W.attackby(CR,src)
 
 
-	else 
+	else
 		if( !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 			spark_system.start()
 		return ..()

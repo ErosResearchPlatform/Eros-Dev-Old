@@ -28,11 +28,11 @@
 
 	var/datum/gas_mixture/env = T.return_air()
 
-	var/t = "\blue Coordinates: [T.x],[T.y],[T.z]\n"
-	t += "\red Temperature: [env.temperature]\n"
-	t += "\red Pressure: [env.return_pressure()]kPa\n"
+	var/t = "<font color='blue'>Coordinates: [T.x],[T.y],[T.z]\n</font>"
+	t += "<font color='red'>Temperature: [env.temperature]\n</font>"
+	t += "<font color='red'>Pressure: [env.return_pressure()]kPa\n</font>"
 	for(var/g in env.gas)
-		t += "\blue [g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n"
+		t += "<font color='blue'>[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n</font>"
 
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -113,7 +113,7 @@
 			M:slimeize()
 			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		log_admin("[key_name(usr)] made [key_name(M)] into a slime.")
-		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into a slime.", 1)
+		message_admins("<font color='blue'>[key_name_admin(usr)] made [key_name(M)] into a slime.</font>", 1)
 	else
 		alert("Invalid mob")
 
@@ -179,28 +179,28 @@
 			return
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground."
+				M << "<font color='red'>You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.</font>"
 				new /obj/item/weapon/book/tome(M.loc)
 			else
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie."
+				M << "<font color='red'>You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.</font>"
 			var/glimpse=pick("1","2","3","4","5","6","7","8")
 			switch(glimpse)
 				if("1")
-					M << "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["travel"]] is travel...</font>"
 				if("2")
-					M << "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["blood"]] is blood...</font>"
 				if("3")
-					M << "\red You remembered one thing from the glimpse... [cultwords["join"]] is join..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["join"]] is join...</font>"
 				if("4")
-					M << "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["hell"]] is Hell...</font>"
 				if("5")
-					M << "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy...</font>"
 				if("6")
-					M << "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["technology"]] is technology...</font>"
 				if("7")
-					M << "\red You remembered one thing from the glimpse... [cultwords["self"]] is self..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["self"]] is self...</font>"
 				if("8")
-					M << "\red You remembered one thing from the glimpse... [cultwords["see"]] is see..."
+					M << "<font color='red'>You remembered one thing from the glimpse... [cultwords["see"]] is see...</font>"
 
 			if(M.mind)
 				M.mind.special_role = "Cultist"
@@ -270,7 +270,7 @@
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(src)] has granted [M.key] full access.")
-	message_admins("\blue [key_name_admin(usr)] has granted [M.key] full access.", 1)
+	message_admins("<font color='blue'>[key_name_admin(usr)] has granted [M.key] full access.</font>", 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
 	set category = "Admin"
@@ -284,7 +284,7 @@
 		else
 			var/mob/observer/dead/ghost = new/mob/observer/dead(M,1)
 			ghost.ckey = M.ckey
-	message_admins("\blue [key_name_admin(usr)] assumed direct control of [M].", 1)
+	message_admins("<font color='blue'>[key_name_admin(usr)] assumed direct control of [M].</font>", 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
@@ -385,7 +385,7 @@
 	for(var/areatype in areas_without_camera)
 		world << "* [areatype]"
 
-/client/proc/cmd_admin_dress()
+/client/proc/cmd_admin_dress() // Vorestation Edits throughout this proc.
 	set category = "Fun"
 	set name = "Select equipment"
 
@@ -417,7 +417,12 @@
 		"emergency response team",
 		"nanotrasen representative",
 		"nanotrasen officer",
-		"nanotrasen captain"
+		"nanotrasen captain",
+		"UNSC marine",
+		"UNSC officer",
+		"SolGov Representative",
+		"Imperial soldier",
+		"Imperial officer"
 		)
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
@@ -691,7 +696,7 @@
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
 		if("emergency response team")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/ert(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/boots/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
@@ -783,11 +788,114 @@
 			W.assignment = "Admiral"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
+		if("UNSC marine")
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/combat/unsc(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/boots/jackboots(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/combat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/centcom(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/utility/marine/green(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/combat/unsc(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/battlerifle(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/security/tactical(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/battlerifle(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/battlerifle(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/battlerifle(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/battlerifle(M), slot_l_hand)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s military ID Card"
+			W.icon_state = "lifetime"
+			W.access = get_all_station_access()
+			W.access += get_all_centcom_access()
+			W.assignment = "UNSC"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+		if("UNSC officer")
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/dress/marine/command/admiral(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/boots/jackboots(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/centcom(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/mildress/marine/command(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/consul(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/s44(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/s44(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/holster/hip(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/black(M), slot_l_hand)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s military ID Card"
+			W.icon_state = "lifetime"
+			W.access = get_all_station_access()
+			W.access += get_all_centcom_access()
+			W.assignment = "UNSC"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+		if("SolGov Representative")
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/centcom(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/navy (M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/pen/blue(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/pen/red(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/device/pda/centcom(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/clipboard(M), slot_l_hand)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s SolGov ID Card"
+			W.icon_state = "lifetime"
+			W.access = get_all_station_access()
+			W.access += get_all_centcom_access()
+			W.assignment = "SolGov Representative"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+		if("Imperial soldier")
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/combat/imperial(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/leg_guard/combat/imperial(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/arm_guard/combat/imperial(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/imperial(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/imperial(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/combat/imperial(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/security/tactical/bandolier(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/cell/device/weapon(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/cell/device/weapon(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword/imperial(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/shield/energy/imperial(M), slot_l_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/imperial(M), slot_s_store)
+			/*var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card" // ToDo
+			W.icon_state = "lifetime"
+			W.access = get_all_station_access()
+			W.access += get_all_centcom_access()
+			W.assignment = "SolGov Representative"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)*/
+		if("Imperial officer")
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/combat/imperial/centurion(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/leg_guard/combat/imperial(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/arm_guard/combat/imperial(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/imperial(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/imperial(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/combat/imperial/centurion(M), slot_wear_suit)
+			//M.equip_to_slot_or_del(new (M), slot_back) // Doesn't look right with the cape. No bags.
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/security/tactical/bandolier(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/cell/device/weapon(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/cell/device/weapon(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword/imperial(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/shield/energy/imperial(M), slot_l_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/imperial(M), slot_s_store)
+			/*var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card" // ToDo
+			W.icon_state = "lifetime"
+			W.access = get_all_station_access()
+			W.access += get_all_centcom_access()
+			W.assignment = "SolGov Representative"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)*/
 
 	M.regenerate_icons()
 
 	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].")
-	message_admins("\blue [key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..", 1)
+	message_admins("<font color='blue'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..</font>", 1)
 	return
 
 /client/proc/startSinglo()
@@ -911,7 +1019,7 @@
 				SMES.output_level = 75000
 
 	if(!found_the_pump && response == "Setup Completely")
-		src << "\red Unable to locate air supply to fill up with coolant, adding some coolant around the supermatter"
+		src << "<font color='red'>Unable to locate air supply to fill up with coolant, adding some coolant around the supermatter</font>"
 		var/turf/simulated/T = SM.loc
 		T.zone.air.gas["nitrogen"] += 450
 		T.zone.air.temperature = 50
@@ -919,7 +1027,7 @@
 
 
 	log_admin("[key_name(usr)] setup the supermatter engine [response == "Setup except coolant" ? "without coolant" : ""]")
-	message_admins("\blue [key_name_admin(usr)] setup the supermatter engine  [response == "Setup except coolant" ? "without coolant": ""]", 1)
+	message_admins("<font color='blue'>[key_name_admin(usr)] setup the supermatter engine  [response == "Setup except coolant" ? "without coolant": ""]</font>", 1)
 	return
 
 

@@ -120,25 +120,25 @@ Please contact me on #coderbus IRC. ~Carn x
 #define BELT_LAYER				12
 #define SUIT_LAYER				13
 #define TAIL_LAYER				14		//bs12 specific.	//In a perfect world the parts of the tail that show between legs would be on a new layer. Until then, sprite's been tweaked
-#define WINGS_LAYER				15
-#define GLASSES_LAYER			16
-#define BELT_LAYER_ALT			17
-#define SUIT_STORE_LAYER		18
-#define BACK_LAYER				19
-#define HAIR_LAYER				20		//TODO: make part of head layer?
-#define EARS_LAYER				21
-#define FACEMASK_LAYER			22
-#define HEAD_LAYER				23
-#define COLLAR_LAYER			24
-#define HANDCUFF_LAYER			25
-#define LEGCUFF_LAYER			26
-#define L_HAND_LAYER			27
-#define R_HAND_LAYER			28
-#define MODIFIER_EFFECTS_LAYER	29
-#define FIRE_LAYER				30		//If you're on fire
-#define WATER_LAYER				31		//If you're submerged in water.
-#define TARGETED_LAYER			32		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			32
+#define GLASSES_LAYER			15
+#define BELT_LAYER_ALT			16
+#define SUIT_STORE_LAYER		17
+#define BACK_LAYER				18
+#define HAIR_LAYER				19		//TODO: make part of head layer?
+#define EARS_LAYER				20
+#define FACEMASK_LAYER			21
+#define HEAD_LAYER				22
+#define COLLAR_LAYER			23
+#define HANDCUFF_LAYER			24
+#define LEGCUFF_LAYER			25
+#define L_HAND_LAYER			26
+#define R_HAND_LAYER			27
+#define MODIFIER_EFFECTS_LAYER	28
+#define FIRE_LAYER				29		//If you're on fire
+#define WATER_LAYER				30		//If you're submerged in water.
+#define TARGETED_LAYER			31		//BS12: Layer for the target overlay from weapon targeting system
+#define WING_LAYER				32 //VOREStation edit. Simply move this up a number if things are added.
+#define TOTAL_LAYERS			32 //Eros edit -- Vorestation layers, but +2
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -341,9 +341,9 @@ var/global/list/damage_icon_parts = list()
 
 	//tail
 	update_tail_showing(0)
+	update_wing_showing(0) //VOREStation edit
 
-	//Eros: Genital layer, wing layer
-	update_wings_showing()
+	//Eros: Genital layer
 	update_anatomy_showing()
 	update_breast_showing()
 
@@ -844,9 +844,9 @@ var/global/list/damage_icon_parts = list()
 	update_inv_w_uniform(0)
 	update_inv_shoes(0)
 	update_tail_showing(0)
+	update_wing_showing(0)//VOREStation Edit
 
 	//Eros edit
-	update_wings_showing(0)
 	update_anatomy_showing(0)
 	update_breast_showing(0)
 
@@ -1149,16 +1149,6 @@ var/global/list/damage_icon_parts = list()
 		update_icons()
 
 //Eros edit START
-/mob/living/carbon/human/proc/update_wings_showing(var/update_icons=1)
-
-	overlays_standing[WINGS_LAYER] = null
-
-	if(wings_style && !(wear_suit && wear_suit.flags_inv & HIDEWINGS))
-		var/icon/wings_s = get_wings_icon()
-		overlays_standing[WINGS_LAYER] = image(wings_s, icon_state = "[wings_style.icon_state]")
-
-	if(update_icons)
-		update_icons()
 
 /mob/living/carbon/human/proc/update_anatomy_showing(var/update_icons=1)
 
@@ -1256,7 +1246,7 @@ var/global/list/damage_icon_parts = list()
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
 #undef SURGERY_LEVEL
-#undef anatomy_LAYER
+#undef ANATOMY_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER
 #undef SHOES_LAYER
@@ -1264,7 +1254,6 @@ var/global/list/damage_icon_parts = list()
 #undef EARS_LAYER
 #undef SUIT_LAYER
 #undef TAIL_LAYER
-#undef WINGS_LAYER
 #undef GLASSES_LAYER
 #undef FACEMASK_LAYER
 #undef BELT_LAYER
