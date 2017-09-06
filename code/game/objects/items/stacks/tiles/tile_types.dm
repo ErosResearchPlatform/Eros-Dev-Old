@@ -188,10 +188,3 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-
-// Eros edit
-/obj/item/stack/tile/carpet/redcarpet
-	icon_state = "tile-redcarpet"
-/obj/item/stack/tile/carpet/arcade
-	icon_state = "tile-arcade"
-// Eros edit end
