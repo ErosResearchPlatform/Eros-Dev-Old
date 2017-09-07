@@ -1,3 +1,5 @@
+// ToDo: Make this code not a fucking snowflaky horrible broken mess. Do not use until it's actually fixed. It's miserably bad right now.
+
 /mob/living/simple_animal/otie //Spawn this one only if you're looking for a bad time. Not friendly.
 	name = "otie"
 	desc = "The classic bioengineered longdog."
@@ -33,7 +35,7 @@
 	response_help = "pets the"
 	response_disarm = "bops the"
 	response_harm = "hits the"
-	attacktext = "mauls"
+	attacktext = "mauled"
 	friendly = list("nuzzles", "slobberlicks", "noses softly at", "noseboops", "headbumps against", "leans on", "nibbles affectionately on")
 	meat_amount = 6
 	old_x = -16
@@ -48,7 +50,7 @@
 // Activate Noms!
 
 /mob/living/simple_animal/otie
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_capacity = 1
 	vore_pounce_chance = 20
 	vore_icons = SA_ICON_LIVING

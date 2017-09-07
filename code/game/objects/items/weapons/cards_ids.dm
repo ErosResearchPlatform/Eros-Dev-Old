@@ -78,7 +78,12 @@
 
 	uses -= used_uses
 	A.add_fingerprint(user)
-	log_and_message_admins("emagged \an [A].")
+	//Vorestation Edit: Because some things (read lift doors) don't get emagged
+	if(used_uses)
+		log_and_message_admins("emagged \an [A].")
+	else
+		log_and_message_admins("attempted to emag \an [A].")
+	// Vorestation Edit: End of Edit
 
 	if(uses<1)
 		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
@@ -256,7 +261,7 @@
 
 /obj/item/weapon/card/id/centcom
 	name = "\improper CentCom. ID"
-	desc = "An ID straight from Cent. Com."
+	desc = "An ID straight from Central Command."
 	icon_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"

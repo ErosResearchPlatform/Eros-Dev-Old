@@ -14,6 +14,9 @@
 	var/g_tail = 30		// Tail/Taur color
 	var/b_tail = 30		// Tail/Taur color
 	//Eros edit START
+	var/r_ears = 30
+	var/g_ears = 30
+	var/b_ears = 30
 	var/wings_style		// Type of selected wings style
 	var/anatomy_style
 	var/breast_style
@@ -28,6 +31,7 @@
 	var/b_breast = 30
 	//Eros edit END
 	var/dress_mob = TRUE
+	var/list/hide_underwear= list("Underwear, bottom" = 0, "Underwear, top" = 0, "Socks" = 0, "Undershirt" = 0)
 
 // Definition of the stuff for Ears
 /datum/category_item/player_setup_item/eros/accessories
@@ -40,7 +44,11 @@
 	S["r_tail"]			>> pref.r_tail
 	S["g_tail"]			>> pref.g_tail
 	S["b_tail"]			>> pref.b_tail
+
 	//Eros edit START
+	S["r_ears"]			<< pref.r_ears
+	S["g_ears"]			<< pref.g_ears
+	S["b_ears"]			<< pref.b_ears
 	S["wings_style"]	<< pref.wings_style
 	S["anatomy_style"]	<< pref.anatomy_style
 	S["breast_style"]	<< pref.breast_style
@@ -53,6 +61,7 @@
 	S["r_breast"]		<< pref.r_breast
 	S["g_breast"]		<< pref.g_breast
 	S["b_breast"]		<< pref.b_breast
+	S["hide_underwear"]	<< pref.hide_underwear
 	//Eros edit END
 
 
@@ -64,6 +73,9 @@
 	S["b_tail"]			<< pref.b_tail
 
 	//Eros edit START
+	S["r_ears"]			<< pref.r_ears
+	S["g_ears"]			<< pref.g_ears
+	S["b_ears"]			<< pref.b_ears
 	S["wings_style"]	<< pref.wings_style
 	S["anatomy_style"]	<< pref.anatomy_style
 	S["breast_style"]	<< pref.breast_style
@@ -76,6 +88,7 @@
 	S["r_breast"]		<< pref.r_breast
 	S["g_breast"]		<< pref.g_breast
 	S["b_breast"]		<< pref.b_breast
+	S["hide_underwear"]	<< pref.hide_underwear
 	//Eros edit END
 
 /datum/category_item/player_setup_item/eros/accessories/sanitize_character()
@@ -84,6 +97,9 @@
 	pref.b_tail		= sanitize_integer(pref.b_tail, 0, 255, initial(pref.b_tail))
 
 	//Eros edit START
+	pref.r_ears		= sanitize_integer(pref.r_ears, 0, 255, initial(pref.r_ears))
+	pref.g_ears		= sanitize_integer(pref.g_ears, 0, 255, initial(pref.g_ears))
+	pref.b_ears		= sanitize_integer(pref.b_ears, 0, 255, initial(pref.b_ears))
 	pref.r_wings		= sanitize_integer(pref.r_wings, 0, 255, initial(pref.r_wings))
 	pref.g_wings		= sanitize_integer(pref.g_wings, 0, 255, initial(pref.g_wings))
 	pref.b_wings		= sanitize_integer(pref.b_wings, 0, 255, initial(pref.b_wings))
@@ -123,18 +139,18 @@
 	character.g_breast			= pref.g_breast
 	character.b_breast			= pref.b_breast
 	//Eros edit START
-	character.wings_style		= wings_styles_list[pref.wings_style]
 	character.anatomy_style		= anatomy_styles_list[pref.anatomy_style]
 	character.breast_style		= breast_styles_list[pref.breast_style]
-	character.r_wings			= pref.r_wings
-	character.g_wings			= pref.g_wings
-	character.b_wings			= pref.b_wings
+	character.r_ears			= pref.r_ears
+	character.b_ears			= pref.b_ears
+	character.g_ears			= pref.g_ears
 	character.r_anatomy			= pref.r_anatomy
 	character.g_anatomy			= pref.g_anatomy
 	character.b_anatomy			= pref.b_anatomy
 	character.r_breast			= pref.r_breast
 	character.g_breast			= pref.g_breast
 	character.b_breast			= pref.b_breast
+	character.hide_underwear	= pref.hide_underwear
 	//Eros edit END
 
 /datum/category_item/player_setup_item/eros/accessories/content(var/mob/user)
@@ -146,7 +162,8 @@
 
 	. += "<b>Preview</b><br>"
 	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
-	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a><br>"
+	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a>"
+	. += "<br><a href='?src=\ref[src];toggle_underwear=1'>Toggle underwear</a><br>" //Eros edit
 
 	var/ear_display = "Normal"
 	if(pref.ear_style && (pref.ear_style in ear_styles_list))
@@ -156,6 +173,13 @@
 		ear_display = "REQUIRES UPDATE"
 	. += "<b>Ears</b><br>"
 	. += " Style: <a href='?src=\ref[src];ear_style=1'>[ear_display]</a><br>"
+
+//Eros edit START
+	if(ear_styles_list[pref.ear_style])
+		var/datum/sprite_accessory/ears/E = ear_styles_list[pref.ear_style]
+		if (E.do_colouration)
+			. += "<a href='?src=\ref[src];ear_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_ears, 2)][num2hex(pref.g_ears, 2)][num2hex(pref.b_ears, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_ears, 2)][num2hex(pref.g_ears, 2)][num2hex(pref.b_ears)]'><tr><td>__</td></tr></table> </font><br>"
+//Eros edit END
 
 	var/tail_display = "Normal"
 	if(pref.tail_style && (pref.tail_style in tail_styles_list))
@@ -220,6 +244,17 @@
 /datum/category_item/player_setup_item/eros/accessories/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(!CanUseTopic(user))
 		return TOPIC_NOACTION
+
+	//Eros edit -- Adding colorable ears, per request
+	else if(href_list["ear_color"])
+		var/new_earc = input(user, "Choose your character's ear colour:", "Character Preference",
+			rgb(pref.r_ears, pref.g_ears, pref.b_ears)) as color|null
+		if(new_earc)
+			pref.r_ears = hex2num(copytext(new_earc, 2, 4))
+			pref.g_ears = hex2num(copytext(new_earc, 4, 6))
+			pref.b_ears = hex2num(copytext(new_earc, 6, 8))
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+	//Eros edit END
 
 	else if(href_list["ear_style"])
 		// Construct the list of names allowed for this user.
@@ -328,6 +363,13 @@
 			pref.g_breast = hex2num(copytext(new_breastc, 4, 6))
 			pref.b_breast = hex2num(copytext(new_breastc, 6, 8))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_underwear"])
+		var/i
+		for(i in pref.hide_underwear)
+			pref.hide_underwear[i] = !pref.hide_underwear[i]
+
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 //Eros edit END
 

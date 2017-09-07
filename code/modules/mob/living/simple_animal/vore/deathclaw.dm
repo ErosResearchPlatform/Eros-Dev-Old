@@ -6,7 +6,7 @@
 	icon_living = "deathclaw"
 	icon_state = "deathclaw"
 
-	attacktext = "mauls"
+	attacktext = "mauled"
 
 	faction = "deathclaw"
 
@@ -23,7 +23,7 @@
 
 // Activate Noms!
 /mob/living/simple_animal/hostile/deathclaw
-	vore_active = 1
+	vore_active = 0 //Eros edit
 	vore_capacity = 2
 	vore_max_size = RESIZE_HUGE
 	vore_min_size = RESIZE_SMALL

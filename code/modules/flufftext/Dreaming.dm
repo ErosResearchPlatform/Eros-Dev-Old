@@ -12,10 +12,18 @@ var/list/dreams = list(
 	"the virologist","the roboticist","the chef","the bartender","the chaplain","the librarian","a mouse","an ert member",
 	"a beach","the holodeck","a smokey room","a voice","the cold","a mouse","an operating table","the bar","the rain","a skrell",
 	"an unathi","a tajaran","the ai core","the mining station","the research station","a beaker of strange liquid",
-	//VOREStation Additions after this
+/*	//VOREStation Additions after this  	-- Eros edit, we don't need vore dreams
 	"slimey surroundings","a sexy squirrel","licking their lips","a gaping maw","an unlikely predator","sinking inside",
 	"vulpine assets","more dakka","churning guts","pools of fluid","an exceptional grip","mawing in faces","gaping throat",
-	"swallowed whole","a fox","a wolf","a cat","a tiger","a dog","a taur","a xenochimera"
+	"swallowed whole","a fox","a wolf","a cat","a tiger","a dog","a taur","a xenochimera" */
+	// Eros edit for eros dreams tho
+	"an akula","a diona nymph","a dionaea gestalt","a veiren","a space bear","a space ferret","an empty glass","endless frozen wastes",
+	"a rosary held in human hands","holding hands","two bodies pressed together","a synthetic","Officer Beepsky","the chapel",
+	"a fleeting glance","just a kiss","a forbidden romance","the cute cargo tech's smile","unspeakable things","a sultry gaze","sweaty palms",
+	"endless chittering noises","glowing eyes in the shadows","a distant scream","a fake smile","cold stares","a sinking feeling",
+	"building dread","anxiety","flickering lights","a stranger in a gas mask","a small dog","a purring cat","a girl with squirrel gene-mods",
+	"pools of strange fluid","a synthetic engineer","a tajaran beauty","the neon lights of a city","snow","a fresh start","a new home",
+	"a raging blizzard","the colony","a sticky sensation","taking a shower","hot chocolate"
 	)
 
 mob/living/carbon/proc/dream()
@@ -23,7 +31,7 @@ mob/living/carbon/proc/dream()
 
 	spawn(0)
 		for(var/i = rand(1,4),i > 0, i--)
-			src << "\blue <i>... [pick(dreams)] ...</i>"
+			src << "<font color='blue'><i>... [pick(dreams)] ...</i></font>"
 			sleep(rand(40,70))
 			if(paralysis <= 0)
 				dreaming = 0
