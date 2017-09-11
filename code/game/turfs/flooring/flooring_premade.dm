@@ -45,6 +45,18 @@
 	icon_state = "oracarpet"
 	initial_flooring = /decl/flooring/carpet/oracarpet
 
+/turf/simulated/floor/carpet/arcade
+	name = "arcade carpet"
+	icon = 'icons/turf/floors_er.dmi'
+	icon_state = "arcade"
+	initial_flooring = /decl/flooring/carpet/arcade
+
+/turf/simulated/floor/carpet/redcarpet
+	name = "red carpet"
+	icon = 'icons/turf/floors_er.dmi'
+	icon_state = "redcarpet"
+	initial_flooring = /decl/flooring/carpet/redcarpet
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -68,6 +80,12 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
+
+/turf/simulated/floor/gravel
+	name = "pebbles"
+	icon = 'icons/turf/floors_er.dmi'
+	icon_state = "gravel"
+	initial_flooring = /decl/flooring/gravel
 
 /turf/simulated/floor/tiled
 	name = "floor"

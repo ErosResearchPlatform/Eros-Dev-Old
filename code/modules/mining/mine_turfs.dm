@@ -3,12 +3,12 @@ var/list/mining_overlay_cache = list()
 /**********************Mineral deposits**************************/
 /turf/unsimulated/mineral
 	name = "impassable rock"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/walls_er.dmi'
 	icon_state = "rock-dark"
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/turf/walls_er.dmi'
 	icon_state = "rock"
 	oxygen = 0
 	nitrogen = 0

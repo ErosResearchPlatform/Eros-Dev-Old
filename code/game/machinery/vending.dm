@@ -765,6 +765,7 @@
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
 	desc = "A softdrink vendor provided by Robust Industries, LLC."
+	icon = 'icons/obj/vending_er.dmi'
 	icon_state = "Cola_Machine"
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
@@ -1083,3 +1084,13 @@
 	//everything after the power cell had no amounts, I improvised.  -Sayu
 	req_log_access = access_rd
 	has_logs = 1
+
+// Eros Edit
+/obj/machinery/vending/autodrobe
+	name = "AutoDrobe"
+	desc = "A vending machine for costumes."
+	icon = 'icons/obj/vending_er.dmi'
+	icon_state = "theater"
+	icon_deny = "theater-deny"
+	req_access = list(access_bar)
+	products = list(/obj/item/clothing/suit/storage/toggle/labcoat = 0)  // I'll add the proper list of items later. Just reviving the autodrobe for now.

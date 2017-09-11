@@ -83,6 +83,18 @@ var/list/flooring_types
 /decl/flooring/snow/plating/drift
 	icon_base = "snowyplayingdrift"
 
+// Eros edit
+
+/decl/flooring/gravel
+	name = "pebbles"
+	desc = "Lots of small, smooth stones."
+	icon = 'icons/turf/floors_er.dmi'
+	icon_base = "gravel"
+	flags = TURF_REMOVE_SHOVEL
+	build_type = null
+
+// Eros edit end
+
 /decl/flooring/carpet
 	name = "carpet"
 	desc = "Imported and comfy."
@@ -134,6 +146,22 @@ var/list/flooring_types
 	icon_base = "oracarpet"
 	build_type = /obj/item/stack/tile/carpet/oracarpet
 // VOREStation Edit End
+
+// Eros edit!
+
+/decl/flooring/carpet/redcarpet
+	name = "red carpet"
+	icon = 'icons/turf/floors_er.dmi'
+	icon_base = "redcarpet"
+	build_type = /obj/item/stack/tile/carpet/redcarpet
+
+/decl/flooring/carpet/arcade
+	name = "arcade carpet"
+	icon = 'icons/turf/floors_er.dmi'
+	icon_base = "arcade"
+	build_type = /obj/item/stack/tile/carpet/arcade
+
+// Eros edit end
 
 /decl/flooring/tiling
 	name = "floor"
