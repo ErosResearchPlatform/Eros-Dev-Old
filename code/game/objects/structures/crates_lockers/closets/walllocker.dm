@@ -18,6 +18,7 @@
 	desc = "A wall mounted locker with emergency supplies."
 	var/list/spawnitems = list(/obj/item/weapon/tank/emergency/oxygen,/obj/item/clothing/mask/breath,/obj/item/weapon/crowbar/red)
 	var/amount = 2 // spawns each items X times.
+	icon = 'icons/obj/walllocker_er.dmi'	// Eros edit
 	icon_state = "emerg"
 
 /obj/structure/closet/walllocker/emerglocker/toggle(mob/user as mob)

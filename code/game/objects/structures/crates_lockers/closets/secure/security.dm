@@ -391,3 +391,34 @@
 				icon_state = icon_closed
 		else
 			icon_state = icon_opened
+
+
+// EROS Edit - Chapel closet, I don't want a new file for it and can't figure out where else to stuff it
+
+
+/obj/structure/closet/secure_closet/chapel
+	name = "chaplain's locker"
+	req_access = list(access_chapel_office)
+	icon_state = "preacher1"
+	icon_closed = "preacher"
+	icon_locked = "preacher1"
+	icon_opened = "preacheropen"
+	icon_broken = "preacherbroken"
+	icon_off = "preacheroff"
+
+
+	New()
+		..()
+		new /obj/item/clothing/under/rank/chaplain(src)
+		new /obj/item/clothing/shoes/black(src)
+		new /obj/item/clothing/suit/nun(src)
+		new /obj/item/clothing/head/nun_hood(src)
+		new /obj/item/clothing/suit/storage/hooded/chaplain_hoodie(src)
+		new /obj/item/clothing/suit/holidaypriest(src)
+		new /obj/item/clothing/under/wedding/bride_white(src)
+		new /obj/item/weapon/storage/backpack/cultpack (src)
+		new /obj/item/weapon/storage/fancy/candle_box(src)
+		new /obj/item/weapon/storage/fancy/candle_box(src)
+		new /obj/item/weapon/deck/tarot(src)
+		new /obj/item/device/megaphone(src)
+		return
