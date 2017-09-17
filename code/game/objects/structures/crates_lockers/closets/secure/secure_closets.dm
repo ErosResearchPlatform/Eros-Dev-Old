@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet
 	name = "secure locker"
 	desc = "It's an immobile card-locked storage unit."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/closet_er.dmi'	//Eros edit
 	icon_state = "secure1"
 	density = 1
 	opened = 0
