@@ -10,6 +10,7 @@
 /obj/item/weapon/storage/firstaid
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
+	icon = 'icons/obj/storage_er.dmi'	//Eros edit
 	icon_state = "firstaid"
 	throw_speed = 2
 	throw_range = 8

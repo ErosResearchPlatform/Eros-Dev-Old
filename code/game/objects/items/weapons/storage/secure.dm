@@ -143,7 +143,7 @@
 // -----------------------------
 /obj/item/weapon/storage/secure/briefcase
 	name = "secure briefcase"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage_er.dmi'	//Eros edit
 	icon_state = "secure"
 	item_state_slots = list(slot_r_hand_str = "case", slot_l_hand_str = "case")
 	desc = "A large briefcase with a digital locking system."

@@ -281,6 +281,7 @@
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
+	icon = 'icons/obj/closet.dmi'	// Eros edit
 	icon_state = "medical_wall_locked"
 	icon_closed = "medical_wall_unlocked"
 	icon_locked = "medical_wall_locked"

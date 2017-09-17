@@ -106,7 +106,7 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage_er.dmi'	//Eros edit
 	icon_state = "red"
 
 /obj/random/toolbox/item_to_spawn()
@@ -184,7 +184,7 @@
 /obj/random/firstaid
 	name = "Random First Aid Kit"
 	desc = "This is a random first aid kit."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage_er.dmi'	//Eros edit
 	icon_state = "firstaid"
 
 /obj/random/firstaid/item_to_spawn()

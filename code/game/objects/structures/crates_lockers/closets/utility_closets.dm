@@ -197,6 +197,7 @@
 /obj/structure/closet/hydrant //wall mounted fire closet
 	name = "fire-safety closet"
 	desc = "It's a storage unit for fire-fighting supplies."
+	icon = 'icons/obj/closet.dmi'	//Eros edit
 	icon_state = "hydrant"
 	icon_closed = "hydrant"
 	icon_opened = "hydrant_open"
@@ -219,6 +220,7 @@
 /obj/structure/closet/medical_wall //wall mounted medical closet
 	name = "first-aid closet"
 	desc = "It's wall-mounted storage unit for first aid supplies."
+	icon = 'icons/obj/closet.dmi'	//Eros edit
 	icon_state = "medical_wall"
 	icon_closed = "medical_wall"
 	icon_opened = "medical_wall_open"
