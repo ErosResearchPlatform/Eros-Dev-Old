@@ -11,6 +11,7 @@
 	name = "bartender's skirt"
 	icon_state = "ba_suit_skirt"
 	item_state_slots = list(slot_r_hand_str = "ba_suit", slot_l_hand_str = "ba_suit")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Colony Director\"."
@@ -107,6 +108,7 @@
 	desc = "The plain, professional attire of an Internal Affairs Agent. The top button is sewn shut."
 	name = "Internal Affairs skirt"
 	icon_state = "internalaffairs_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
@@ -127,6 +129,7 @@
 	name = "black lawyer skirt"
 	icon_state = "lawyer_black_skirt"
 	item_state_slots = list(slot_r_hand_str = "lawyer_black", slot_l_hand_str = "lawyer_black")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/lawyer/female
 	name = "black lawyer suit"
@@ -141,6 +144,7 @@
 	name = "red lawyer skirt"
 	icon_state = "lawyer_red_skirt"
 	item_state_slots = list(slot_r_hand_str = "lawyer_red", slot_l_hand_str = "lawyer_red")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/lawyer/blue
 	name = "blue lawyer suit"
@@ -150,6 +154,7 @@
 	name = "blue lawyer skirt"
 	icon_state = "lawyer_blue_skirt"
 	item_state_slots = list(slot_r_hand_str = "lawyer_blue", slot_l_hand_str = "lawyer_blue")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/lawyer/bluesuit
 	name = "blue suit"
@@ -161,6 +166,7 @@
 /obj/item/clothing/under/lawyer/bluesuit/skirt
 	name = "blue skirt suit"
 	icon_state = "bluesuit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/lawyer/purpsuit
 	name = "purple suit"
@@ -170,6 +176,7 @@
 /obj/item/clothing/under/lawyer/purpsuit/skirt
 	name = "purple skirt suit"
 	icon_state = "lawyer_purp_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/lawyer/oldman
 	name = "Old Man's Suit"

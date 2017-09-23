@@ -87,6 +87,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	rolled_sleeves = -1
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/rank/orderly
 	desc = "A white suit to be worn by medical attendants."
