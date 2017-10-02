@@ -198,11 +198,11 @@
 /obj/random/outside_mob/spawn_item()
 	..()
 	var/datum/map_z_level/z_level = get_z_level_datum(spawned_thing)
-	if(!istype(z_level, /datum/map_z_level/tether/wilderness))
+	if(!istype(z_level, /datum/map_z_level/eros/wilderness))
 		return
 	if(!istype(spawned_thing, /mob/living/simple_animal))
 		return
-	var/datum/map_z_level/tether/wilderness/wilderness = z_level
+	var/datum/map_z_level/eros/wilderness/wilderness = z_level
 	if(wilderness.activated)
 		return
 	var/mob/living/simple_animal/M = spawned_thing

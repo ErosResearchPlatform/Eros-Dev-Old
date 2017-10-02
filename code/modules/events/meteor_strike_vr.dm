@@ -4,7 +4,7 @@
 
 /datum/event/meteor_strike/setup()
 	startWhen = rand(8,15)
-	strike_target = pick(get_area_turfs(/area/tether/surfacebase/outside/outside3))
+	strike_target = pick(get_area_turfs(/area/eros/surfacebase/outside/outside3))
 
 	if(!strike_target)
 		kill()
