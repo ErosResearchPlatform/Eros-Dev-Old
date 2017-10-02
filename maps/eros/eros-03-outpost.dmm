@@ -529,7 +529,7 @@
 "ki" = (/obj/structure/cable{d2 = 2; icon_state = "0-2"; pixel_y = 0},/obj/machinery/power/solar{id = "engineering_outpost_solar_array"},/turf/simulated/floor/plating,/area/space)
 "kj" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"; tag = ""},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
 "kk" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; tag = ""},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
-"kl" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
+"kl" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
 "km" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
 "kn" = (/obj/structure/cable,/obj/machinery/power/solar{id = "engineering_outpost_solar_array"},/turf/simulated/floor/plating,/area/space)
 "ko" = (/obj/machinery/power/tracker,/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/space)
