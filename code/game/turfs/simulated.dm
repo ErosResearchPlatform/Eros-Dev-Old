@@ -180,3 +180,6 @@
 		new /obj/effect/decal/cleanable/blood/oil(src)
 	else if(ishuman(M))
 		add_blood(M)
+
+/turf/simulated/proc/pre_air_startup()
+	return

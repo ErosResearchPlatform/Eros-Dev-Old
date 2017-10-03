@@ -5,6 +5,20 @@ VIRGO3B_TURF_CREATE(/turf/simulated/open)
 /turf/simulated/open/virgo3b/New()
 	..()
 	outdoor_turfs.Add(src)
+/turf/simulated/open/pre_air_startup()
+	// Do not replace if an open tile is above a tile in the 'space' area
+	// Note that bay has different logic here but exploiting current map features
+	if(!HasBelow(z) || !istype(loc, /area/space))
+		return
+	var/turf/below = GetBelow(src)
+	if(istype(below.loc, /area/space))
+		return
+
+	// Below ignored from bay since only /area/space tiles eligible for conversion anyway
+	// We alter area type before the turf to ensure the turf-change-event-propagation is handled as expected.
+	// var/area/new_area = locate(/area/space) || new /area/space
+	// new_area.contents.Add(src)
+	ChangeTurf(/turf/simulated/floor/plating)
 
 VIRGO3B_TURF_CREATE(/turf/simulated/floor)
 /turf/simulated/floor/virgo3b/New()
