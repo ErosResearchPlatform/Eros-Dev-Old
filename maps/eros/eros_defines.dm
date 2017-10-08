@@ -61,10 +61,7 @@
 	holomap_smoosh = list(list(
 		Z_LEVEL_SURFACE_LOW,
 		Z_LEVEL_SURFACE_MID,
-		Z_LEVEL_SURFACE_HIGH,
-		Z_LEVEL_SPACE_LOW,
-		Z_LEVEL_SPACE_MID,
-		Z_LEVEL_SPACE_HIGH))
+		Z_LEVEL_SURFACE_HIGH))
 
 	station_name  = "Eros Research Colony"
 	station_short = "Eros"
@@ -134,37 +131,37 @@
 		return ..()
 
 // For making the 6-in-1 holomap, we calculate some offsets
-#define TETHER_MAP_SIZE 185 // Width and height of compiled in tether z levels.
+#define TETHER_MAP_SIZE 180 // Width and height of compiled in tether z levels.
 #define TETHER_HOLOMAP_CENTER_GUTTER 40 // 40px central gutter between columns
-#define TETHER_HOLOMAP_MARGIN_X ((HOLOMAP_ICON_SIZE - (2*TETHER_MAP_SIZE)) / 2) // 100
-#define TETHER_HOLOMAP_MARGIN_Y ((HOLOMAP_ICON_SIZE - (4*TETHER_MAP_SIZE)) / 2) // 60
+#define TETHER_HOLOMAP_MARGIN_X ((HOLOMAP_ICON_SIZE - (2*TETHER_MAP_SIZE) - TETHER_HOLOMAP_CENTER_GUTTER) / 2) // 100
+#define TETHER_HOLOMAP_MARGIN_Y ((HOLOMAP_ICON_SIZE - (2*TETHER_MAP_SIZE) - TETHER_HOLOMAP_CENTER_GUTTER) / 2) // 60
 
 // We have a bunch of stuff common to the station z levels
 /datum/map_z_level/eros/station
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER|MAP_LEVEL_CONSOLES
-	holomap_legend_x = 220
-	holomap_legend_y = 160
+	holomap_legend_x = HOLOMAP_ICON_SIZE - TETHER_HOLOMAP_MARGIN_X - TETHER_MAP_SIZE
+	holomap_legend_y = HOLOMAP_ICON_SIZE - TETHER_HOLOMAP_MARGIN_Y - TETHER_MAP_SIZE
 
 /datum/map_z_level/eros/station/surface_low
 	z = Z_LEVEL_SURFACE_LOW
 	name = "Surface 1"
 	base_turf = /turf/simulated/floor/outdoors/rocks/virgo3b
-	holomap_offset_x = TETHER_HOLOMAP_MARGIN_X
-	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y + TETHER_MAP_SIZE*0
+	holomap_offset_x = HOLOMAP_ICON_SIZE - TETHER_HOLOMAP_MARGIN_X - TETHER_MAP_SIZE
+	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y
 
 /datum/map_z_level/eros/station/surface_mid
 	z = Z_LEVEL_SURFACE_MID
 	name = "Surface 2"
 	base_turf = /turf/simulated/open
 	holomap_offset_x = TETHER_HOLOMAP_MARGIN_X
-	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y + TETHER_MAP_SIZE*1
+	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y
 
 /datum/map_z_level/eros/station/surface_high
 	z = Z_LEVEL_SURFACE_HIGH
 	name = "Surface 3"
 	base_turf = /turf/simulated/open
 	holomap_offset_x = TETHER_HOLOMAP_MARGIN_X
-	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y + TETHER_MAP_SIZE*2
+	holomap_offset_y = HOLOMAP_ICON_SIZE - TETHER_HOLOMAP_MARGIN_Y - TETHER_MAP_SIZE
 
 /datum/map_z_level/eros/mine
 	z = Z_LEVEL_SURFACE_MINE

@@ -11,10 +11,18 @@
 	name = "Outside - Surface"
 	sound_env = MOUNTAINS
 /area/eros/surfacebase/outside/outside1
+	name = "Outside - Underground"
 	icon_state = "outside1"
+/area/eros/surfacebase/outside/outside1unex
+	// Mostly just need this to hide rock from holomap
+	icon_state = "outside1unex"
+	holomapAlwaysDraw()
+		return FALSE
 /area/eros/surfacebase/outside/outside2
+	name = "Outside - Surface"
 	icon_state = "outside2"
 /area/eros/surfacebase/outside/outside3
+	name = "Outside - Roof"
 	icon_state = "outside3"
 
 /area/eros/surfacebase/outside/empty
@@ -421,6 +429,30 @@
 	name = "\improper Syndicate LC - Mining"
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/outdoors/dirt/virgo3b
+
+/area/library/upper
+	name = "\improper Upper Library"
+	icon_state = "library"
+
+/area/library/under
+	name = "\improper Libary Undermaint"
+	icon_state = "library"
+
+/area/chapel/upper
+	name = "\improper Upper Chapel"
+	icon_state = "chapel"
+
+/area/quartermaster/upper
+	name = "\improper Upper Cargo"
+	icon_state = "quart"
+
+/area/eros/surfacebase/hotspring
+	name = "\improper Hotspring"
+	icon_state = "cave"
+
+/area/crew_quarters/sleep/entrance
+	name = "\improper Dorms Entrance"
+	icon_state = "Sleep"
 
 
 
