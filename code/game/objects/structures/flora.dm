@@ -46,6 +46,15 @@
 	overlays.Cut()
 	overlays.Add(image(icon = 'icons/obj/flora/deadtrees.dmi', icon_state = "[icon_state]_glow", layer = LIGHTING_LAYER + 0.1))
 
+/obj/structure/flora/tree/jungle	// Eros addition
+	icon = 'icons/obj/flora/jungletreesmall.dmi'
+	icon_state = "tree"
+
+/obj/structure/flora/tree/jungle/New()
+	..()
+	icon_state = "tree[rand(1, 6)]"
+
+
 //grass
 /obj/structure/flora/grass
 	name = "grass"
@@ -360,3 +369,65 @@
 	name = "small christmas tree"
 	desc = "This is a tiny well lit decorative christmas tree."
 	icon_state = "plant-xmas"
+
+// EROS ADDITION -- plants from FTL
+
+/obj/structure/flora/jungle/
+	name = "bush"
+	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon_state = "busha"
+	anchored = 1
+
+/obj/structure/flora/jungle/busha
+	icon_state = "busha"
+
+/obj/structure/flora/jungle/busha/New()
+	..()
+	icon_state = "busha[rand(1, 3)]"
+
+/obj/structure/flora/jungle/bushb
+	icon_state = "bushb"
+
+/obj/structure/flora/jungle/bushb/New()
+	..()
+	icon_state = "bushb[rand(1, 3)]"
+
+/obj/structure/flora/jungle/bushc
+	icon_state = "bushc"
+
+/obj/structure/flora/jungle/bushc/New()
+	..()
+	icon_state = "bushc[rand(1, 3)]"
+
+/obj/structure/flora/jungle/rock
+	name = "rock"
+	icon_state = "rock"
+
+/obj/structure/flora/jungle/rock/New()
+	..()
+	icon_state = "rock[rand(1, 5)]"
+
+/obj/structure/flora/jungle/grassa
+	name = "tall grass"
+	icon_state = "grassa"
+
+/obj/structure/flora/jungle/grassa/New()
+	..()
+	icon_state = "grassa[rand(1, 5)]"
+
+/obj/structure/flora/jungle/grassb
+	name = "tall grass"
+	icon_state = "grassb"
+
+/obj/structure/flora/jungle/grassb/New()
+	..()
+	icon_state = "grassb[rand(1, 5)]"
+
+/obj/structure/flora/jungle/bigbush
+	name = "tall bush"
+	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon_state = "bush"
+
+/obj/structure/flora/jungle/bigbush/New()
+	..()
+	icon_state = "bush[rand(1, 3)]"
