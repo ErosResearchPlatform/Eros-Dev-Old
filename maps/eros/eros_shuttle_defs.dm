@@ -50,6 +50,18 @@
 	dock_target_station = "cargo_bay"
 	flags = SHUTTLE_FLAGS_PROCESS|SHUTTLE_FLAGS_SUPPLY
 
+// Research Tram
+
+/datum/shuttle/ferry/outpost
+	name = "Outpost Tram"
+	location = 0 // At offsite
+	warmup_time = 10
+	area_offsite = /area/shuttle/research/outpost
+	area_station = /area/shuttle/research/station
+	docking_controller_tag = null
+	dock_target_station = null
+	dock_target_offsite = null
+
 //////////////////////////////////////////////////////////////
 // Trade Ship
 /datum/shuttle/ferry/trade
