@@ -111,6 +111,10 @@
 /area/eros/outpost/solars_shed
 	name = "\improper Solar Farm Shed"
 
+/area/eros/outpost/outside
+	name = "Outside - Surface - Outpost"
+	sound_env = MOUNTAINS
+	icon_state = "explored"
 
 /area/maintenance/substation/medsec
 	name = "\improper MedSec Substation"
