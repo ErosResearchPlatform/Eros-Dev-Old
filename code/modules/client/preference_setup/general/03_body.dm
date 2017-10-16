@@ -368,6 +368,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/max_age = get_max_age()
 			pref.age = max(min(pref.age, max_age), min_age)
 
+			pref.player_setup.validate_species(user)
+
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_color"])
