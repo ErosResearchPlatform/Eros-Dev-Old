@@ -47,10 +47,3 @@ var/list/grass_types = list(
 	icon_state = "grass_sif_dark"
 	edge_blending_priority = 5
 	tree_chance = 10
-
-/turf/simulated/floor/outdoors/grass/eros	//Eros addition
-	name = "grass"
-	icon = 'icons/turf/floors_er.dmi'
-	icon_state = "grass"
-	edge_blending_priority = 4
-	grass_chance = 0

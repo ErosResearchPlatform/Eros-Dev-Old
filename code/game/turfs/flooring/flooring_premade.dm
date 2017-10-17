@@ -77,7 +77,7 @@
 
 /turf/simulated/floor/grass
 	name = "grass patch"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'icons/turf/flooring/grass_er.dmi'	//Eros edit -- let's ditch the neon grass
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
