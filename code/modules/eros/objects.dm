@@ -4,3 +4,4 @@
 	icon_state = "memorial"
 	density = 1
 	anchored = 1
+	anchored = 1
