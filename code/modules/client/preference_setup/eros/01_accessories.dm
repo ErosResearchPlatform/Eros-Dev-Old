@@ -91,6 +91,16 @@
 	S["hide_underwear"]	<< pref.hide_underwear
 	//Eros edit END
 
+/datum/category_item/player_setup_item/eros/accessories/proc/get_valid_tails(var/mob/user)
+	var/list/valid_tail_styles = list()
+	for(var/path in tail_styles_list)
+		var/datum/sprite_accessory/tail/instance = tail_styles_list[path]
+		if(!(pref.species in instance.species_allowed))
+			continue
+		if((!instance.ckeys_allowed) || (user.ckey in instance.ckeys_allowed))
+			valid_tail_styles += path
+	return valid_tail_styles
+
 /datum/category_item/player_setup_item/eros/accessories/sanitize_character()
 	pref.r_tail		= sanitize_integer(pref.r_tail, 0, 255, initial(pref.r_tail))
 	pref.g_tail		= sanitize_integer(pref.g_tail, 0, 255, initial(pref.g_tail))
@@ -124,6 +134,11 @@
 	if(pref.breast_style)
 		pref.breast_style = sanitize_inlist(pref.breast_style, breast_styles_list, initial(pref.breast_style))
 	//Eros edit END
+
+/datum/category_item/player_setup_item/eros/accessories/validate_species(var/mob/user)
+	var/list/valid_tails = get_valid_tails(user)
+	if(!pref.tail_style || !(pref.tail_style in valid_tails))
+		pref.tail_style = pick(valid_tails)
 
 /datum/category_item/player_setup_item/eros/accessories/copy_to_mob(var/mob/living/carbon/human/character)
 	character.ear_style			= ear_styles_list[pref.ear_style]
@@ -272,15 +287,16 @@
 
 	else if(href_list["tail_style"])
 		// Construct the list of names allowed for this user.
-		var/list/pretty_tail_styles = list("Normal" = null)
-		for(var/path in tail_styles_list)
+		var/list/valid_tail_styles = get_valid_tails(user)
+		var/list/valid_tail_names = list()
+		for(var/path in valid_tail_styles)
 			var/datum/sprite_accessory/tail/instance = tail_styles_list[path]
-			if((!instance.ckeys_allowed) || (user.ckey in instance.ckeys_allowed))
-				pretty_tail_styles[instance.name] = path
+			valid_tail_names[instance.name] = path
 
 		// Present choice to user
-		var/selection = input(user, "Pick tails", "Character Preference") as null|anything in pretty_tail_styles
-		pref.tail_style = pretty_tail_styles[selection]
+		var/selection = input(user, "Pick tails", "Character Preference") as null|anything in valid_tail_names
+		if(selection)
+			pref.tail_style = valid_tail_names[selection]
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 

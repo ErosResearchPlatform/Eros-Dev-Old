@@ -220,7 +220,7 @@
 	icon_state = "sleek"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
-	
+
 // Special snowflake ears go below here.
 
 /datum/sprite_accessory/ears/molenar_kitsune
@@ -433,6 +433,8 @@
 	var/desc = "You should not see this..."
 	var/ani_state // State when wagging/animated
 	var/extra_overlay_w // Wagging state for extra overlay
+
+	species_allowed = SPECIES_TAILCONTROL
 
 /datum/sprite_accessory/tail/invisible
 	name = "hide species-sprite tail"
@@ -773,6 +775,7 @@
 	icon_state = "snaketail"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
+	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/sergaltaildc
 	name = "sergal, dual-color"
@@ -1029,6 +1032,7 @@
 /datum/sprite_accessory/tail/taur/spider
 	name = "Spider"
 	icon_state = "spider_s"
+	species_allowed = list("Veirei")
 
 /datum/sprite_accessory/tail/taur/tents
 	name = "Tentacles"

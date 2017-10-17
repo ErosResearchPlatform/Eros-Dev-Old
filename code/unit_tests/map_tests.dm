@@ -13,7 +13,7 @@
 					/area/supply/station,
 					/area/mine,
 					/area/turbolift, // VOREStation Edit - Its a turbolift,
-					/area/tether/surfacebase/outside, // VOREStation Edit - Outside,
+					/area/eros/surfacebase/outside, // VOREStation Edit - Outside,
 					/area/vacant // VOREStation Edit - All vacant areas!,
 					)
 
@@ -27,9 +27,9 @@
 						/area/vacant/vacant_shop,
 						/area/engineering/atmos/intake, // VOREStation Edit - Outside,
 						/area/rnd/external, // VOREStation Edit - Outside,
-						/area/tether/surfacebase/mining_main/external, // VOREStation Edit - Outside,
-						/area/tether/surfacebase/mining_main/airlock, // VOREStation Edit - Its an airlock,
-						/area/tether/surfacebase/emergency_storage, // VOREStation Edit,
+						/area/eros/surfacebase/mining_main/external, // VOREStation Edit - Outside,
+						/area/eros/surfacebase/mining_main/airlock, // VOREStation Edit - Its an airlock,
+						/area/eros/surfacebase/emergency_storage, // VOREStation Edit,
 						/area/rnd/research_storage, // This should probably be fixed,
 						/area/security/riot_control // This should probably be fixed,
 						)

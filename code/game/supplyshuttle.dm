@@ -31,7 +31,7 @@ var/list/mechtoys = list(
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
-	base_turf = /turf/space
+	base_turf = /turf/simulated/floor/plating
 
 /area/supply/dock
 	name = "Supply Shuttle"

@@ -335,6 +335,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/station
 	name = "\improper Special Ops Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
 /area/shuttle/syndicate_elite/mothership
@@ -343,6 +344,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite/station
 	name = "\improper Merc Elite Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
 /area/shuttle/administration/centcom
@@ -351,6 +353,7 @@ area/space/atmosalert()
 
 /area/shuttle/administration/station
 	name = "NSB Adephagia (AS)" //VOREStation Edit
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
 /area/shuttle/trade/centcom
@@ -359,6 +362,7 @@ area/space/atmosalert()
 
 /area/shuttle/trade/station
 	name = "\improper Trade Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered"
 
 /area/shuttle/thunderdome
