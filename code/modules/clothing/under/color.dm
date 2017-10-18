@@ -14,6 +14,7 @@
 	desc = "A slimming black jumpskirt."
 	icon_state = "blackjumpskirt"
 	item_state_slots = list(slot_r_hand_str = "black", slot_l_hand_str = "black")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/color/blue
 	name = "blue jumpsuit"

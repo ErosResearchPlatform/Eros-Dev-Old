@@ -25,6 +25,7 @@
 	name = "white skirt suit"
 	icon_state = "scratch_skirt"
 	item_state_slots = list(slot_r_hand_str = "scratch", slot_l_hand_str = "scratch")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/sl_suit
 	desc = "It's a very amish looking suit."
@@ -60,6 +61,7 @@
 	item_state_slots = list(slot_r_hand_str = "clown", slot_l_hand_str = "clown")
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	rolled_sleeves = -1 //Please never
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/rank/vice
 	name = "vice officer's jumpsuit"
@@ -107,6 +109,7 @@
 	name = "Green formal skirt uniform"
 	desc = "A neat proper uniform of someone on offical business. The top button is sewn shut."
 	icon_state = "greensuit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"
@@ -167,6 +170,7 @@
 	name = "lady's suit"
 	desc = "A silk black blouse with a matching gray skirt. Feels proper."
 	icon_state = "gentlesuit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/gimmick/rank/captain/suit
 	name = "colony director's suit"
@@ -177,6 +181,7 @@
 /obj/item/clothing/under/gimmick/rank/captain/suit/skirt
 	name = "colony director's skirt suit"
 	icon_state = "green_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
@@ -187,6 +192,7 @@
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt
 	name = "head of personnel's skirt suit"
 	icon_state = "teal_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
@@ -204,6 +210,7 @@
 	name = "executive skirt suit"
 	desc = "A formal black suit and red necktie, intended for the station's finest."
 	icon_state = "really_black_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/female
 	name = "female executive suit"
@@ -217,6 +224,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	icon_state = "black_suit_fem"
 	item_state = "black_formal_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
@@ -228,6 +236,7 @@
 	name = "red skirt suit"
 	desc = "A red suit and blue necktie. Somewhat formal."
 	icon_state = "red_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/schoolgirl
 	name = "schoolgirl uniform"
@@ -235,6 +244,7 @@
 	icon_state = "schoolgirl"
 	item_state_slots = list(slot_r_hand_str = "blue", slot_l_hand_str = "blue")
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
@@ -267,6 +277,7 @@
 	icon_state = "kilt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
 	rolled_sleeves = 0
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/sexymime
 	name = "sexy mime outfit"
@@ -275,6 +286,7 @@
 	item_state_slots = list(slot_r_hand_str = "mime", slot_l_hand_str = "mime")
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	rolled_sleeves = -1 //Please never
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/gladiator
 	name = "gladiator uniform"
@@ -282,12 +294,14 @@
 	icon_state = "gladiator"
 	item_state_slots = list(slot_r_hand_str = "yellow", slot_l_hand_str = "yellow")
 	body_parts_covered = LOWER_TORSO
+	flags_inv = HIDEBREAST
 
 /*
  * dress
  */
 /obj/item/clothing/under/dress
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/blacktango
 	name = "black tango dress"
@@ -309,16 +323,19 @@
 	name = "sailor dress"
 	desc = "Formal wear for a leading lady."
 	icon_state = "sailor_dress"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/redeveninggown
 	name = "red evening gown"
 	desc = "Fancy dress for space bar singers."
 	icon_state = "red_evening_gown"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/maid
 	name = "maid costume"
 	desc = "Maid in China."
 	icon_state = "maid"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/janimaid
 	name = "maid uniform"
@@ -329,11 +346,13 @@
 	name = "sexy maid uniform"
 	desc = "You must be a bit risque teasing all of them in a maid uniform!"
 	icon_state = "sexymaid"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/dress_fire
 	name = "flame dress"
 	desc = "A small black dress with blue flames print on it."
 	icon_state = "dress_fire"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/dress_green
 	name = "green dress"
@@ -354,6 +373,7 @@
 	name = "yellow dress"
 	desc = "A flirty, little yellow dress."
 	icon_state = "dress_yellow"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/dress_saloon
 	name = "saloon girl dress"
@@ -366,23 +386,27 @@
 	desc = "Feminine fashion for the style concious Colony Director."
 	icon_state = "dress_cap"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/dress_hop
 	name = "head of personnel dress uniform"
 	desc = "Feminine fashion for the style concious HoP."
 	icon_state = "dress_hop"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/dress_hr
 	name = "human resources director uniform"
 	desc = "Superior class for the nosy H.R. Director."
 	icon_state = "huresource"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/black_corset
 	name = "black corset"
 	desc = "A black corset and skirt for those fancy nights out."
 	icon_state = "black_corset"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/flower_dress
 	name = "flower dress"
@@ -393,6 +417,7 @@
 	name = "red swept dress"
 	desc = "A red dress that sweeps to the side."
 	icon_state = "red_swept_dress"
+	flags_inv = HIDEBREAST
 
 /*
  * wedding stuff
@@ -436,12 +461,14 @@
 	desc = "Makes you want to frolic in a field of daisies."
 	icon_state = "sundress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/sundress_white
 	name = "white sundress"
 	desc = "A white sundress decorated with purple lilies."
 	icon_state = "sundress_white"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/captainformal
 	name = "colony director's formal uniform"
@@ -460,6 +487,7 @@
 	desc = "A female head of security's formal-wear, for special occasions."
 	icon_state = "hos_formal_fem"
 	item_state_slots = list(slot_r_hand_str = "lawyer_red", slot_l_hand_str = "lawyer_red")
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/assistantformal
 	name = "assistant's formal uniform"
@@ -477,6 +505,7 @@
 /obj/item/clothing/under/suit_jacket/charcoal/skirt
 	name = "charcoal skirt"
 	icon_state = "charcoal_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
@@ -488,6 +517,7 @@
 /obj/item/clothing/under/suit_jacket/navy/skirt
 	name = "navy skirt"
 	icon_state = "navy_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/burgundy
 	name = "burgundy suit"
@@ -499,6 +529,7 @@
 /obj/item/clothing/under/suit_jacket/burgundy/skirt
 	name = "burgundy skirt"
 	icon_state = "burgundy_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/checkered
 	name = "checkered suit"
@@ -510,6 +541,7 @@
 /obj/item/clothing/under/suit_jacket/checkered/skirt
 	name = "checkered skirt"
 	icon_state = "checkered_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/suit_jacket/tan
 	name = "tan suit"
@@ -521,6 +553,7 @@
 /obj/item/clothing/under/suit_jacket/tan/skirt
 	name = "tan skirt"
 	icon_state = "tan_suit_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/serviceoveralls
 	name = "workman outfit"
@@ -534,21 +567,25 @@
 	desc = "It is a white cheongsam dress."
 	icon_state = "mai_yang"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
 	desc = "It is a red cheongsam dress."
 	icon_state = "cheongsam-red"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/cheongsam/blue
 	name = "blue cheongsam"
 	desc = "It is a blue cheongsam dress."
 	icon_state = "cheongsam-blue"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/cheongsam/black
 	name = "black cheongsam"
 	desc = "It is a black cheongsam dress."
 	icon_state = "cheongsam-black"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
@@ -560,6 +597,7 @@
 	name = "ladies blue blazer"
 	desc = "A bold but yet conservative outfit, a red pencil skirt and a navy blazer."
 	icon_state = "blue_blazer_skirt"
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/croptop
 	name = "crop top"
@@ -596,6 +634,7 @@
 	desc = "How... minimalist."
 	icon_state = "gear_harness"
 	body_parts_covered = 0
+	flags_inv = HIDEBREAST
 
 /obj/item/clothing/under/dress/white
 	name = "white wedding dress"
@@ -624,6 +663,7 @@
 	name = "fancy dark red dress"
 	desc = "A short, red dress with a black belt. Fancy."
 	icon_state = "darkreddress"
+	flags_inv = HIDEBREAST
 
 /*
  * swimsuit
@@ -698,6 +738,7 @@
 	desc = "No honest man would wear this abomination"
 	icon_state = "mankini"
 	siemens_coefficient = 1
+	flags_inv = HIDEANATOMY
 
 /*
  *Misc Uniforms
@@ -776,3 +817,4 @@
 	icon_state = "medicalgown"
 	worn_state = "medicalgown"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	flags_inv = HIDEBREAST
