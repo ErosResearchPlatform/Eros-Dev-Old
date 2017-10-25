@@ -26,6 +26,9 @@
 	display_name = "Collar, Pink"
 	path = /obj/item/clothing/accessory/collar/pink
 
+/datum/gear/collar/holo
+	display_name = "Collar, Holo"
+	path = /obj/item/clothing/accessory/collar/holo
 /datum/gear/accessory/white_drop_pouches
 	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor","Chemist")
 
@@ -51,3 +54,8 @@
 	display_name = "KH Life Crystal"
 	path = /obj/item/weapon/storage/box/khcrystal
 	description = "A small necklace device that will notify an offsite cloning facility should you expire after activating it."
+
+/datum/gear/accessory/tronket
+    display_name = "Metal necklace"
+    description = "A shiny steel chain with a vague metallic object dangling off it."
+    path = /obj/item/clothing/accessory/tronket

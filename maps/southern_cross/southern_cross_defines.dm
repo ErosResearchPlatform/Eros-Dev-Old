@@ -9,6 +9,7 @@
 #define Z_LEVEL_MISC					7
 #define Z_LEVEL_CENTCOM					8
 #define Z_LEVEL_TRANSIT					9
+#define Z_LEVEL_SURFACE_WILD			10
 
 /datum/map/southern_cross
 	name = "Southern Cross"
@@ -20,7 +21,7 @@
 
 	zlevel_datum_type = /datum/map_z_level/southern_cross
 
-	station_name  = "Southern Cross"
+	station_name  = "NLS Southern Cross"
 	station_short = "Southern Cross"
 	dock_name     = "NCS Northern Star" // Now we're the centcom!
 	boss_name     = "Central Command"
@@ -100,6 +101,12 @@
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 	base_turf = /turf/simulated/floor/outdoors/rocks
 
+/datum/map_z_level/southern_cross/surface_wild
+	z = Z_LEVEL_SURFACE_WILD
+	name = "Wild"
+	flags = MAP_LEVEL_PLAYER
+	base_turf = /turf/simulated/floor/outdoors/rocks
+
 /datum/map_z_level/southern_cross/misc
 	z = Z_LEVEL_MISC
 	name = "Misc"
@@ -118,14 +125,36 @@
 
 //Teleport to Mine
 
-/obj/effect/step_trigger/teleporter/to_mining/New()
+/obj/effect/step_trigger/teleporter/mine/to_mining/New()
 	..()
 	teleport_x = src.x
 	teleport_y = 2
 	teleport_z = Z_LEVEL_SURFACE_MINE
 
-/obj/effect/step_trigger/teleporter/from_mining/New()
+/obj/effect/step_trigger/teleporter/mine/from_mining/New()
 	..()
 	teleport_x = src.x
 	teleport_y = world.maxy - 1
 	teleport_z = Z_LEVEL_SURFACE
+
+//Teleport to Wild
+
+/obj/effect/step_trigger/teleporter/wild/to_wild/New()
+	..()
+	teleport_x = src.x
+	teleport_y = world.maxy - 1
+	teleport_z = Z_LEVEL_SURFACE_WILD
+
+/obj/effect/step_trigger/teleporter/wild/from_wild/New()
+	..()
+	teleport_x = src.x
+	teleport_y = 2
+	teleport_z = Z_LEVEL_SURFACE
+
+/datum/planet/sif
+	expected_z_levels = list(
+		Z_LEVEL_SURFACE,
+		Z_LEVEL_SURFACE_MINE,
+		Z_LEVEL_SURFACE_WILD,
+		Z_LEVEL_TRANSIT
+	)

@@ -1,4 +1,4 @@
-/obj/item/clothing/var/hides_bulges = FALSE // OwO wats this?
+/obj/item/clothing/var/hides_bulges = TRUE // OwO wats this?
 
 /mob/living/carbon/human/proc/show_pudge()
 	//A uniform could hide it.
@@ -28,6 +28,7 @@
 	item_state = "golem"  //This is dumb and hacky but was here when I got here.
 	worn_state = "golem"  //It's basically just a coincidentally black iconstate in the file.
 
+/*
 /obj/item/clothing/under/bluespace
 	name = "bluespace jumpsuit"
 	icon_state = "lingchameleon"
@@ -41,7 +42,7 @@
 			Allows one to resize themselves at will, and conceals their true weight."
 	hides_bulges = TRUE
 	var/original_size
-
+*/
 /obj/item/clothing/under/bluespace/verb/resize()
 	set name = "Adjust Size"
 	set category = "Object"
@@ -84,8 +85,8 @@
 
 	else if(new_size)
 		if(new_size != H.size_multiplier)
-			if(!original_size)
-				original_size = H.size_multiplier
+			//if(!original_size)
+				//original_size = H.size_multiplier
 			H.resize(new_size/100)
 			H.visible_message("<span class='warning'>The space around [H] distorts as they change size!</span>","<span class='notice'>The space around you distorts as you change size!</span>")
 		else //They chose their current size.
@@ -93,8 +94,8 @@
 
 /obj/item/clothing/under/bluespace/mob_can_unequip(mob/M, slot, disable_warning = 0)
 	. = ..()
-	if(. && ishuman(M) && original_size)
-		var/mob/living/carbon/human/H = M
-		H.resize(original_size)
-		original_size = null
-		H.visible_message("<span class='warning'>The space around [H] distorts as they return to their original size!</span>","<span class='notice'>The space around you distorts as you return to your original size!</span>")
+	//if(. && ishuman(M) && original_size)
+		//var/mob/living/carbon/human/H = M
+		//H.resize(original_size)
+		//original_size = null
+		//H.visible_message("<span class='warning'>The space around [H] distorts as they return to their original size!</span>","<span class='notice'>The space around you distorts as you return to your original size!</span>")

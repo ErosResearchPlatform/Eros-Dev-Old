@@ -16,17 +16,17 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
-	var/datum/gas_mixture/filtered = new
+	var/datum/gas_mixture/gas_filtered = new
 
 	for(var/g in filtered_gases)
 		if(air.gas[g])
-			filtered.gas[g] = air.gas[g] * gas_filter_strength
-			air.gas[g] -= filtered.gas[g]
+			gas_filtered.gas[g] = air.gas[g] * gas_filter_strength
+			air.gas[g] -= gas_filtered.gas[g]
 
 	air.update_values()
-	filtered.update_values()
+	gas_filtered.update_values()
 
-	return filtered
+	return gas_filtered
 
 /obj/item/clothing/mask/gas/half
 	name = "face mask"
@@ -105,9 +105,9 @@
 	flags_inv = HIDEEARS|HIDEFACE
 	item_state_slots = list(slot_r_hand_str = "mime", slot_l_hand_str = "mime")
 
-/obj/item/clothing/mask/gas/death_commando
-	name = "Death Commando Mask"
-	icon_state = "death_commando_mask"
+/obj/item/clothing/mask/gas/commando
+	name = "commando mask"
+	icon_state = "fullgas"
 	item_state_slots = list(slot_r_hand_str = "swat", slot_l_hand_str = "swat")
 	siemens_coefficient = 0.2
 

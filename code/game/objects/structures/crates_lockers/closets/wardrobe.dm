@@ -149,6 +149,7 @@
 	new /obj/item/clothing/suit/nun(src)
 	new /obj/item/clothing/head/nun_hood(src)
 	new /obj/item/clothing/suit/storage/hooded/chaplain_hoodie(src)
+	new /obj/item/clothing/suit/storage/hooded/chaplain_hoodie/whiteout(src)
 	new /obj/item/clothing/suit/holidaypriest(src)
 	new /obj/item/clothing/under/wedding/bride_white(src)
 	new /obj/item/weapon/storage/backpack/cultpack (src)
@@ -369,11 +370,15 @@
 	new /obj/item/clothing/suit/storage/hooded/wintercoat/science(src)
 	new /obj/item/clothing/shoes/boots/winter/science(src)
 	new /obj/item/weapon/storage/backpack/toxins(src)
-	new /obj/item/weapon/storage/backpack/toxins(src)
 	new /obj/item/weapon/storage/backpack/satchel/tox(src)
-	new /obj/item/weapon/storage/backpack/satchel/tox(src)
-	return
-
+	if(prob(50))
+		new /obj/item/weapon/storage/backpack/dufflebag/sci(src)
+	else
+		new /obj/item/weapon/storage/backpack/satchel/tox(src)
+	if(prob(50))
+		new /obj/item/weapon/storage/backpack/dufflebag/sci(src)
+	else
+		new /obj/item/weapon/storage/backpack/satchel/tox(src)
 /obj/structure/closet/wardrobe/robotics_black
 	name = "robotics wardrobe"
 	icon_state = "black"
@@ -390,9 +395,15 @@
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/weapon/storage/backpack/toxins(src)
-	new /obj/item/weapon/storage/backpack/toxins(src)
+	if(prob(50))
+		new /obj/item/weapon/storage/backpack/dufflebag/sci(src)
+	else
+		new /obj/item/weapon/storage/backpack/satchel/tox(src)
 	new /obj/item/weapon/storage/backpack/satchel/tox(src)
-	new /obj/item/weapon/storage/backpack/satchel/tox(src)
+	if(prob(50))
+		new /obj/item/weapon/storage/backpack/dufflebag/sci(src)
+	else
+		new /obj/item/weapon/storage/backpack/satchel/tox(src)
 	return
 
 
@@ -415,6 +426,8 @@
 	new /obj/item/weapon/storage/backpack/chemistry(src)
 	new /obj/item/weapon/storage/backpack/satchel/chem(src)
 	new /obj/item/weapon/storage/backpack/satchel/chem(src)
+	new /obj/item/weapon/storage/bag/chemistry(src)
+	new /obj/item/weapon/storage/bag/chemistry(src)
 	return
 
 
@@ -475,11 +488,11 @@
 	new /obj/item/clothing/under/rank/medical(src)
 	new /obj/item/clothing/under/rank/medical/skirt(src)
 	new /obj/item/clothing/under/rank/medical/skirt(src)
-	new /obj/item/clothing/under/rank/medical/blue(src)
-	new /obj/item/clothing/under/rank/medical/green(src)
-	new /obj/item/clothing/under/rank/medical/purple(src)
-	new /obj/item/clothing/under/rank/medical/black(src)
-	new /obj/item/clothing/under/rank/medical/navyblue(src)
+	new /obj/item/clothing/under/rank/medical/scrubs(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/green(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/purple(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/black(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/navyblue(src)
 	new /obj/item/clothing/head/surgery/navyblue(src)
 	new /obj/item/clothing/head/surgery/purple(src)
 	new /obj/item/clothing/head/surgery/blue(src)

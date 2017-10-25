@@ -33,7 +33,7 @@
 		/mob/living/simple_animal/mouse,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/slime,
-		/mob/living/simple_animal/adultslime,
+//		/mob/living/simple_animal/adultslime,
 		/mob/living/simple_animal/tindalos,
 		/mob/living/simple_animal/yithian,
 		/mob/living/simple_animal/hostile/scarybat,
@@ -107,7 +107,7 @@
 	for(var/mob/living/simple_animal/hostile/SM in controlled_mobs)
 		deselect(SM)
 	controlled_mobs = list()
-	..()
+	return ..()
 
 /obj/item/weapon/spell/control/on_use_cast(mob/living/user)
 	if(controlled_mobs.len != 0)

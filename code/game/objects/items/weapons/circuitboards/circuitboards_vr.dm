@@ -26,3 +26,23 @@
 							/obj/item/weapon/stock_parts/manipulator = 1,
 							/obj/item/weapon/stock_parts/capacitor = 1,
 							/obj/item/weapon/stock_parts/console_screen = 1)
+
+// Board for the thermal regulator in airconditioner_vr.dm
+/obj/item/weapon/circuitboard/thermoregulator
+	name = T_BOARD("thermal regulator")
+	build_path = /obj/machinery/power/thermoregulator
+	board_type = new /datum/frame/frame_types/machine
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_POWER = 3)
+	req_components = list(
+							/obj/item/stack/cable_coil = 20,
+							/obj/item/weapon/stock_parts/capacitor/super = 3)
+
+// Board for the bomb tester in bomb_tester_vr.dm
+/obj/item/weapon/circuitboard/bomb_tester
+	name = T_BOARD("explosive effect simulator")
+	build_path = /obj/machinery/bomb_tester
+	board_type = new /datum/frame/frame_types/machine
+	origin_tech = list(TECH_PHORON = 3, TECH_DATA = 2, TECH_MAGNET = 2)
+	req_components = list(
+							/obj/item/weapon/stock_parts/matter_bin/adv = 1,
+							/obj/item/weapon/stock_parts/scanning_module = 5)

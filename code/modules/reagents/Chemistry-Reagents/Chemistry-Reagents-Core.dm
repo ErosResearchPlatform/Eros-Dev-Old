@@ -41,10 +41,19 @@
 	var/effective_dose = dose
 	if(issmall(M)) effective_dose *= 2
 
+	var/is_vampire = 0 //VOREStation Edit START
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species.gets_food_nutrition == 0)
+			H.nutrition += removed
+			is_vampire = 1 //VOREStation Edit END
+
 	if(effective_dose > 5)
-		M.adjustToxLoss(removed)
+		if(is_vampire == 0) //VOREStation Edit.
+			M.adjustToxLoss(removed) //VOREStation Edit.
 	if(effective_dose > 15)
-		M.adjustToxLoss(removed)
+		if(is_vampire == 0) //VOREStation Edit.
+			M.adjustToxLoss(removed) //VOREStation Edit.
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
 		if(vlist.len)
@@ -133,22 +142,18 @@
 
 /datum/reagent/water/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
+		// First, kill slimes.
+		if(istype(L, /mob/living/simple_animal/slime))
+			var/mob/living/simple_animal/slime/S = L
+			S.adjustToxLoss(15 * amount)
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+
+		// Then extinguish people on fire.
 		var/needed = L.fire_stacks * 5
 		if(amount > needed)
 			L.ExtinguishMob()
 		L.adjust_fire_stacks(-(amount / 5))
 		remove_self(needed)
-
-/datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(15 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
-		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
-		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
 /datum/reagent/fuel
 	name = "Welding fuel"
@@ -173,4 +178,3 @@
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
-

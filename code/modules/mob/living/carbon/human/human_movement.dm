@@ -34,6 +34,8 @@
 	if (feral >= 10) //crazy feral animals give less and less of a shit about pain and hunger as they get crazier
 		tally = max(species.slowdown, species.slowdown+((tally-species.slowdown)/(feral/10))) // As feral scales to damage, this amounts to an effective +1 slowdown cap
 		if(shock_stage >= 10) tally -= 1.5 //this gets a +3 later, feral critters take reduced penalty
+	if(reagents.has_reagent("numbenzyme"))
+		tally += 1.5 //A tad bit of slowdown.
 	//VOREstation end
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
@@ -73,6 +75,27 @@
 	if(mRun in mutations)
 		tally = 0
 
+	// Turf related slowdown
+	var/turf/T = get_turf(src)
+	if(T && T.movement_cost)
+		var/turf_move_cost = T.movement_cost
+		if(istype(T, /turf/simulated/floor/water))
+			if(species.water_movement)
+				turf_move_cost = Clamp(-3, turf_move_cost + species.water_movement, 15)
+			if(shoes)
+				var/obj/item/clothing/shoes/feet = shoes
+				if(feet.water_speed)
+					turf_move_cost = Clamp(-3, turf_move_cost + feet.water_speed, 15)
+			tally += turf_move_cost
+		if(istype(T, /turf/simulated/floor/outdoors/snow))
+			if(species.snow_movement)
+				turf_move_cost = Clamp(-3, turf_move_cost + species.snow_movement, 15)
+			if(shoes)
+				var/obj/item/clothing/shoes/feet = shoes
+				if(feet.water_speed)
+					turf_move_cost = Clamp(-3, turf_move_cost + feet.snow_speed, 15)
+			tally += turf_move_cost
+
 	// Loop through some slots, and add up their slowdowns.  Shoes are handled below, unfortunately.
 	// Includes slots which can provide armor, the back slot, and suit storage.
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, s_store))
@@ -87,10 +110,6 @@
 	if(pulling && istype(pulling, /obj/item))
 		var/obj/item/pulled = pulling
 		item_tally += max(pulled.slowdown, 0)
-
-	var/turf/T = get_turf(src)
-	if(T && T.movement_cost)
-		tally += T.movement_cost
 
 	item_tally *= species.item_slowdown_mod
 

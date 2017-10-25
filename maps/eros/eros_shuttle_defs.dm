@@ -12,6 +12,7 @@
 	dock_target_offsite = "centcom_dock"
 	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
+/*
 //////////////////////////////////////////////////////////////
 /datum/shuttle/ferry/escape_pod/large_escape_pod1
 	name = "Large Escape Pod 1"
@@ -37,7 +38,7 @@
 	dock_target_station = "large_escape_pod_2_berth"
 	dock_target_offsite = "large_escape_pod_2_recovery"
 	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
-
+*/
 //////////////////////////////////////////////////////////////
 // Supply shuttle
 /datum/shuttle/ferry/supply/cargo
@@ -97,16 +98,17 @@
 	//These seem backwards because they are written from the perspective of the merc and vox ships
 	departure_message = "Attention. The away mission vessel is approaching the colony."
 	arrival_message = "Attention. The away mission vessel is now leaving from the colony."
-*/
+
 
 /datum/shuttle/multi_shuttle/awaymission/New()
 	..()
 	var/area/awaym_dest = locate(/area/shuttle/awaymission/away)
 	if(awaym_dest && awaym_dest.contents.len) // Otherwise this is an empty imaginary area
 		destinations["Unknown Location [rand(1000,9999)]"] = awaym_dest
-
+*/
 //////////////////////////////////////////////////////////////
 // Tether Shuttle
+/*
 /datum/shuttle/ferry/tether_backup/goodluckmcgee
 	name = "Tether Backup"
 	location = 1 // At offsite
@@ -135,7 +137,7 @@
 	)
 	docking_controller_tag = "antag_space_shuttle"
 	destination_dock_targets = list("Home Base" = "antag_space_dock")
-
+*/
 //////////////////////////////////////////////////////////////
 // Antag Surface "Land Crawler" Shuttle
 /datum/shuttle/multi_shuttle/landcrawler
