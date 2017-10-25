@@ -3,7 +3,7 @@
 	#include "eros_defines.dm"
 	#include "eros_turfs.dm"
 	#include "eros_things.dm"
-	#include "eros_phoronlock.dm"
+	//#include "eros_phoronlock.dm"
 	#include "eros_areas.dm"
 	#include "eros_areas2.dm"
 	#include "eros_shuttle_defs.dm"
