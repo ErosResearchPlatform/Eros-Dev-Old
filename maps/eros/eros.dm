@@ -14,7 +14,7 @@
 	#include "eros-01-main.dmm"
 	#include "eros-02-transit.dmm"
 	#include "eros-03-outpost.dmm"
-	#include "eros-04-space.dmm"
+	//#include "eros-04-space.dmm"
 	#include "eros-05-misc.dmm"
 	#include "eros-06-forest.dmm"
 
