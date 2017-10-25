@@ -47,7 +47,8 @@
 		if(IS_UNATHI) removed *= 0.5
 	if(issmall(M)) removed *= 2 // Small bodymass, more effect from lower volume.
 	M.heal_organ_damage(0.5 * removed, 0)
-	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	if(M.species.gets_food_nutrition) //VOREStation edit. If this is set to 0, they don't get nutrition from food.
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 
 /datum/reagent/nutriment/glucose
@@ -286,12 +287,20 @@
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 215)
 	if(prob(1))
 		M.emote("shiver")
-	if(istype(M, /mob/living/carbon/slime))
+	if(istype(M, /mob/living/simple_animal/slime))
 		M.bodytemperature = max(M.bodytemperature - rand(10,20), 0)
 	holder.remove_reagent("capsaicin", 5)
+
+/datum/reagent/frostoil/cryotoxin //A longer lasting version of frost oil.
+	name = "Cryotoxin"
+	id = "cryotoxin"
+	description = "Lowers the body's internal temperature."
+	reagent_state = LIQUID
+	color = "#B31008"
+	metabolism = REM * 0.5
 
 /datum/reagent/capsaicin
 	name = "Capsaicin Oil"
@@ -321,7 +330,7 @@
 		M.apply_effect(2, AGONY, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
-	if(istype(M, /mob/living/carbon/slime))
+	if(istype(M, /mob/living/simple_animal/slime))
 		M.bodytemperature += rand(10, 25)
 	holder.remove_reagent("frostoil", 5)
 
@@ -406,7 +415,7 @@
 		M.apply_effect(4, AGONY, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
-	if(istype(M, /mob/living/carbon/slime))
+	if(istype(M, /mob/living/simple_animal/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
 
@@ -1960,7 +1969,7 @@
 	druggy = 30
 
 	glass_name = "Manhattan Project"
-	glass_desc = "A scienitst drink of choice, for thinking how to blow up the station."
+	glass_desc = "A scientist's drink of choice, for thinking how to blow up the station."
 
 /datum/reagent/ethanol/manly_dorf
 	name = "The Manly Dorf"
@@ -2279,7 +2288,7 @@
 	description = "Alcohol in more alcohol."
 	taste_description = "thick, dry alcohol"
 	color = "#FFFF7F"
-	strength = 15
+	strength = 12
 	nutriment_factor = 1
 
 	glass_name = "Sake Bomb"
@@ -2403,7 +2412,7 @@
 	description = "From Shelf. Not for human consumption."
 	taste_description = "oily bitterness"
 	color = "#d3d3d3"
-	strength = 36
+	strength = 32
 
 	glass_name = "Debugger"
 	glass_desc = "From Shelf. Not for human consumption."

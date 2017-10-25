@@ -103,6 +103,12 @@
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
 
+	// Vorestation Edit: Meta Info for pAI's
+	if (client)
+		var/meta_info = client.prefs.metadata
+		if (meta_info)
+			ooc_notes = meta_info
+
 	//PDA
 	pda = new(src)
 	spawn(5)
@@ -289,6 +295,7 @@
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> folds outwards, expanding into a mobile form.")
 	//verbs += /mob/living/silicon/pai/proc/pai_nom //VOREStation edit -- Eros edit, removing vore verbs
+	verbs += /mob/living/proc/set_size //VOREStation edit
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -365,8 +372,11 @@
 	return
 
 /mob/living/silicon/pai/attack_hand(mob/user as mob)
-	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
-	close_up()
+	if(user.a_intent == I_HELP)
+		visible_message("<span class='notice'>[user.name] pats [src].</span>")
+	else
+		visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
+		close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
 /mob/living/silicon/pai/proc/close_up()
@@ -383,9 +393,10 @@
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 
-	src.stop_pulling()
-	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = card
+	if(client)
+		src.stop_pulling()
+		src.client.perspective = EYE_PERSPECTIVE
+		src.client.eye = card
 
 	//stop resting
 	resting = 0

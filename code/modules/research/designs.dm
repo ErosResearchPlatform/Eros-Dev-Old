@@ -350,6 +350,14 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/pickaxe/diamonddrill
 	sort_string = "KAAAE"
 
+/datum/design/item/device/depth_scanner
+	desc = "Used to check spatial depth and density of rock outcroppings."
+	id = "depth_scanner"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2, TECH_BLUESPACE = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 1000)
+	build_path = /obj/item/device/depth_scanner
+	sort_string = "KAAAF"
+
 ///////////////////////////////////
 /////////Shield Generators/////////
 ///////////////////////////////////
@@ -465,6 +473,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/surgical/scalpel/manager
 	sort_string = "MBBAD"
 
+/datum/design/item/bone_clamp
+	name = "Bone Clamp"
+	desc = "A miracle of modern science, this tool rapidly knits together bone, without the need for bone gel."
+	id = "bone_clamp"
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 5, TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list (DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 2500)
+	build_path = /obj/item/weapon/surgical/bone_clamp
+	sort_string = "MBBAE"
+
 /datum/design/item/implant
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
@@ -578,6 +595,7 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 500, "silver" = 3000)
 	build_path = /obj/item/weapon/gun/energy/temperature
 	sort_string = "TABAC"
+
 /datum/design/item/weapon/large_grenade
 	id = "large_Grenade"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
@@ -585,12 +603,62 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/grenade/chem_grenade/large
 	sort_string = "TACAA"
 
+/datum/design/item/weapon/dartgun
+	desc = "A gun that fires small hollow chemical-payload darts."
+	id = "dartgun_r"
+	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 4, TECH_BIO = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "gold" = 5000, "silver" = 2500, "glass" = 750)
+	build_path = /obj/item/weapon/gun/projectile/dartgun/research
+	sort_string = "TACAB"
+
+/datum/design/item/weapon/dartgunmag_small
+	id = "dartgun_mag_s"
+	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2, TECH_BIO = 2, TECH_MAGNET = 1, TECH_ILLEGAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 300, "gold" = 100, "silver" = 100, "glass" = 300)
+	build_path = /obj/item/ammo_magazine/chemdart/small
+	sort_string = "TACAC"
+
+/datum/design/item/weapon/dartgun_ammo_small
+	id = "dartgun_ammo_s"
+	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2, TECH_BIO = 2, TECH_MAGNET = 1, TECH_ILLEGAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, "gold" = 30, "silver" = 30, "glass" = 50)
+	build_path = /obj/item/ammo_casing/chemdart/small
+	sort_string = "TACAD"
+
+/datum/design/item/weapon/dartgunmag_med
+	id = "dartgun_mag_m"
+	req_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 2, TECH_BIO = 2, TECH_MAGNET = 1, TECH_ILLEGAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, "gold" = 150, "silver" = 150, "diamond" = 200, "glass" = 400)
+	build_path = /obj/item/ammo_magazine/chemdart
+	sort_string = "TACAE"
+
+/datum/design/item/weapon/dartgun_ammo_med
+	id = "dartgun_ammo_m"
+	req_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 2, TECH_BIO = 2, TECH_MAGNET = 1, TECH_ILLEGAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 80, "gold" = 40, "silver" = 40, "glass" = 60)
+	build_path = /obj/item/ammo_casing/chemdart
+	sort_string = "TACAF"
+
 /datum/design/item/weapon/flora_gun
 	id = "flora_gun"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 500, "uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/floragun
 	sort_string = "TBAAA"
+
+/datum/design/item/weapon/slimebation
+	id = "slimebation"
+	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2, TECH_POWER = 3, TECH_COMBAT = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	build_path = /obj/item/weapon/melee/baton/slime
+	sort_string = "TBAAB"
+
+/datum/design/item/weapon/slimetaser
+	id = "slimetaser"
+	req_tech = list(TECH_MATERIAL = 3, TECH_BIO = 3, TECH_POWER = 4, TECH_COMBAT = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	build_path = /obj/item/weapon/gun/energy/taser/xeno
+	sort_string = "TBAAC"
 
 /datum/design/item/stock_part/subspace_ansible
 	id = "s-ansible"
@@ -603,7 +671,7 @@ other types of metals and chemistry for reagents).
 	id = "s-filter"
 	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 40, "silver" = 10)
-	build_path = /obj/item/weapon/stock_parts/subspace/filter
+	build_path = /obj/item/weapon/stock_parts/subspace/sub_filter
 	sort_string = "UAAAB"
 
 /datum/design/item/stock_part/subspace_amplifier
@@ -641,6 +709,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/stock_parts/subspace/transmitter
 	sort_string = "UAAAG"
 
+/datum/design/item/device/ano_scanner
+	name = "Alden-Saraspova counter"
+	id = "ano_scanner"
+	desc = "Aids in triangulation of exotic particles."
+	req_tech = list(TECH_BLUESPACE = 3, TECH_MAGNET = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000,"glass" = 5000)
+	build_path = /obj/item/device/ano_scanner
+	sort_string = "UAAAH"
+
 /datum/design/item/light_replacer
 	name = "Light replacer"
 	desc = "A device to automatically replace lights. Refill with working lightbulbs."
@@ -667,6 +744,16 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/device/aicard
 	sort_string = "VACAA"
 
+/datum/design/item/dronebrain
+	name = "Robotic intelligence circuit"
+	id = "dronebrain"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 5, TECH_DATA = 4)
+	build_type = PROTOLATHE | PROSFAB
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "silver" = 1000, "gold" = 500)
+	build_path = /obj/item/device/mmi/digital/robot
+	category = "Misc"
+	sort_string = "VACAC"
+
 /datum/design/item/posibrain
 	name = "Positronic brain"
 	id = "posibrain"
@@ -687,16 +774,6 @@ other types of metals and chemistry for reagents).
 	category = "Misc"
 	sort_string = "VACBA"
 
-/datum/design/item/mmi_radio
-	name = "Radio-enabled man-machine interface"
-	id = "mmi_radio"
-	req_tech = list(TECH_DATA = 2, TECH_BIO = 4)
-	build_type = PROTOLATHE | PROSFAB
-	materials = list(DEFAULT_WALL_MATERIAL = 1200, "glass" = 500)
-	build_path = /obj/item/device/mmi/radio_enabled
-	category = "Misc"
-	sort_string = "VACBB"
-
 /datum/design/item/beacon
 	name = "Bluespace tracking beacon design"
 	id = "beacon"
@@ -704,6 +781,24 @@ other types of metals and chemistry for reagents).
 	materials = list (DEFAULT_WALL_MATERIAL = 20, "glass" = 10)
 	build_path = /obj/item/device/radio/beacon
 	sort_string = "VADAA"
+
+/datum/design/item/gps
+	name = "Triangulating device design"
+	desc = "Triangulates approximate co-ordinates using a nearby satellite network."
+	id = "gps"
+	req_tech = list(TECH_MATERIAL = 2, TECH_DATA = 2, TECH_BLUESPACE = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	build_path = /obj/item/device/gps
+	sort_string = "VADAB"
+
+/datum/design/item/beacon_locator
+	name = "Beacon tracking pinpointer"
+	desc = "Used to scan and locate signals on a particular frequency."
+	id = "beacon_locator"
+	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2, TECH_BLUESPACE = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 500)
+	build_path = /obj/item/device/beacon_locator
+	sort_string = "VADAC"
 
 /datum/design/item/bag_holding
 	name = "'Bag of Holding', an infinite capacity bag prototype"
@@ -733,13 +828,50 @@ other types of metals and chemistry for reagents).
 	sort_string = "VASBA"
 
 /datum/design/item/experimental_welder
-	name = "Expiermental Welding Tool"
+	name = "Experimental welding tool"
 	desc = "A welding tool that generate fuel for itself."
 	id = "expwelder"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_PHORON = 3, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 120, "phoron" = 100)
 	build_path = /obj/item/weapon/weldingtool/experimental
 	sort_string = "VASCA"
+
+/datum/design/item/hand_drill
+	name = "Hand drill"
+	desc = "A simple powered hand drill."
+	id = "handdrill"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 300, "silver" = 100)
+	build_path = /obj/item/weapon/screwdriver/power
+	sort_string = "VASDA"
+
+/datum/design/item/jaws_life
+	name = "Jaws of life"
+	desc = "A set of jaws of life, compressed through the magic of science."
+	id = "jawslife"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 300, "silver" = 100)
+	build_path = /obj/item/weapon/crowbar/power
+	sort_string = "VASEA"
+
+/datum/design/item/device/t_scanner_upg
+	name = "Upgraded T-ray Scanner"
+	desc = "An upgraded version of the terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
+	id = "upgradedtscanner"
+	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, "phoron" = 150)
+	build_path = /obj/item/device/t_scanner/upgraded
+	sort_string = "VASSA"
+
+
+/datum/design/item/device/t_scanner_adv
+	name = "Advanced T-ray Scanner"
+	desc = "An advanced version of the terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
+	id = "advancedtscanner"
+	req_tech = list(TECH_MAGNET = 6, TECH_ENGINEERING = 6, TECH_MATERIAL = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 1250, "phoron" = 500, "silver" = 50)
+	build_path = /obj/item/device/t_scanner/advanced
+	sort_string = "VASSB"
 /*
 CIRCUITS BELOW
 */

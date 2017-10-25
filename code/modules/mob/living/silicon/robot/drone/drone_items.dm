@@ -76,11 +76,14 @@
 		/obj/item/weapon/disk,
 		/obj/item/weapon/circuitboard,
 		/obj/item/weapon/reagent_containers/glass,
-		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
-		/obj/item/xenoproduct/slime/core,
 		/obj/item/device/assembly/prox_sensor,
-		/obj/item/device/healthanalyzer //to build medibots
-//		/obj/item/slime_extract,		### Outdated
+		/obj/item/device/healthanalyzer, //to build medibots,
+		/obj/item/slime_cube,
+		/obj/item/slime_crystal,
+		/obj/item/weapon/disposable_teleporter/slime,
+		/obj/item/slimepotion,
+		/obj/item/slime_extract,
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
 
 		)
 
@@ -94,6 +97,17 @@
 		/obj/item/weapon/reagent_containers/food,
 		/obj/item/seeds,
 		/obj/item/weapon/grown
+		)
+
+/obj/item/weapon/gripper/gravekeeper	//Used for handling grave things, flowers, etc.
+	name = ""
+	icon_state = "gripper"
+	desc = "A specialized grasping tool used in the preparation and maintenance of graves."
+
+	can_hold = list(
+		/obj/item/seeds,
+		/obj/item/weapon/grown,
+		/obj/item/weapon/material/gravemarker
 		)
 
 /obj/item/weapon/gripper/no_use/organ

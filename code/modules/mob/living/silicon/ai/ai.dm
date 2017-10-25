@@ -151,15 +151,15 @@ var/list/ai_verbs_hidden = list( // For why this exists, refer to https://xkcd.c
 	//Languages
 	add_language("Robot Talk", 1)
 	add_language(LANGUAGE_GALCOM, 1)
-	add_language(LANGUAGE_SOL_COMMON, 0)
-	add_language(LANGUAGE_UNATHI, 0)
-	add_language(LANGUAGE_SIIK, 0)
-	add_language(LANGUAGE_SKRELLIAN, 0)
+	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_UNATHI, 1)
+	add_language(LANGUAGE_SIIK, 1)
+	add_language(LANGUAGE_SKRELLIAN, 1)
 	add_language(LANGUAGE_TRADEBAND, 1)
-	add_language(LANGUAGE_GUTTER, 0)
+	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
-	add_language(LANGUAGE_SCHECHI, 0)
-	add_language(LANGUAGE_SIGN, 0)
+	add_language(LANGUAGE_SCHECHI, 1)
+	add_language(LANGUAGE_SIGN, 1)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -206,6 +206,12 @@ var/list/ai_verbs_hidden = list( // For why this exists, refer to https://xkcd.c
 			radio_text += ", "
 
 	src << radio_text
+
+	// Vorestation Edit: Meta Info for AI's. Mostly used for Holograms
+	if (client)
+		var/meta_info = client.prefs.metadata
+		if (meta_info)
+			ooc_notes = meta_info
 
 	if (malf && !(mind in malf.current_antagonists))
 		show_laws()
@@ -418,10 +424,12 @@ var/list/ai_verbs_hidden = list( // For why this exists, refer to https://xkcd.c
 	..()
 
 /mob/living/silicon/ai/Topic(href, href_list)
+	if(..()) //VOREstation edit: So the AI can actually can actually get its OOC prefs read
+		return
 	if(usr != src)
 		return
-	if(..())
-		return
+	/*if(..()) // <------ MOVED FROM HERE 
+		return*/
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			viewalerts = 0

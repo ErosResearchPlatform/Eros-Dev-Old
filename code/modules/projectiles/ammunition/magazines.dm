@@ -443,6 +443,23 @@
 /obj/item/ammo_magazine/m762m/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/m762garand
+	name = "garand clip (7.62mm)" // The clip goes into the magazine, hence the name. I'm very sure this is correct.
+	icon_state = "gclip"
+	mag_type = MAGAZINE
+	caliber = "7.62mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 1600)
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/m762garand/ap
+	name = "garand clip (7.62mm armor-piercing)"
+	ammo_type = /obj/item/ammo_casing/a762/ap
+
+/obj/item/ammo_magazine/m762/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/clip/c762
 	name = "ammo clip (7.62mm)"
 	icon_state = "clip_rifle"
@@ -523,7 +540,7 @@
 
 /obj/item/ammo_magazine/clip/c12g/beanbag
 	name = "ammo clip (12g beanbag)"
-	icon_state = "12gclipbeanbag"
+	icon_state = "12gclipbean"
 	desc = "A color-coded metal clip for holding and quickly loading shotgun shells. This one is loaded with beanbags."
 	ammo_type = /obj/item/ammo_casing/a12g/beanbag
 	matter = list(DEFAULT_WALL_MATERIAL = 1070) //beanbags x4 + 350 metal

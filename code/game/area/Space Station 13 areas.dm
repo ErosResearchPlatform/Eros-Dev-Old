@@ -356,6 +356,10 @@ area/space/atmosalert()
 	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
+/area/shuttle/trade
+	name = "\improper Trade Station"
+	icon_state = "red"
+
 /area/shuttle/trade/centcom
 	name = "\improper Trade Shuttle CentCom"
 	icon_state = "shuttlered"
@@ -2816,7 +2820,7 @@ var/list/the_station_areas = list (
 
 /area/beach
 	name = "Keelin's private beach"
-	icon_state = "null"
+	icon_state = "yellow"
 	luminosity = 1
 	dynamic_lighting = 0
 	requires_power = 0

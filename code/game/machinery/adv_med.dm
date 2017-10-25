@@ -46,8 +46,8 @@
 		if(occupant)
 			user << "<span class='notice'>The scanner is already occupied!</span>"
 			return
-		for(var/mob/living/carbon/slime/M in range(1, H.affecting))
-			if(M.Victim == H.affecting)
+		for(var/mob/living/simple_animal/slime/M in range(1, H.affecting))
+			if(M.victim == H.affecting)
 				user << "<span class='danger'>[H.affecting.name] has a fucking slime attached to them, deal with that first.</span>"
 				return
 		var/mob/M = H.affecting
@@ -83,8 +83,8 @@
 	if(O.abiotic())
 		user << "<span class='notice'>Subject cannot have abiotic items on.</span>"
 		return 0
-	for(var/mob/living/carbon/slime/M in range(1, O))
-		if(M.Victim == O)
+	for(var/mob/living/simple_animal/slime/M in range(1, O))
+		if(M.victim == O)
 			user << "<span class='danger'>[O] has a fucking slime attached to them, deal with that first.</span>"
 			return 0
 
@@ -270,6 +270,7 @@
 			occupantData["name"] = H.name
 			occupantData["stat"] = H.stat
 			occupantData["health"] = H.health
+			occupantData["maxHealth"] = H.getMaxHealth()
 
 			occupantData["hasVirus"] = H.virus2.len
 
@@ -427,7 +428,7 @@
 					t1 = "Unconscious"
 				else
 					t1 = "*dead*"
-			dat += "<font color=[occupant.health > 50 ? "blue" : "red"]>\tHealth %: [occupant.health], ([t1])</font><br>"
+			dat += "<font color=[occupant.health > (occupant.getMaxHealth() / 2) ? "blue" : "red"]>\tHealth %: [(occupant.health / occupant.getMaxHealth())*100], ([t1])</font><br>"
 
 			if(occupant.virus2.len)
 				dat += "<font color='red'>Viral pathogen detected in blood stream.</font><BR>"

@@ -143,13 +143,21 @@
 
 /mob/living/carbon/human/proc/examine_pickup_size(mob/living/carbon/human/H)
 	var/message = ""
-	if((H.get_effective_size() - src.get_effective_size()) >= 0.50)
+	if(isliving(src) && (H.get_effective_size() - src.get_effective_size()) >= 0.50)
 		message = "<font color='blue'>They are small enough that you could easily pick them up!</font>\n"
 	return message
 
 
 /mob/living/carbon/human/proc/examine_step_size(mob/living/carbon/human/H)
 	var/message = ""
-	if((H.get_effective_size() - src.get_effective_size()) >= 0.75)
+	if(isliving(src) && (H.get_effective_size() - src.get_effective_size()) >= 0.75)
 		message = "<font color='red'>They are small enough that you could easily trample them!</font>\n"
 	return message
+
+/mob/living/carbon/human/proc/nif_examine(mob/living/carbon/human/H)
+	var/message = ""
+	if(!src.nif || src.conceal_nif || !src.nif_examine) //Do they have a nif, do they have the NIF concealed, and do they have a NIF examine message?
+		return "" //If so, no message.
+	else
+		message += "[src.nif_examine]\n"
+		return message

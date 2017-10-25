@@ -68,6 +68,9 @@
 	//used for optional self-objectives that antagonists can give themselves, which are displayed at the end of the round.
 	var/ambitions
 
+	//used to store what traits the player had picked out in their preferences before joining, in text form.
+	var/list/traits = list()
+
 /datum/mind/New(var/key)
 	src.key = key
 
@@ -499,7 +502,7 @@
 	if(!mind.assigned_role)	mind.assigned_role = "Assistant"	//defualt
 
 //slime
-/mob/living/carbon/slime/mind_initialize()
+/mob/living/simple_animal/slime/mind_initialize()
 	..()
 	mind.assigned_role = "slime"
 
