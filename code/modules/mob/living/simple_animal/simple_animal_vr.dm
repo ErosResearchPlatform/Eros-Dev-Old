@@ -182,7 +182,7 @@
 				tmob.Weaken(5)
 			tmob.visible_message("<span class='danger'>\the [src] [vore_bump_emote] \the [tmob]!</span>!")
 			stop_automated_movement = 1
-			animal_nom(tmob)
+			//animal_nom(tmob)
 			update_icon()
 			stop_automated_movement = 0
 	..()
