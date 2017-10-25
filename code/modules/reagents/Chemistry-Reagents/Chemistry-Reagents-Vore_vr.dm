@@ -2,7 +2,7 @@
 ////////////////////////////
 /// NW's shrinking serum ///
 ////////////////////////////
-
+/*
 /datum/reagent/macrocillin
 	name = "Macrocillin"
 	id = "macrocillin"
@@ -124,3 +124,4 @@
 				P.absorbed = 0
 				M.visible_message("<font color='green'><b>Something spills into [M]'s [lowertext(B.name)]!</b></font>")
 	return
+*/

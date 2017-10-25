@@ -1,6 +1,6 @@
 
 //Vore Originals
-
+/*
 /datum/seed/size
 	name = "microm"
 	seed_name = "Shrinking Mushroom"
@@ -39,3 +39,4 @@
 	set_trait(TRAIT_PRODUCT_ICON,"mushroom6")
 	set_trait(TRAIT_PLANT_ICON,"tree")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#DADA00")
+*/

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// Micro/Macro chemicals
-
+/*
 /datum/chemical_reaction/sizeoxadone
 	name = "sizeoxadone"
 	id = "sizeoxadone"
@@ -72,7 +72,7 @@
 	result = "adranol"
 	required_reagents = list("milk" = 2, "hydrogen" = 1, "potassium" = 1)
 	result_amount = 3
-
+*/
 ///////////////////////////////
 //SLIME CORES BELOW HERE///////
 ///////////////////////////////
