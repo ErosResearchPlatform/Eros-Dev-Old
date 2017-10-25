@@ -19,9 +19,9 @@ VIRGO3B_TURF_CREATE(/turf/simulated/open)
 	// We alter area type before the turf to ensure the turf-change-event-propagation is handled as expected.
 	// var/area/new_area = locate(/area/space) || new /area/space
 	// new_area.contents.Add(src)
-	ChangeTurf(/turf/simulated/floor/plating/snowy)
+	ChangeTurf(/turf/simulated/floor/outdoors/plating/snowy)
 
-/turf/simulated/floor/plating/snowy
+/turf/simulated/floor/outdoors/plating/snowy
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowyplating"
 
