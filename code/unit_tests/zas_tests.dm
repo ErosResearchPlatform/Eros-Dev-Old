@@ -112,9 +112,9 @@
 	area_path = /area/rnd/xenobiology
 
 /datum/unit_test/zas_area_test/mining_area
-	name = "ZAS: Mining Area (Vacuum)"
+	name = "ZAS: Mining Area (Outside)"
 	area_path = /area/mine/explored
-	expectation = UT_VACUUM
+	expectation = UT_NORMAL
 
 /datum/unit_test/zas_area_test/cargo_bay
 	name = "ZAS: Cargo Bay"
