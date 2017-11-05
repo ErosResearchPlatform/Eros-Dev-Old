@@ -16,6 +16,7 @@
 	colour = "birdsongc"
 	key = "7"
 	syllables = list ("cheep", "peep", "tweet")
+	flags = RESTRICTED
 
 /datum/language/sergal
 	name = "Sagaru"
@@ -24,6 +25,7 @@
 	colour = "sergal"
 	key = "z"
 	syllables = list ("grr", "gah", "woof", "arf", "arra", "rah", "wor", "sarg")
+	flags = RESTRICTED
 
 /datum/language/vulpkanin
 	name = "Canilunzt"
@@ -37,6 +39,7 @@
 	"ist","ein","entch","zwichs","tut","mir","wo","bis","es","vor","nic","gro","lll","enem","zandt","tzch","noch", \
 	"hel","ischt","far","wa","baram","iereng","tech","lach","sam","mak","lich","gen","or","ag","eck","gec","stag","onn", \
 	"bin","ket","jarl","vulf","einech","cresthz","azunein","ghzth")
+	flags = RESTRICTED
 
 /datum/language/squirrel
 	name = "Ecureuilian"
@@ -46,6 +49,7 @@
 	exclaim_verb = "chitters"
 	key = "9"
 	syllables = list("sque","sqah","boo","beh","nweh","boopa","nah","wah","een","sweh")
+	flags = RESTRICTED
 
 /datum/language/demon
 	name = "Daemon"
@@ -57,6 +61,7 @@
 	key = "n"
 	syllables = list("viepn","e","bag","docu","kar","xlaqf","raa","qwos","nen","ty","von","kytaf","xin","ty","ka","baak","hlafaifpyk","znu","agrith","na'ar","uah","plhu","six","fhler","bjel","scee","lleri",
 	"dttm","aggr","uujl","hjjifr","wwuthaav",)
+	flags = RESTRICTED
 
 /datum/language/angel
 	name = "Enochian"
@@ -68,6 +73,7 @@
 	key = "a"
 	syllables = list("salve","sum","loqui","operatur","iusta","et","permittit","facere","effercio","pluribus","enim","hoc",
 	"mihi","wan","six","salve","tartu")
+	flags = RESTRICTED
 
 
 /datum/language/unathi
