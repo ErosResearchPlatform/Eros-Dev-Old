@@ -14,11 +14,11 @@
 		/mob/living/carbon/human/proc/shapeshifter_select_colour,
 		/mob/living/carbon/human/proc/shapeshifter_select_hair,
 		/mob/living/carbon/human/proc/shapeshifter_select_gender,
-		/mob/living/carbon/human/proc/regenerate,
-		/mob/living/proc/set_size,
-		/mob/living/carbon/human/proc/succubus_drain,
-		/mob/living/carbon/human/proc/succubus_drain_finialize,
-		/mob/living/carbon/human/proc/succubus_drain_lethal
+		/mob/living/carbon/human/proc/regenerate
+		///mob/living/proc/set_size,								//Eros edit -- removal
+		///mob/living/carbon/human/proc/succubus_drain,				//Eros edit -- removal
+		///mob/living/carbon/human/proc/succubus_drain_finialize,	//Eros edit -- removal
+		///mob/living/carbon/human/proc/succubus_drain_lethal		//Eros edit -- removal
 		)
 
 
