@@ -7,7 +7,7 @@ var/list/gyrotrons = list()
 	icon_state = "emitter-off"
 	req_access = list(access_engine)
 	use_power = 1
-	active_power_usage = 50000
+	active_power_usage = 5000
 
 	var/id_tag
 	var/rate = 3
@@ -20,7 +20,7 @@ var/list/gyrotrons = list()
 
 /obj/machinery/power/emitter/gyrotron/initialize()
 	gyrotrons += src
-	active_power_usage = mega_energy * 50000
+	active_power_usage = mega_energy * 5000
 	. = ..()
 
 /obj/machinery/power/emitter/gyrotron/Destroy()
@@ -28,7 +28,7 @@ var/list/gyrotrons = list()
 	return ..()
 
 /obj/machinery/power/emitter/gyrotron/process()
-	active_power_usage = mega_energy * 50000
+	active_power_usage = mega_energy * 5000
 	. = ..()
 
 /obj/machinery/power/emitter/gyrotron/get_rand_burst_delay()
