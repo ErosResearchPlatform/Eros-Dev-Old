@@ -30,8 +30,9 @@
 
 	primitive_form = "Saru"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	inherent_verbs = list(/mob/living/carbon/human/proc/shred_limb)
 
 	flesh_color = "#AFA59E"
 	base_color = "#777777"
@@ -130,7 +131,7 @@
 
 	primitive_form = "Sparra"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -169,7 +170,7 @@
 
 	//primitive_form = "" //We don't have fox-monkey sprites.
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
@@ -205,7 +206,7 @@
 	seem to have adjusted better to their new lives. Though similar fox-like beings have been seen they are different than the Zorren."
 
 	//primitive_form = "" //We don't have fennec-monkey sprites.
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -245,7 +246,7 @@
 
 	primitive_form = "Wolpin"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#966464"
@@ -277,7 +278,7 @@
 
 	//primitive_form = "" //None for these guys
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	blood_color = "#12ff12"
@@ -292,26 +293,38 @@
 
 /datum/species/unathi
 	spawn_flags = SPECIES_CAN_JOIN //Species_can_join is the only spawn flag all the races get, so that none of them will be whitelist only if whitelist is enabled.
+	icobase = 'icons/mob/human_races/r_lizard_vr.dmi'
+	deform = 'icons/mob/human_races/r_def_lizard_vr.dmi'
+	tail_animation = 'icons/mob/species/unathi/tail_vr.dmi'
+	color_mult = 1
 	min_age = 18
 
 /datum/species/tajaran
 	spawn_flags = SPECIES_CAN_JOIN
 	icobase = 'icons/mob/human_races/r_tajaran_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran_vr.dmi'
+	tail_animation = 'icons/mob/species/tajaran/tail_vr.dmi'
+	color_mult = 1
 	min_age = 18
 	gluttonous = 0 //Moving this here so I don't have to fix this conflict every time polaris glances at station.dm
 
 /datum/species/skrell
 	spawn_flags = SPECIES_CAN_JOIN
+	icobase = 'icons/mob/human_races/r_skrell_vr.dmi'
+	deform = 'icons/mob/human_races/r_def_skrell_vr.dmi'
+	color_mult = 1
 	min_age = 18
 
 /datum/species/diona
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN
 	min_age = 18
 
 /datum/species/teshari
 	mob_size = MOB_MEDIUM
 	spawn_flags = SPECIES_CAN_JOIN
+	icobase = 'icons/mob/human_races/r_seromi_vr.dmi'
+	deform = 'icons/mob/human_races/r_seromi_vr.dmi'
+	color_mult = 1
 	min_age = 18
 	push_flags = ~HEAVY //Allows them to use micro step code.
 	swap_flags = ~HEAVY
@@ -331,3 +344,40 @@
 	gluttonous = 0
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	min_age = 18
+
+datum/species/harpy
+	name = "Rapala"
+	name_plural = "Rapalans"
+	icobase = 'icons/mob/human_races/r_harpy_vr.dmi'
+	deform = 'icons/mob/human_races/r_def_harpy_vr.dmi'
+	tail = "tail"
+	icobase_tail = 1
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
+	num_alternate_languages = 3
+	secondary_langs = list(LANGUAGE_BIRDSONG)
+	name_language = null
+	color_mult = 1
+
+	min_age = 18
+	max_age = 80
+
+	blurb = "An Avian species, coming from a distant planet, the Rapalas are the very proud race.\
+	Sol researchers have commented on them having a very close resemblance to the mythical race called 'Harpies',\
+	who are known for having massive winged arms and talons as feet. They've been clocked at speeds of over 35 miler per hour chasing the planet's many fish-like fauna.\
+	The Rapalan's home-world 'Verita' is a strangely habitable gas giant, while no physical earth exists, there are fertile floating islands orbiting around the planet from past asteroid activity."
+
+	//primitive_form = "Saru"
+
+	spawn_flags = SPECIES_IS_RESTRICTED
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+
+	//flesh_color = "#AFA59E"
+	//base_color = "#777777"
+	//tail_hair = "feathers"
+	//reagent_tag = IS_SERGAL
+
+	heat_discomfort_strings = list(
+		"Your feathers prickle in the heat.",
+		"You feel uncomfortably warm.",
+		"Your overheated skin itches."
+		)

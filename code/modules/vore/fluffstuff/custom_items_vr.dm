@@ -194,20 +194,6 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 	to_helmet = /obj/item/clothing/head/helmet/space/void/engineering/hazmat/fluff/screehelm
 	to_suit = /obj/item/clothing/suit/space/void/engineering/hazmat/fluff/screespess
 
-/obj/item/clothing/glasses/omnihud/eng/meson/fluff/scree
-	name = "OCR headset"
-	desc = "A meson-scanning headset with retinal projector and ultrasonic earpiece. This one is set up to read text to the wearer."
-	description_info = "The device appears to be configured as an aid to reading, with an OCR system that highlights text for the wearer and \
-	reads it out through the earpiece, while rendering the meson scan data as high-frequency sound. It's like a HUD for bats."
-
-	mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
-		if(..())
-			if(H.ckey != "scree")
-				H << "<span class='warning'>This thing isn't set up for your visual spectrum OR your audio range.</span>"
-				return 0
-			else
-				return 1
-
 //General Use
 /obj/item/weapon/flag
 	name = "Nanotrasen Banner"
@@ -606,7 +592,34 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 		desc = "An elaborately made custom walking stick with a dark wooding core, a crimson red gemstone on its head and a steel cover around the bottom. you'd probably hear someone using this down the hall."
 		icon = 'icons/vore/custom_items_vr.dmi'
 
+//Stobarico - Alexis Bloise
+/obj/item/weapon/cane/wand
+    name = "Ancient wand"
+    desc = "A really old looking wand with floating parts and cyan crystals, wich seem to radiate a cyan glow. The wand has a golden plaque on the side that would say Corncobble, but it is covered by a sticker saying Bloise."
+    icon = 'icons/vore/custom_items_vr.dmi'
+    icon_state = "alexiswand"
+    item_icons = list (slot_r_hand_str = 'icons/vore/custom_items_vr.dmi', slot_l_hand_str = 'icons/vore/custom_items_vr.dmi')
+    item_state_slots = list(slot_r_hand_str = "alexiswandmob_r", slot_l_hand_str = "alexiswandmob_l")
+    flags = CONDUCT
+    force = 1.0
+    throwforce = 2.0
+    w_class = ITEMSIZE_SMALL
+    matter = list(DEFAULT_WALL_MATERIAL = 50)
+    attack_verb = list("sparkled", "whacked", "twinkled", "radiated", "dazzled", "zapped")
+    hitsound = 'sound/weapons/sparkle.ogg'
+    var/last_use = 0
+    var/cooldown = 30
 
+/obj/item/weapon/cane/wand/attack_self(mob/user)
+    if(last_use + cooldown >= world.time)
+        return
+    playsound(loc, 'sound/weapons/sparkle.ogg', 50, 1)
+    user.visible_message("<span class='warning'> [user] swings their wand.</span>")
+    var/datum/effect/effect/system/spark_spread/s = new
+    s.set_up(3, 1, src)
+    s.start()
+    last_use = world.time
+    qdel ()
 
 /obj/item/device/fluff/id_kit_ivy
 	name = "Holo-ID reprinter"
@@ -684,6 +697,25 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 
 /obj/item/weapon/implanter/reagent_generator/belle
 	implant_type = /obj/item/weapon/implant/reagent_generator/belle
+
+//Gowst: Eldi Moljir
+//Eldi iz coolest elf-dorf.
+/obj/item/weapon/implant/reagent_generator/eldi
+	name = "lactation implant"
+	desc = "This is an implant that allows the user to lactate."
+	generated_reagent = "milk"
+	usable_volume = 1000
+
+	empty_message = list("Your breasts feel unusually empty.", "Your chest feels lighter - your milk supply is empty!", "Your milk reserves have run dry.", "Your grateful nipples ache as the last of your milk leaves them.")
+	full_message = list("Your breasts ache badly - they are swollen and feel fit to burst!", "You need to be milked! Your breasts feel bloated, eager for release.", "Your milky breasts are starting to leak...")
+	emote_descriptor = list("squeezes Eldi's nipples, milking them", "milks Eldi's breasts", "extracts milk")
+	self_emote_descriptor = list("squeeze out", "extract")
+	random_emote = list("surpresses a moan", "gasps sharply", "bites her lower lip")
+	verb_name = "Milk"
+	verb_desc = "Grab Eldi's breasts and milk her, storing her fresh, warm milk in a container. This will undoubtedly turn her on."
+
+/obj/item/weapon/implanter/reagent_generator/eldi
+	implant_type = /obj/item/weapon/implant/reagent_generator/eldi
 
 //Vorrarkul: Theodora Lindt
 /obj/item/weapon/implant/reagent_generator/vorrarkul
@@ -989,12 +1021,37 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 	..()
 
 //verkister: Cameron Eggbert - Science goggles that ACTUALLY do nothing.
-/obj/item/clothing/glasses/science_proper
+/obj/item/clothing/glasses/fluff/science_proper
 	name = "Aesthetic Science Goggles"
 	desc = "The goggles really do nothing this time!"
 	icon_state = "purple"
 	item_state_slots = list(slot_r_hand_str = "glasses", slot_l_hand_str = "glasses")
 	item_flags = AIRTIGHT
+
+//verkister: Opie Eggbert - Spiffy fluff goggles
+/obj/item/clothing/glasses/fluff/spiffygogs
+	name = "Chad Goggles"
+	desc = "You can almost feel the raw power radiating off these strange specs."
+	icon = 'icons/vore/custom_items_vr.dmi'
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "spiffygogs"
+	slot_flags = SLOT_EYES | SLOT_EARS
+	item_state_slots = list(slot_r_hand_str = "glasses", slot_l_hand_str = "glasses")
+	toggleable = 1
+	off_state = "spiffygogsup"
+
+//General use
+/obj/item/clothing/accessory/tronket
+	name = "metal necklace"
+	desc = "A shiny steel chain with a vague metallic object dangling off it."
+	w_class = ITEMSIZE_SMALL
+	icon = 'icons/vore/custom_items_vr.dmi'
+	icon_override = 'icons/vore/custom_clothes_vr.dmi'
+	icon_state = "tronket"
+	item_state = "tronket"
+	overlay_state = "tronket"
+	slot_flags = SLOT_TIE
+	slot = "over"
 
 //The perfect adminboos device?
 /obj/item/device/perfect_tele
@@ -1359,17 +1416,18 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 	age = 39
 	blood_type = "O-"
 	sex = "Female"
-/obj/item/weapon/fluff/kitchi_injector
-	name = "Kitchi Monkey Injector"
-	desc = "Allows the user (Kitchi) to transform into a monkey. Single use."
+
+/obj/item/weapon/fluff/injector //Injectors. Custom item used to explain wild changes in a mob's body or chemistry.
+	name = "Injector"
+	desc = "Some type of injector."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "dnainjector"
 
-/obj/item/weapon/fluff/kitchi_injector/attack(mob/living/M, mob/living/user)
+/obj/item/weapon/fluff/injector/monkey
+	name = "Lesser Form Injector"
+	desc = "Turn the user into their lesser, more primal form."
 
-	if(M.ckey != "Ketrai")
-		user << "<span class='warning'>Something compels you to <i>not</i> use this injector.</span>"
-		return
+/obj/item/weapon/fluff/injector/monkey/attack(mob/living/M, mob/living/user)
 
 	if(usr == M) //Is the person using it on theirself?
 		if(ishuman(M)) //If so, monkify them.
@@ -1377,4 +1435,48 @@ obj/item/weapon/material/hatchet/tacknife/combatknife/fluff/katarina/handle_shie
 			H.monkeyize()
 			qdel(src) //One time use.
 	else //If not, do nothing.
-		to_chat(user,"<span class='warning'> You are unable to inject other people.</span>")
+		to_chat(user,"<span class='warning'>You are unable to inject other people.</span>")
+
+/obj/item/weapon/fluff/injector/numb_bite
+	name = "Numbing Venom Injector"
+	desc = "Injects the user with a high dose of some type of chemical, causing any chemical glands they have to kick into overdrive and create the production of a numbing enzyme that is injected via bites.."
+
+/obj/item/weapon/fluff/injector/numb_bite/attack(mob/living/M, mob/living/user)
+
+	if(usr == M) //Is the person using it on theirself?
+		if(ishuman(M)) //Give them numbing bites.
+			var/mob/living/carbon/human/H = user
+			H.species.give_numbing_bite() //This was annoying, but this is the easiest way of performing it.
+			qdel(src) //One time use.
+	else //If not, do nothing.
+		to_chat(user,"<span class='warning'>You are unable to inject other people.</span>")
+
+//For 2 handed fluff weapons.
+/obj/item/weapon/material/twohanded/fluff //Twohanded fluff items.
+	name = "fluff."
+	desc = "This object is so fluffy. Just from the sight of it, you know that either something went wrong or someone spawned the incorrect item."
+	icon = 'icons/vore/custom_items_vr.dmi'
+	item_icons = list(
+				slot_l_hand_str = 'icons/vore/custom_items_left_hand_vr.dmi',
+				slot_r_hand_str = 'icons/vore/custom_items_right_hand_vr.dmi',
+				)
+
+/obj/item/weapon/material/twohanded/fluff/New(var/newloc)
+	..(newloc," ") //See materials_vr_dmi for more information as to why this is a blank space.
+
+//General use.
+/obj/item/weapon/material/twohanded/fluff/riding_crop
+	name = "riding crop"
+	desc = "A steel rod, a little over a foot long with a widened grip and a thick, leather patch at the end. Made to smack naughty submissives."
+	//force_wielded = 0.05 //Stings, but does jack shit for damage, provided you don't hit someone 100 times. 1 damage with hardness of 60.
+	force_divisor = 0.05 //Required in order for the X attacks Y message to pop up.
+	unwielded_force_divisor = 1 // One here, too.
+	applies_material_colour = 0
+	unbreakable = 1
+	base_icon = "riding_crop"
+	icon_state = "riding_crop0"
+	attack_verb = list("cropped","spanked","swatted","smacked","peppered")
+//1R1S: Malady Blanche
+/obj/item/weapon/material/twohanded/fluff/riding_crop/malady
+	name = "Malady's riding crop"
+	desc = "An infernum made riding crop with Malady Blanche engraved in the shaft. It's a little worn from how many butts it has spanked."

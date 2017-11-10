@@ -335,6 +335,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/station
 	name = "\improper Special Ops Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
 /area/shuttle/syndicate_elite/mothership
@@ -343,6 +344,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite/station
 	name = "\improper Merc Elite Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
 
 /area/shuttle/administration/centcom
@@ -351,7 +353,12 @@ area/space/atmosalert()
 
 /area/shuttle/administration/station
 	name = "NSB Adephagia (AS)" //VOREStation Edit
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered2"
+
+/area/shuttle/trade
+	name = "\improper Trade Station"
+	icon_state = "red"
 
 /area/shuttle/trade/centcom
 	name = "\improper Trade Shuttle CentCom"
@@ -359,6 +366,7 @@ area/space/atmosalert()
 
 /area/shuttle/trade/station
 	name = "\improper Trade Shuttle"
+	base_turf = /turf/simulated/floor/virgo3b
 	icon_state = "shuttlered"
 
 /area/shuttle/thunderdome
@@ -393,7 +401,7 @@ area/space/atmosalert()
 	name = "\improper Research Elevator"
 	music = "music/escape.ogg"
 	dynamic_lighting = 0
-	base_turf = /turf/simulated/mineral/floor/ignore_mapgen
+	base_turf = /turf/simulated/floor/tiled/techfloor/grid
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
@@ -2812,7 +2820,7 @@ var/list/the_station_areas = list (
 
 /area/beach
 	name = "Keelin's private beach"
-	icon_state = "null"
+	icon_state = "yellow"
 	luminosity = 1
 	dynamic_lighting = 0
 	requires_power = 0

@@ -5,6 +5,7 @@
 	anchored = 1.0
 	unacidable = 1
 	simulated = 0
+	invisibility = 100
 	var/delete_me = 0
 
 /obj/effect/landmark/New()
@@ -87,9 +88,11 @@
 	if(delete_me)
 		qdel(src)
 
-/obj/effect/landmark/Destroy()
-	landmarks_list -= src
-	return ..()
+/obj/effect/landmark/Destroy(var/force = FALSE)
+	if(delete_me || force)
+		landmarks_list -= src
+		return ..()
+	return QDEL_HINT_LETMELIVE
 
 /obj/effect/landmark/start
 	name = "start"

@@ -107,10 +107,20 @@ Class Procs:
 	set background = 1
 	#endif
 
-	admin_notice("<span class='danger'>Processing Geometry...</span>", R_DEBUG)
+	var/start_time = world.timeofday
+
+	admin_notice("<span class='danger'>Pre-processing air geometries.</span>", R_DEBUG)
 	sleep(-1)
 
-	var/start_time = world.timeofday
+	for(var/turf/simulated/S in world)
+		S.pre_air_startup()
+		CHECK_SLEEP_ZAS_SETUP
+
+	admin_notice("<span class='danger'>Geometry pre-processed in [round(0.1*(world.timeofday-start_time),0.1)] seconds.</span>")
+
+	start_time = world.timeofday
+	admin_notice("<span class='danger'>Processing Geometry...</span>", R_DEBUG)
+	sleep(-1)
 
 	var/simulated_turf_count = 0
 

@@ -80,36 +80,29 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 /mob/living/carbon/human/dummy/mannequin/resize(var/new_size)
 	size_multiplier = new_size
 
-/* Removed due to too many 'magic' characters having resizing 100% of the time.
-   Replaced with bluespace jumpsuit, and mass altering NIFSoft.
 /**
  * Verb proc for a command that lets players change their size OOCly.
  * Ace was here! Redid this a little so we'd use math for shrinking characters. This is the old code.
  */
-/mob/living/proc/set_size()
-	set name = "Set Character Size"
-	set category = "OOC"
-	var/nagmessage = "DO NOT ABUSE THESE COMMANDS. They are not here for you to play with. \
-			We were originally going to remove them but kept them for popular demand. \
-			Do not abuse their existence outside of ERP scenes where they apply, \
-			or reverting OOCly unwanted changes like someone lolshooting the crew with a shrink ray. -Ace"
 
-	if (!istype(src,/mob/living/carbon/human))
-		src << "<span class='warning'>Only organic creatures can use this command!</span>"
-		return
-		var/new_size = input(user, "Choose your character's size, ranging from 25% to 200%", "Character Preference") as num|null
-		if(new_size && IsInRange(new_size,25,200))
-			resize(new_size/100)
-			preview_icon = null
-			message_admins("[key_name(src)] used the resize command in-game to be [new_size]% size. \
+
+/mob/living/proc/set_size()
+	set name = "Adjust Mass"
+	set category = "Abilities" //Seeing as prometheans have an IC reason to be changing mass.
+
+	var/nagmessage = "Adjust your mass to be a size between 25 to 200% (DO NOT ABUSE)"
+	var/new_size = input(nagmessage, "Pick a Size") as num|null
+	if(new_size && IsInRange(new_size,25,200))
+		src.resize(new_size/100)
+		message_admins("[key_name(src)] used the resize command in-game to be [new_size]% size. \
 			([src ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>" : "null"])")
 
-/** Add the set_size() proc to usable verbs. */
+/*
+//Add the set_size() proc to usable verbs. By commenting this out, we can leave the proc and hand it to species that need it.
 /hook/living_new/proc/resize_setup(mob/living/H)
 	H.verbs += /mob/living/proc/set_size
 	return 1
 */
-
 
 /**
  * Attempt to scoop up this mob up into H's hands, if the size difference is large enough.
@@ -188,14 +181,17 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 				else
 					src << "You quickly push [tmob] to the ground with your foot!"
 					tmob << "[src] pushes you down to the ground with their foot!"
+				log_and_message_admins("has pushed [tmob] to the ground by stepping on them.") //Both humans and mobs, since stepping on mobs can be abused.
+				admin_attack_log(src, tmob, "Pinned [tmob.name] under foot.", "Was pinned under foot by [src.name].", "Pinned [tmob.name] under foot.")
 				return 1
 			if(src.m_intent == "walk") //Most likely intentionally stepping on them.
 				var/size_damage_multiplier = (src.size_multiplier - tmob.size_multiplier)
 				var/damage = (rand(15,30)* size_damage_multiplier) //Since stunned is broken, let's do this. Rand 15-30 multiplied by 1 min or 1.75 max. 15 holo to 52.5 holo, depending on RNG and size differnece.
 				tmob.apply_damage(damage, HALLOSS)
 				tmob.resting = 1
-
 				var/mob/living/carbon/human/H = src
+				log_and_message_admins("has stomped on, [tmob] pinning them to the ground and dealing [damage] HALLOSS.") //Both humans and mobs, since stepping on mobs can be abused.
+				admin_attack_log(src, tmob, "Pinned [tmob.name] under foot for [damage] HALLOSS.", "Was pinned under foot by [src.name] for [damage] HALLOSS.", "Pinned [tmob.name] under foot for [damage] HALLOSS.")
 				if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/naga))
 					src << "You push down on [tmob] with your tail, pinning them down under you!"
 					tmob << "[src] pushes down on you with their tail, pinning you down below them!"
@@ -222,6 +218,8 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 						M.drip(0.1)
 						for(var/obj/item/organ/I in M.organs)
 							tmob.take_overall_damage(calculated_damage, 0) //Due to the fact that this deals damage across random body parts, this should heal quite fast.
+						log_and_message_admins("has trampled [M] for [calculated_damage * 10] damage.") //Only crushing humans get logged.
+						admin_attack_log(src, M, "trampled [tmob.name] under foot for [damage * 10] damage.", "Was crushed under foot by [H.name] for [damage * 10] damage.", "Crushed [M.name] for [damage * 10] damage.")
 				else
 					src << "You carelessly step down onto [tmob], crushing them!!"
 					tmob << "[src] steps carelessly on your body, crushing you!"
@@ -230,6 +228,8 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 						for(var/obj/item/organ/I in M.organs)
 							tmob.take_overall_damage(calculated_damage, 0) // 5 damage min, 26.25 damage max, depending on size & RNG. If they're only stepped on once, the damage will heal over time.
 						M.drip(0.1)
+						log_and_message_admins("has trampled [M] for [calculated_damage * 10] damage.")
+						admin_attack_log(src, M, "Crushed [tmob.name] under foot for [damage * 10] damage.", "Was crushed under foot by [H.name] for [damage * 10] damage.", "Crushed [M.name] for [damage * 10] damage.")
 				return 1
 
 			if(src.m_intent == "walk") //Oh my.
@@ -243,6 +243,8 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 						for(var/obj/item/organ/I in M.organs)
 							tmob.take_overall_damage(damage, 0) //17.5 damage min, 91.875 damage max. If they're only stepped on once, the damage will heal over time.
 						M.drip(3) //The least of your problems, honestly.
+						log_and_message_admins("has harshly crushed [M] for [damage * 10] damage.")
+						admin_attack_log(src, M, "Crushed [M.name] under foot for [damage * 10] damage.", "Was crushed under foot by [H.name] for [damage * 10] damage.", "Crushed [M.name] for [damage * 10] damage.")
 				else
 					src << "You methodically place your foot down upon [tmob]'s body, slowly applying pressure, crushing them against the floor below!"
 					tmob << "[src] methodically places their foot upon your body, slowly applying pressure, crushing you against the floor below!"
@@ -251,19 +253,12 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 						for(var/obj/item/organ/I in M.organs)
 							tmob.take_overall_damage(damage, 0)
 						M.drip(3)
+						log_and_message_admins("has harshly crushed [M] for [damage * 10] damage.")
+						admin_attack_log(src, M, "Crushed [M.name] under foot for [damage * 10] damage.", "Was crushed under foot by [H.name] for [damage * 10] damage.", "Crushed [M.name] for [damage * 10] damage.")
 				return 1
 
-			var/mob/living/carbon/human/H = src
-			if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/naga))
-				src << "You steamroller over [tmob] with your heavy tail!"
-				tmob << "[src] ploughs you down mercilessly with their heavy tail!"
-			else
-				src << "You bring your foot down heavily upon [tmob]!"
-				tmob << "[src] steps carelessly on your body!"
-			return 1
-
 	if(src.a_intent == I_GRAB && src.canmove && !src.buckled)
-		if((src.get_effective_size() - tmob.get_effective_size()) >= 0.75)
+		if((src.get_effective_size() - tmob.get_effective_size()) >= 0.50)
 			now_pushing = 0
 			src.forceMove(tmob.loc)
 
@@ -272,15 +267,17 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 				// User is a human (capable of scooping) and not wearing shoes! Scoop into foot slot!
 				equip_to_slot_if_possible(tmob.get_scooped(H), slot_shoes, 0, 1)
 				if(istype(H.tail_style, /datum/sprite_accessory/tail/taur/naga))
-					src << "You wrap up [tmob] with your powerful tail!"
-					tmob << "[src] binds you with their powerful tail!"
+					src << "You slither over [tmob] with your large, thick tail, smushing them against the ground before coiling up around them, trapping them within the tight confines of your tail!"
+					tmob << "[src] slithers over you with their large, thick tail, smushing you against the ground before coiling up around you, trapping you within the tight confines of their tail!"
 				else
-					src << "You clench your toes around [tmob]'s body!"
-					tmob << "[src] grabs your body with their toes!"
+					src << "You pin [tmob] down onto the floor with your foot and curl your toes up around their body, trapping them inbetween them!"
+					tmob << "[src] pins you down to the floor with their foot and curls their toes up around your body, trapping you inbetween them!"
 			else if(istype(H) && istype(H.tail_style, /datum/sprite_accessory/tail/taur/naga))
-				src << "You carefully squish [tmob] under your tail!"
-				tmob << "[src] pins you under their tail!"
+				src << "You squish [tmob] under your large, thick tail, forcing them onto the ground!"
+				tmob << "[src] pins you under their large, thick tail, forcing you onto the ground!!"
+				tmob.resting = 1
 			else
-				src << "You pin [tmob] beneath your foot!"
-				tmob << "[src] pins you beneath their foot!"
+				src << "You step down onto [tmob], squishing them and forcing them down to the ground!"
+				tmob << "[src] steps down and squishes you with their foot, forcing you down to the ground!"
+				tmob.resting = 1
 			return 1

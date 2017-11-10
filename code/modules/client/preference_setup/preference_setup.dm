@@ -32,10 +32,15 @@
 	name = "Loadout"
 	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/loadout
-
+/* //VOREStation Removal
+/datum/category_group/player_setup_category/trait_preferences
+	name = "Traits"
+	sort_order = 6
+	category_item_type = /datum/category_item/player_setup_item/traits
+*/ //VOREStation Removal End
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 6
+	sort_order = 6 //VOREStation Edit due to above commented out
 	category_item_type = /datum/category_item/player_setup_item/player_global
 
 /****************************
@@ -75,6 +80,10 @@
 /datum/category_collection/player_setup_collection/proc/save_preferences(var/savefile/S)
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		PS.save_preferences(S)
+
+/datum/category_collection/player_setup_collection/proc/validate_species(var/mob/user)
+	for(var/datum/category_group/player_setup_category/PS in categories)
+		PS.validate_species(user)
 
 /datum/category_collection/player_setup_collection/proc/copy_to_mob(var/mob/living/carbon/human/C)
 	for(var/datum/category_group/player_setup_category/PS in categories)
@@ -147,6 +156,10 @@
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.save_preferences(S)
 
+/datum/category_group/player_setup_category/proc/validate_species(var/mob/user)
+	for(var/datum/category_item/player_setup_item/PI in items)
+		PI.validate_species(user)
+
 /datum/category_group/player_setup_category/proc/copy_to_mob(var/mob/living/carbon/human/C)
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.copy_to_mob(C)
@@ -218,10 +231,14 @@
 /datum/category_item/player_setup_item/proc/content()
 	return
 
+// sanitize procs used when dealing with savefiles
 /datum/category_item/player_setup_item/proc/sanitize_character()
 	return
 
 /datum/category_item/player_setup_item/proc/sanitize_preferences()
+	return
+
+/datum/category_item/player_setup_item/proc/validate_species(var/mob/user)
 	return
 
 /datum/category_item/player_setup_item/Topic(var/href,var/list/href_list)

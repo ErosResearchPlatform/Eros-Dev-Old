@@ -1,5 +1,5 @@
 /datum/job/centcom_officer //For Business
-	title = "Centcom Officer"
+	title = "CentCom Officer"
 	department = "Command"
 	head_position = 1
 	faction = "Station"
@@ -40,8 +40,8 @@
 		var/access = get_all_accesses()
 		return access
 
-/datum/job/centcom_visitor //For Pleasure
-	title = "Centcom Visitor"
+/*/datum/job/centcom_visitor //For Pleasure // You mean for admin abuse... -Ace
+	title = "CentCom Visitor"
 	department = "Civilian"
 	head_position = 1
 	faction = "Station"
@@ -80,7 +80,7 @@
 
 	get_access()
 		var/access = get_all_accesses()
-		return access
+		return access*/
 
 /datum/job/clown
 	title = "Clown"
@@ -95,7 +95,7 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Fun Mage","Happiness Witch","Joy Summoner","Asshole")
+	alt_titles = list("Comedian","Jester")
 	whitelist_only = 1
 	latejoin_only = 1
 
@@ -133,7 +133,7 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Silent One","The Performer","Kabuki","Asshole")
+	alt_titles = list("Performer","Interpretive Dancer")
 	whitelist_only = 1
 	latejoin_only = 1
 

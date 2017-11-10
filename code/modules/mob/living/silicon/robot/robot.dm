@@ -102,6 +102,7 @@
 	spark_system.attach(src)
 
 	add_language("Robot Talk", 1)
+	add_language(LANGUAGE_GALCOM, 1)
 	add_language(LANGUAGE_EAL, 1)
 
 	wires = new(src)
@@ -219,6 +220,12 @@
 		var/turf/T = get_turf(loc)//To hopefully prevent run time errors.
 		if(T)	mmi.loc = T
 		if(mmi.brainmob)
+			var/obj/item/weapon/robot_module/M = locate() in contents
+			if(M)
+				mmi.brainmob.languages = M.original_languages
+			else
+				mmi.brainmob.languages = languages
+			mmi.brainmob.remove_language("Robot Talk")
 			mind.transfer_to(mmi.brainmob)
 		else
 			src << "<span class='danger'>Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug.</span>"
@@ -352,10 +359,7 @@
 
 	lights_on = !lights_on
 	usr << "You [lights_on ? "enable" : "disable"] your integrated light."
-	if(lights_on)
-		set_light(integrated_light_power) // 1.5x luminosity of flashlight
-	else
-		set_light(0)
+	handle_light()
 
 /mob/living/silicon/robot/verb/self_diagnosis_verb()
 	set category = "Robot Commands"
@@ -462,6 +466,15 @@
 				usr << "<font color='blue'>You install the [W.name].</font>"
 
 				return
+
+	if(istype(W, /obj/item/weapon/aiModule)) // Trying to modify laws locally.
+		if(!opened)
+			to_chat(user, "<span class='warning'>You need to open \the [src]'s panel before you can modify them.</span>")
+			return
+
+		var/obj/item/weapon/aiModule/M = W
+		M.install(src, user)
+		return
 
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if (src == user)
@@ -706,8 +719,10 @@
 		else
 			overlays += "[panelprefix]-openpanel -c"
 
-	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "[module_sprites[icontype]]-shield"
+	if(has_active_type(/obj/item/borg/combat/shield))
+		var/obj/item/borg/combat/shield/shield = locate() in src
+		if(shield && shield.active)
+			overlays += "[module_sprites[icontype]]-shield"
 
 	if(modtype == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
@@ -763,17 +778,14 @@
 /mob/living/silicon/robot/Topic(href, href_list)
 	if(..())
 		return 1
+
+	//All Topic Calls that are only for the Cyborg go here
 	if(usr != src)
 		return 1
 
 	if (href_list["showalerts"])
 		subsystem_alarm_monitor()
 		return 1
-	// VOREStation Edit: Start
-	if(href_list["ooc_notes"])
-		src.Examine_OOC()
-		return
-	// VOREStation Edit: End
 
 	if (href_list["mod"])
 		var/obj/item/O = locate(href_list["mod"])

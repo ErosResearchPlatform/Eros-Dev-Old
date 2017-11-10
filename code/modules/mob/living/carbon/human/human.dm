@@ -10,6 +10,11 @@
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	var/last_push_time	//For human_attackhand.dm, keeps track of the last use of disarm
 
+	var/spitting = 0 //Spitting and spitting related things. Any human based ranged attacks, be it innate or added abilities.
+	var/spit_projectile = null //Projectile type.
+	var/spit_name = null //String
+	var/last_spit = 0 //Timestamp.
+
 /mob/living/carbon/human/New(var/new_loc, var/new_species = null)
 
 	if(!dna)
@@ -83,6 +88,11 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
+
+		var/obj/item/organ/internal/xenos/plasmavessel/P = internal_organs_by_name[O_PLASMA] //Xenomorphs. Mech.
+		if(P)
+			stat(null, "Phoron Stored: [P.stored_plasma]/[P.max_plasma]")
+
 
 		if(back && istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/suit = back
@@ -253,6 +263,7 @@
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
+// and now mobs on fire
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
 	if(istype(AM, /mob/living/bot/mulebot))
 		var/mob/living/bot/mulebot/MB = AM
@@ -261,6 +272,8 @@
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		V.RunOver(src)
+
+	spread_fire(AM)
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
@@ -967,6 +980,14 @@
 						H.brainmob.mind.transfer_to(src)
 						qdel(H)
 
+	// Vorestation Addition - reapply markings/appearance from prefs for player mobs
+	if(client) //just to be sure
+		client.prefs.copy_to(src)
+		if(dna)
+			dna.ResetUIFrom(src)
+			sync_organ_dna()
+	// end vorestation addition
+
 	for (var/ID in virus2)
 		var/datum/disease2/disease/V = virus2[ID]
 		V.cure(src)
@@ -1180,6 +1201,15 @@
 			vessel.remove_reagent("blood", vessel.total_volume - species.blood_volume)
 			vessel.maximum_volume = species.blood_volume
 		fixblood()
+		species.update_attack_types() //VOREStation Edit Start Required for any trait that updates unarmed_types in setup.
+		if(species.gets_food_nutrition != 1) //Bloodsucker trait. Tacking this on here.
+			verbs |= /mob/living/carbon/human/proc/bloodsuck
+		if(species.can_drain_prey == 1)
+			verbs |= /mob/living/carbon/human/proc/succubus_drain //Succubus drain trait.
+			verbs |= /mob/living/carbon/human/proc/succubus_drain_finialize
+			verbs |= /mob/living/carbon/human/proc/succubus_drain_lethal
+		if(species.hard_vore_enabled == 1) //Hardvore verb.
+			verbs |= /mob/living/carbon/human/proc/shred_limb //VOREStation Edit End
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1189,6 +1219,8 @@
 		hud_used = new /datum/hud(src)
 
 	if(species)
+		//if(mind) //VOREStation Removal
+			//apply_traits() //VOREStation Removal
 		return 1
 	else
 		return 0
@@ -1522,11 +1554,14 @@
 /mob/living/carbon/human/is_muzzled()
 	return (wear_mask && (istype(wear_mask, /obj/item/clothing/mask/muzzle) || istype(src.wear_mask, /obj/item/weapon/grenade)))
 
+/mob/living/carbon/human/get_fire_icon_state()
+	return species.fire_icon_state
+
 // Called by job_controller.  Makes drones start with a permit, might be useful for other people later too.
-/mob/living/carbon/human/equip_post_job()
+/mob/living/carbon/human/equip_post_job()	//Drone Permit moved to equip_survival_gear()
 	var/braintype = get_FBP_type()
 	if(braintype == FBP_DRONE)
 		var/turf/T = get_turf(src)
-		var/obj/item/weapon/permit/drone/permit = new(T)
+		var/obj/item/clothing/accessory/permit/drone/permit = new(T)
 		permit.set_name(real_name)
 		equip_to_appropriate_slot(permit) // If for some reason it can't find room, it'll still be on the floor.

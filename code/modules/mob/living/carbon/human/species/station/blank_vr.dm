@@ -1,7 +1,11 @@
-/*
+
 /datum/species
-	var/vore_numbing = 0
-*/
+	//var/vore_numbing = 0
+	var/gets_food_nutrition = 1 // If this is set to 0, the person can't get nutrrition from food.
+	var/can_drain_prey = 0 //Determines if the person can use the succubus drain or not.
+	var/hard_vore_enabled = 0 //Determines if the person has the hardvore verb or not.
+	var/metabolism = 0.0015
+
 /datum/species/custom
 	name = "Custom Species"
 	name_plural = "Custom"
@@ -19,7 +23,7 @@
 	health_hud_intensity = 2
 	num_alternate_languages = 3
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 	var/list/traits = list()

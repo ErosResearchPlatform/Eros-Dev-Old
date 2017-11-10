@@ -61,12 +61,12 @@
 				return
 			if(mode==0) // It's off but still not unscrewed
 				mode=-1 // Set it to doubleoff l0l
-				playsound(src, I.usesound, 50, 1)
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "You remove the screws around the power connection."
 				return
 			else if(mode==-1)
 				mode=0
-				playsound(src, I.usesound, 50, 1)
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "You attach the screws around the power connection."
 				return
 		else if(istype(I,/obj/item/weapon/weldingtool) && mode==-1)
@@ -75,10 +75,10 @@
 				return
 			var/obj/item/weapon/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src, W.usesound, 100, 1)
+				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "You start slicing the floorweld off the disposal unit."
 
-				if(do_after(user,20 * W.toolspeed))
+				if(do_after(user,20))
 					if(!src || !W.isOn()) return
 					user << "You sliced the floorweld off the disposal unit."
 					var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -99,7 +99,7 @@
 
 	if(istype(I, /obj/item/weapon/storage/bag/trash))
 		var/obj/item/weapon/storage/bag/trash/T = I
-		user << "<font color='blue'>You empty the bag.</font>"
+		user << "\blue You empty the bag."
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
@@ -128,7 +128,7 @@
 					GM.client.eye = src
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
-					C.show_message("<font color='red'>[GM.name] has been placed in the [src] by [user].</font>", 3)
+					C.show_message("\red [GM.name] has been placed in the [src] by [user].", 3)
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
@@ -233,7 +233,7 @@
 		return
 
 	if(user && user.loc == src)
-		usr << "<font color='red'>You cannot reach the controls from inside.</font>"
+		usr << "\red You cannot reach the controls from inside."
 		return
 
 	// Clumsy folks can only flush it.
@@ -282,11 +282,11 @@
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src)
-		usr << "<font color='red'>You cannot reach the controls from inside.</font>"
+		usr << "\red You cannot reach the controls from inside."
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		usr << "<font color='red'>The disposal units power is disabled.</font>"
+		usr << "\red The disposal units power is disabled."
 		return
 	if(..())
 		return
@@ -471,6 +471,8 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover, /obj/item/projectile))
+		return 1
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
 		if(istype(I, /obj/item/projectile))
@@ -881,7 +883,7 @@
 			var/obj/item/weapon/weldingtool/W = I
 
 			if(W.remove_fuel(0,user))
-				playsound(src, W.usesound, 50, 1)
+				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				// check if anything changed over 2 seconds
 				var/turf/uloc = user.loc
 				var/atom/wloc = W.loc
@@ -1133,6 +1135,9 @@
 			else
 				return mask & (~setbit)
 
+/obj/structure/disposalpipe/junction/flipped
+		icon_state = "pipe-j2"
+
 
 /obj/structure/disposalpipe/tagger
 	name = "package tagger"
@@ -1169,7 +1174,7 @@
 			if(O.currTag)// Tag set
 				sort_tag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-				user << "<font color='blue'>Changed tag to '[sort_tag]'.</font>"
+				user << "\blue Changed tag to '[sort_tag]'."
 				updatename()
 				updatedesc()
 
@@ -1237,7 +1242,7 @@
 			if(O.currTag)// Tag set
 				sortType = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-				user << "<font color='blue'>Changed filter to '[sortType]'.</font>"
+				user << "\blue Changed filter to '[sortType]'."
 				updatename()
 				updatedesc()
 
@@ -1361,7 +1366,7 @@
 		var/obj/item/weapon/weldingtool/W = I
 
 		if(W.remove_fuel(0,user))
-			playsound(src, W.usesound, 100, 1)
+			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			// check if anything changed over 2 seconds
 			var/turf/uloc = user.loc
 			var/atom/wloc = W.loc
@@ -1478,20 +1483,20 @@
 		if(istype(I, /obj/item/weapon/screwdriver))
 			if(mode==0)
 				mode=1
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "You remove the screws around the power connection."
-				playsound(src, I.usesound, 50, 1)
 				return
 			else if(mode==1)
 				mode=0
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "You attach the screws around the power connection."
-				playsound(src, I.usesound, 50, 1)
 				return
 		else if(istype(I,/obj/item/weapon/weldingtool) && mode==1)
 			var/obj/item/weapon/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src, W.usesound, 100, 1)
+				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "You start slicing the floorweld off the disposal outlet."
-				if(do_after(user,20 * W.toolspeed))
+				if(do_after(user,20))
 					if(!src || !W.isOn()) return
 					user << "You sliced the floorweld off the disposal outlet."
 					var/obj/structure/disposalconstruct/C = new (src.loc)

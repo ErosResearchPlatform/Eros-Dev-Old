@@ -29,7 +29,7 @@
 	var/gender = NEUTER
 
 	// Restrict some styles to specific species
-	var/list/species_allowed = list("Human")
+	var/list/species_allowed = list("Human","Promethean")
 
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
@@ -51,7 +51,7 @@
 		name = "Bald"
 		icon_state = "bald"
 		gender = MALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi","Promethean")
 
 	short
 		name = "Short Hair"	  // try to capatilize the names please~
@@ -187,6 +187,10 @@
 	bedhead3
 		name = "Bedhead 3"
 		icon_state = "hair_bedheadv3"
+
+	bedheadlong
+		name = "Bedhead Long"
+		icon_state = "hair_long_bedhead"
 
 	beehive
 		name = "Beehive"
@@ -616,6 +620,30 @@
 	manbun
 		name = "Manbun"
 		icon_state = "hair_manbun"
+
+	shy
+		name = "Shy"
+		icon_state = "hair_shy"
+
+	jade
+		name = "Jade"
+		icon_state = "hair_jade"
+
+	country
+		name = "Country"
+		icon_state = "hair_country"
+
+	rosa
+		name = "Rosa"
+		icon_state = "hair_rosa"
+
+	dave
+		name = "Dave"
+		icon_state = "hair_dave"
+
+	mohawkunshaven
+		name = "Unshaven Mohawk"
+		icon_state = "hair_unshaven_mohawk"
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -632,7 +660,7 @@
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell", "Machine","Teshari", "Vox")
+		species_allowed = list("Human","Unathi","Tajara","Skrell", "Machine","Teshari", "Vox","Promethean")
 
 	watson
 		name = "Watson Mustache"
@@ -703,7 +731,7 @@
 		name = "Dwarf Beard"
 		icon_state = "facial_dwarf"
 
-		threeOclock
+	threeOclock
 		name = "3 O'clock Shadow"
 		icon_state = "facial_3oclock"
 
@@ -746,6 +774,18 @@
 	chinless
 		name = "Chinless Beard"
 		icon_state = "facial_chinlessbeard"
+
+	tribeard
+		name = "Tribeard"
+		icon_state = "facial_tribeard"
+
+	moonshiner
+		name = "Moonshiner"
+		icon_state = "facial_moonshiner"
+
+	martial
+		name = "Martial Artist"
+		icon_state = "facial_martialartist"
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -980,6 +1020,17 @@
 		icon_state = "teshari_mushroom"
 		species_allowed = list("Teshari")
 
+// Vox things
+	vox_braid_long
+		name = "Long Vox braid"
+		icon_state = "vox_longbraid"
+		species_allowed = list("Vox")
+
+	vox_braid_short
+		name = "Short Vox Braid"
+		icon_state = "vox_shortbraid"
+		species_allowed = list("Vox")
+
 	vox_quills_short
 		name = "Short Vox Quills"
 		icon_state = "vox_shortquills"
@@ -1157,6 +1208,12 @@
 		icon_state = "bellyhandsfeet_female"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_TORSO)
 		species_allowed = list("Tajara")
+	
+	panda_eye_marks
+		name = "Panda Eye Markings"
+		icon_state = "eyes-panda"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Human")
 
 	patches
 		name = "Color Patches"

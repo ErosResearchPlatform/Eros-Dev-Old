@@ -57,7 +57,7 @@
 				owner.nutrition += 20 // so eating dead mobs gives you *something*.
 				if(isrobot(owner))
 					s_owner = owner
-					s_owner.cell.charge += 750
+					s_owner.cell.charge += 200
 				var/deathsound = pick(death_sounds)
 				for(var/mob/hearer in range(1,owner))
 					hearer << deathsound
@@ -79,11 +79,11 @@
 				var/difference = owner.size_multiplier / M.size_multiplier
 				if(isrobot(owner))
 					s_owner = owner
-					s_owner.cell.charge += 100
+					s_owner.cell.charge += 20*(digest_brute+digest_burn)
 				if(offset) // If any different than default weight, multiply the % of offset.
-					owner.nutrition += offset*(10/difference) // 9.5 nutrition per digestion tick if they're 130 pounds and it's same size. 10.2 per digestion tick if they're 140 and it's same size. Etc etc.
+					owner.nutrition += offset*(2*(digest_brute+digest_burn)/difference) // 9.5 nutrition per digestion tick if they're 130 pounds and it's same size. 10.2 per digestion tick if they're 140 and it's same size. Etc etc.
 				else
-					owner.nutrition += (10/difference)
+					owner.nutrition += 2*(digest_brute+digest_burn)/difference
 			M.updateVRPanel()
 
 		if(digest_mode == DM_ITEMWEAK)
@@ -360,6 +360,60 @@
 				return
 		return
 
+//////////////////////////// DM_SHRINK ////////////////////////////
+	if(digest_mode == DM_SHRINK)
+
+		for (var/mob/living/M in internal_contents)
+
+			if(prob(10)) //Infinite gurgles!
+				var/shrinksound = pick(digestion_sounds)
+				M << sound(shrinksound,volume=80)
+				owner << sound(shrinksound,volume=80)
+
+			if(M.size_multiplier > shrink_grow_size) //Shrink until smol.
+				M.resize(M.size_multiplier-0.01) //Shrink by 1% per tick.
+				if(M.nutrition >= 100) //Absorbing bodymass results in nutrition if possible.
+					var/oldnutrition = (M.nutrition * 0.05)
+					M.nutrition = (M.nutrition * 0.95)
+					owner.nutrition += oldnutrition
+				return
+		return
+
+//////////////////////////// DM_GROW ////////////////////////////
+	if(digest_mode == DM_GROW)
+
+		for (var/mob/living/M in internal_contents)
+
+			if(prob(10))
+				var/growsound = pick(digestion_sounds)
+				M << sound(growsound,volume=80)
+				owner << sound(growsound,volume=80)
+
+			if(M.size_multiplier < shrink_grow_size) //Grow until large.
+				M.resize(M.size_multiplier+0.01) //Grow by 1% per tick.
+				if(M.nutrition >= 100)
+					owner.nutrition = (owner.nutrition * 0.95)
+		return
+
+//////////////////////////// DM_SIZE_STEAL ////////////////////////////
+	if(digest_mode == DM_SIZE_STEAL)
+
+		for (var/mob/living/M in internal_contents)
+
+			if(prob(10))
+				var/growsound = pick(digestion_sounds)
+				M << sound(growsound,volume=80)
+				owner << sound(growsound,volume=80)
+
+			if(M.size_multiplier > shrink_grow_size && owner.size_multiplier < 2) //Grow until either pred is large or prey is small.
+				owner.resize(owner.size_multiplier+0.01) //Grow by 1% per tick.
+				M.resize(M.size_multiplier-0.01) //Shrink by 1% per tick
+				if(M.nutrition >= 100)
+					var/oldnutrition = (M.nutrition * 0.05)
+					M.nutrition = (M.nutrition * 0.95)
+					owner.nutrition += oldnutrition
+		return
+
 ///////////////////////////// DM_HEAL /////////////////////////////
 	if(digest_mode == DM_HEAL)
 		if(prob(50)) //Wet heals!
@@ -375,6 +429,9 @@
 					owner.nutrition -= 2
 					if(M.nutrition <= 400)
 						M.nutrition += 1
+				else if(owner.nutrition > 90 && (M.nutrition <= 400))
+					owner.nutrition -= 1
+					M.nutrition += 1
 		return
 
 ///////////////////////////// DM_TRANSFORM_HAIR_AND_EYES /////////////////////////////

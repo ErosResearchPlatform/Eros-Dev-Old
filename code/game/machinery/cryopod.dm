@@ -249,7 +249,7 @@
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
-	icon = 'icons/obj/robot_storage.dmi'
+	icon = 'icons/obj/robot_storage_er.dmi'	//Eros edit
 	icon_state = "pod_0"
 	base_icon_state = "pod_0"
 	occupied_icon_state = "pod_1"
@@ -562,8 +562,8 @@
 		usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
 		return
 
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
+	for(var/mob/living/simple_animal/slime/M in range(1,usr))
+		if(M.victim == usr)
 			usr << "You're too busy getting your life sucked out of you."
 			return
 
