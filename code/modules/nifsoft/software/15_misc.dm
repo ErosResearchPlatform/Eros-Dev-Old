@@ -126,7 +126,7 @@
 
 	stat_text()
 		return "Show Laws"
-
+/*
 /datum/nifsoft/sizechange
 	name = "Mass Alteration"
 	desc = "A system that allows one to change their size, through drastic mass rearrangement. Causes significant wear when installed."
@@ -157,3 +157,4 @@
 
 	stat_text()
 		return "Change Size"
+*/

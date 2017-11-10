@@ -44,7 +44,7 @@
 
 	//primitive_form = "Farwa"
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED //Whitelisted as restricted is broken.
+	spawn_flags = SPECIES_IS_RESTRICTED //Whitelisted as restricted is broken.
 	flags = NO_SCAN //Dying as a chimera is, quite literally, a death sentence. Well, if it wasn't for their revive, that is.
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
@@ -231,7 +231,7 @@
 
 	//primitive_form = "Monkey" //I dunno. Replace this in the future.
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E" //Gray-ish. Not sure if this is really needed, but eh.

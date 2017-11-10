@@ -30,7 +30,7 @@
 
 	primitive_form = "Saru"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	inherent_verbs = list(/mob/living/carbon/human/proc/shred_limb)
 
@@ -131,7 +131,7 @@
 
 	primitive_form = "Sparra"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -170,7 +170,7 @@
 
 	//primitive_form = "" //We don't have fox-monkey sprites.
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
@@ -206,7 +206,7 @@
 	seem to have adjusted better to their new lives. Though similar fox-like beings have been seen they are different than the Zorren."
 
 	//primitive_form = "" //We don't have fennec-monkey sprites.
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -246,7 +246,7 @@
 
 	primitive_form = "Wolpin"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#966464"
@@ -278,7 +278,7 @@
 
 	//primitive_form = "" //None for these guys
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	blood_color = "#12ff12"
@@ -316,7 +316,7 @@
 	min_age = 18
 
 /datum/species/diona
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN
 	min_age = 18
 
 /datum/species/teshari
@@ -368,7 +368,7 @@ datum/species/harpy
 
 	//primitive_form = "Saru"
 
-	spawn_flags = SPECIES_CAN_JOIN
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	//flesh_color = "#AFA59E"

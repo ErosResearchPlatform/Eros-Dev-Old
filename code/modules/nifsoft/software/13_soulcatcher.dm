@@ -15,6 +15,8 @@
 	cost = 50 //If I wanna trap people's minds and lood them, then by god I'll do so.
 	wear = 1
 	p_drain = 0.01
+	illegal = TRUE  //Eros edit-- hopefully makes this not show?
+	vended = FALSE //See above
 	other_flags = (NIF_O_SCMYSELF|NIF_O_SCOTHERS) // Default on when installed, clear when uninstalled
 
 	var/setting_flags = (NIF_SC_CATCHING_ME|NIF_SC_CATCHING_OTHERS|NIF_SC_ALLOW_EARS|NIF_SC_ALLOW_EYES|NIF_SC_BACKUPS)
