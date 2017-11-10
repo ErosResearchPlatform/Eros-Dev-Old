@@ -401,7 +401,7 @@ area/space/atmosalert()
 	name = "\improper Research Elevator"
 	music = "music/escape.ogg"
 	dynamic_lighting = 0
-	base_turf = /turf/simulated/mineral/floor/ignore_mapgen
+	base_turf = /turf/simulated/floor/tiled/techfloor/grid
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"

@@ -824,7 +824,6 @@
 	icon_state = "snaketail"
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
-	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/sergaltaildc
 	name = "sergal, dual-color"
@@ -1068,6 +1067,7 @@
 /datum/sprite_accessory/tail/taur/naga
 	name = "Naga"
 	icon_state = "naga_s"
+	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/taur/naga/naga_2c
 	name = "Naga dual-color"

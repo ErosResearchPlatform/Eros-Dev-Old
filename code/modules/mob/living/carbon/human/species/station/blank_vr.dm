@@ -23,7 +23,7 @@
 	health_hud_intensity = 2
 	num_alternate_languages = 3
 
-	spawn_flags = SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 	var/list/traits = list()
