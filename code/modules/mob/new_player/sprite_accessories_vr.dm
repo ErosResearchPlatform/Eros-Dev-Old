@@ -6,14 +6,14 @@
 
 /datum/sprite_accessory/hair
 
-	species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan") //This lets all races use the default hairstyles.
+	species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan", "Veirei", "Lamia") //This lets all races use the default hairstyles.
 	var/color_blend_mode = ICON_MULTIPLY
 
 	awoohair
 		name = "Shoulder-length Messy"
 		icon = 'icons/mob/human_face_vr.dmi'
 		icon_state = "momijihair"
-		
+
 	citheronia
 		name = "Citheronia Hair (Kira72)"
 		icon = 'icons/mob/human_face_vr.dmi'
@@ -60,13 +60,13 @@
 		name = "Bald"
 		icon_state = "bald"
 		gender = MALE
-		species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan", "Xenochimera") //Lets all the races be bald if they want.
+		species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan", "Xenochimera", "Veirei", "Lamia") //Lets all the races be bald if they want.
 
 	ponytail6_fixed //Eggnerd's done with waiting for upstream fixes lmao.
 		name = "Ponytail 6 but fixed"
 		icon = 'icons/mob/human_face_vr.dmi'
 		icon_state = "hair_ponytail6"
-		species_allowed = list("Human","Skrell","Unathi","Tajara", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Rapala")
+		species_allowed = list("Human","Skrell","Unathi","Tajara", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Rapala", "Machine", "Veirei", "Lamia")
 
 	una_hood
 		name = "Cobra Hood"
@@ -76,54 +76,54 @@
 	una_spines_long
 		name = "Long Unathi Spines"
 		icon_state = "soghun_longspines"
-		species_allowed = list("Unathi", "Xenochimera") //Xenochimera get most hairstyles since they're abominations.
+		species_allowed = list("Unathi", "Xenochimera", "Lamia") //Xenochimera get most hairstyles since they're abominations.
 
 	una_spines_short
 		name = "Short Unathi Spines"
 		icon_state = "soghun_shortspines"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 
 	una_frills_long
 		name = "Long Unathi Frills"
 		icon_state = "soghun_longfrills"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_frills_short
 		name = "Short Unathi Frills"
 		icon_state = "soghun_shortfrills"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_horns
 		name = "Unathi Horns"
 		icon_state = "soghun_horns"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_bighorns
 		name = "Unathi Big Horns"
 		icon_state = "unathi_bighorn"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_smallhorns
 		name = "Unathi Small Horns"
 		icon_state = "unathi_smallhorn"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_ramhorns
 		name = "Unathi Ram Horns"
 		icon_state = "unathi_ramhorn"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_sidefrills
 		name = "Unathi Side Frills"
 		icon_state = "unathi_sidefrills"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	una_doublehorns
 		name = "Double Unathi Horns"
 		icon = 'icons/mob/human_face_vr.dmi'
 		icon_state = "soghun_dubhorns"
-		species_allowed = list("Unathi", "Xenochimera")
+		species_allowed = list("Unathi", "Xenochimera", "Lamia")
 
 	taj_ears
 		name = "Tajaran Ears"
@@ -354,7 +354,7 @@
 /datum/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_face_or_vr.dmi'
 	var/color_blend_mode = ICON_MULTIPLY
-	species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan", "Rapala") //This lets all races use the facial hair styles.
+	species_allowed = list("Human","Skrell","Unathi","Tajara", "Teshari", "Nevrean", "Akula", "Sergal", "Flatland Zorren", "Highlander Zorren", "Vulpkanin", "Xenochimera", "Xenomorph Hybrid", "Vasilissan", "Rapala", "Veirei", "Lamia") //This lets all races use the facial hair styles.
 
 
 	vulp_none
@@ -747,7 +747,7 @@
 		name = "Anime Eyes Inner"
 		icon_state = "animeeyesinner"
 		body_parts = list(BP_HEAD)
-		
+
 	animeeyesouter
 		name = "Anime Eyes Outer"
 		icon_state = "animeeyesouter"
