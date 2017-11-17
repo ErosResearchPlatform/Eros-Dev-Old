@@ -1043,6 +1043,7 @@
 	icon = 'icons/mob/vore/taurs_vr.dmi'
 	do_colouration = 1 // Yes color, using tail color
 	color_blend_mode = ICON_MULTIPLY  // The sprites for taurs are designed for ICON_MULTIPLY
+	clothing_can_hide = 0
 
 /datum/sprite_accessory/tail/taur/roiz_long_lizard // Not ACTUALLY a taur, but it uses 32x64 so it wouldn't fit in tails.dmi, and having it as a tail bugs up the sprite.
 	name = "Long Lizard Tail (Roiz Lizden)"
@@ -1065,14 +1066,15 @@
 	extra_overlay = "synthwolf_markings"
 
 /datum/sprite_accessory/tail/taur/naga
-	name = "Naga"
+	name = "Lamia"	//Eros rename
 	icon_state = "naga_s"
 	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/taur/naga/naga_2c
-	name = "Naga dual-color"
+	name = "Lamia dual-color"	//Eros rename
 	icon_state = "naga_s"
 	extra_overlay = "naga_markings"
+	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/taur/horse
 	name = "Horse"
@@ -1101,10 +1103,9 @@
 	icon_state = "synthlizard_s"
 	extra_overlay = "synthlizard_markings"
 
-/datum/sprite_accessory/tail/taur/spider
+/*/datum/sprite_accessory/tail/taur/spider
 	name = "Spider"
-	icon_state = "spider_s"
-	species_allowed = list("Veirei")
+	icon_state = "spider_s"  - Removed for veirei */
 
 /datum/sprite_accessory/tail/taur/tents
 	name = "Tentacles"
@@ -1166,3 +1167,10 @@
 	ani_state = "alraune_closed_s"
 	ckeys_allowed = list("natje")
 	do_colouration = 0
+
+/datum/sprite_accessory/tail/taur/spider
+	name = "Veirei abdomen"
+	icon = 'icons/eros/mob/taurs_er.dmi'
+	icon_state = "veirei_s"
+	extra_overlay = "veirei_e"
+	species_allowed = list("Veirei")

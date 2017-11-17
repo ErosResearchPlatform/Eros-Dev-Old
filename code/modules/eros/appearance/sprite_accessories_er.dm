@@ -616,9 +616,16 @@
 /datum/sprite_accessory/tail/eros
 	name = "You should not see this..."
 	icon = 'icons/eros/mob/tails_er.dmi'
-	do_colouration = 0
+	do_colouration = 0 //Set to 1 to enable coloration using the tail color.
+	color_blend_mode = ICON_ADD // Only appliciable if do_coloration = 1
+	extra_overlay // Icon state of an additional overlay to blend in.
+	show_species_tail = 0 // If false, do not render species' tail.
+	clothing_can_hide = 1 // If true, clothing with HIDETAIL hides it
 	desc = "You should not see this..."
-	color_blend_mode = ICON_MULTIPLY
+	ani_state = ""
+	extra_overlay_w = ""
+
+	species_allowed = SPECIES_TAILCONTROL
 
 /datum/sprite_accessory/tail/eros/squirrel
 	name = "colorable fluffy squirrel tail"
