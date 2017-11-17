@@ -33,41 +33,29 @@
 	lift_announce_str = "Arriving at eros midway point."
 	delay_time = 5 SECONDS
 
-/area/turbolift/t_surface/level1
-	name = "surface (level 1)"
-	lift_floor_label = "Surface 1"
-	lift_floor_name = "Tram, Mining, Moon EVA"
-	lift_announce_str = "Arriving at Base Level 1."
+/area/turbolift/outpost/level2
+	name = "outpost (Ground Floor)"
+	lift_floor_label = "Ground Floor"
+	lift_floor_name = "Solar Array, Atmospherics, Transit Link"
+	lift_announce_str = "Arriving at Outpost Ground Floor."
 
-/area/turbolift/t_surface/level2
-	name = "surface (level 2)"
-	lift_floor_label = "Surface 2"
-	lift_floor_name = "Atmos, Maintenance"
+/area/turbolift/outpost/level1
+	name = "outpost (Sub-Level)"
+	lift_floor_label = "Sub-Level"
+	lift_floor_name = "Anomalous Materials Test Labs, Material Refinery, Mining Depot"
 	lift_announce_str = "Arriving at Base Level 2."
 
-/area/turbolift/t_surface/level3
-	name = "surface (level 3)"
-	lift_floor_label = "Surface 3"
-	lift_floor_name = "Science, Bar, Pool"
-	lift_announce_str = "Arriving at Base Level 3."
+/area/turbolift/base/level2
+	name = "base (Ground Floor)"
+	lift_floor_label = "Ground Floor"
+	lift_floor_name = "Engineering, Atmospherics, Security, Medical, Command Centre"
+	lift_announce_str = "Arriving at Ground Floor."
 
-/area/turbolift/t_station/level1
-	name = "asteroid (level 1)"
-	lift_floor_label = "Asteroid 1"
-	lift_floor_name = "Eng, Bridge, Dorms, Cryo"
-	lift_announce_str = "Arriving at Station Level 1."
-
-/area/turbolift/t_station/level2
-	name = "asteroid (level 2)"
-	lift_floor_label = "Asteroid 2"
-	lift_floor_name = "Chapel, AI Core, EVA Gear"
-	lift_announce_str = "Arriving at Station Level 2."
-
-/area/turbolift/t_station/level3
-	name = "asteroid (level 3)"
-	lift_floor_label = "Asteroid 3"
-	lift_floor_name = "Medical, Security, Cargo"
-	lift_announce_str = "Arriving at Station Level 3."
+/area/turbolift/base/level1
+	name = "base (Maintenance Sub-Level)"
+	lift_floor_label = "Maintenance Sub-Level"
+	lift_floor_name = "Sub-Level Maintenance, Telecommunications"
+	lift_announce_str = "Arriving at Maintenance Sub level."
 
 /area/vacant/vacant_restaurant_upper
 	name = "\improper Vacant Restaurant"
