@@ -29,7 +29,7 @@
 	var/gender = NEUTER
 
 	// Restrict some styles to specific species
-	var/list/species_allowed = list("Human","Promethean")
+	var/list/species_allowed = list("Human","Promethean","Vatborn,"Veirei")
 
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
@@ -45,13 +45,14 @@
 
 /datum/sprite_accessory/hair
 
-	icon = 'icons/mob/Human_face.dmi'	  // default icon for all hairs
+	icon = 'icons/mob/Human_face_m.dmi'	  // default icon for all hairs
+	var/icon_add = 'icons/mob/human_face.dmi'
 
 	bald
 		name = "Bald"
 		icon_state = "bald"
-		gender = MALE
-		species_allowed = list("Human","Unathi","Promethean")
+//		gender = MALE	//Eros Edit
+		species_allowed = list("Human","Unathi","Promethean","Vatborn","Machine","Tajara","Veirei","Lamia")
 
 	short
 		name = "Short Hair"	  // try to capatilize the names please~
@@ -203,12 +204,12 @@
 	bobcurl
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi","Lamia")
 
 	bob
 		name = "Bob"
 		icon_state = "hair_bobcut"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi","Lamia")
 
 	bobcutalt
 		name = "Chin Length Bob"
@@ -233,7 +234,7 @@
 	buzz
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi","Lamia")
 
 	shavehair
 		name = "Shaved Hair"
@@ -323,7 +324,7 @@
 		name = "Overeye Long"
 		icon_state = "hair_longovereye"
 
-	fag
+	flowhair
 		name = "Flow Hair"
 		icon_state = "hair_f"
 
@@ -338,7 +339,7 @@
 	mohawk
 		name = "Mohawk"
 		icon_state = "hair_d"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi","Lamia")
 
 	jensen
 		name = "Adam Jensen Hair"
@@ -355,7 +356,7 @@
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spikey"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi",,"Lamia")
 
 	kusangi
 		name = "Kusanagi Hair"
@@ -512,7 +513,7 @@
 	lowfade
 		name = "Low Fade"
 		icon_state = "hair_lowfade"
-		gender = MALE
+//		gender = MALE
 
 	medfade
 		name = "Medium Fade"
@@ -521,57 +522,57 @@
 	highfade
 		name = "High Fade"
 		icon_state = "hair_highfade"
-		gender = MALE
+//		gender = MALE
 
 	baldfade
 		name = "Balding Fade"
 		icon_state = "hair_baldfade"
-		gender = MALE
+//		gender = MALE
 
 	nofade
 		name = "Regulation Cut"
 		icon_state = "hair_nofade"
-		gender = MALE
+//		gender = MALE
 
 	trimflat
 		name = "Trimmed Flat Top"
 		icon_state = "hair_trimflat"
-		gender = MALE
+//		gender = MALE
 
 	trimmed
 		name = "Trimmed"
 		icon_state = "hair_trimmed"
-		gender = MALE
+//		gender = MALE
 
 	tightbun
 		name = "Tight Bun"
 		icon_state = "hair_tightbun"
-		gender = FEMALE
+//		gender = FEMALE
 
 	coffeehouse
 		name = "Coffee House Cut"
 		icon_state = "hair_coffeehouse"
-		gender = MALE
+//		gender = MALE
 
 	undercut1
 		name = "Undercut"
 		icon_state = "hair_undercut1"
-		gender = MALE
+//		gender = MALE
 
 	undercut2
 		name = "Undercut Swept Right"
 		icon_state = "hair_undercut2"
-		gender = MALE
+//		gender = MALE
 
 	undercut3
 		name = "Undercut Swept Left"
 		icon_state = "hair_undercut3"
-		gender = MALE
+//		gender = MALE
 
 	partfade
 		name = "Parted Fade"
 		icon_state = "hair_shavedpart"
-		gender = MALE
+//		gender = MALE
 
 	hightight
 		name = "High and Tight"
@@ -660,7 +661,7 @@
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell", "Machine","Teshari", "Vox","Promethean")
+		species_allowed = list("Human","Vatborn","Unathi","Tajara","Skrell", "Machine","Teshari", "Vox","Promethean","Veirei","Lamia")
 
 	watson
 		name = "Watson Mustache"
@@ -701,7 +702,7 @@
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Promethean","Vatborn","Unathi","Lamia")
 
 	abe
 		name = "Abraham Lincoln Beard"
@@ -798,47 +799,47 @@
 	una_spines_long
 		name = "Long Unathi Spines"
 		icon_state = "soghun_longspines"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_spines_short
 		name = "Short Unathi Spines"
 		icon_state = "soghun_shortspines"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_frills_long
 		name = "Long Unathi Frills"
 		icon_state = "soghun_longfrills"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_frills_short
 		name = "Short Unathi Frills"
 		icon_state = "soghun_shortfrills"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_horns
 		name = "Unathi Horns"
 		icon_state = "soghun_horns"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_bighorns
 		name = "Unathi Big Horns"
 		icon_state = "unathi_bighorn"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_smallhorns
 		name = "Unathi Small Horns"
 		icon_state = "unathi_smallhorn"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_ramhorns
 		name = "Unathi Ram Horns"
 		icon_state = "unathi_ramhorn"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_sidefrills
 		name = "Unathi Side Frills"
 		icon_state = "unathi_sidefrills"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 //Skrell 'hairstyles'
 	skr_tentacle_veryshort
@@ -1083,22 +1084,22 @@
 	una_chinhorn
 		name = "Unathi Chin Horn"
 		icon_state = "facial_chinhorns"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_hornadorns
 		name = "Unathi Horn Adorns"
 		icon_state = "facial_hornadorns"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_spinespikes
 		name = "Unathi Spine Spikes"
 		icon_state = "facial_spikes"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 	una_dorsalfrill
 		name = "Unathi Dorsal Frill"
 		icon_state = "facial_dorsalfrill"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi","Lamia")
 
 
 //Teshari things
@@ -1208,7 +1209,7 @@
 		icon_state = "bellyhandsfeet_female"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_TORSO)
 		species_allowed = list("Tajara")
-	
+
 	panda_eye_marks
 		name = "Panda Eye Markings"
 		icon_state = "eyes-panda"
@@ -1342,12 +1343,12 @@
 	human
 		name = "Default human skin"
 		icon_state = "default"
-		species_allowed = list("Human")
+		species_allowed = list("Human","Vatborn")
 
 	human_tatt01
 		name = "Tatt01 human skin"
 		icon_state = "tatt1"
-		species_allowed = list("Human")
+		species_allowed = list("Human","Vatborn")
 
 	tajaran
 		name = "Default tajaran skin"
