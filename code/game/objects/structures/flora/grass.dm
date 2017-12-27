@@ -25,3 +25,24 @@
 /obj/structure/flora/grass/both/New()
 	..()
 	icon_state = "snowgrassall[rand(1, 3)]"
+
+//jungle grass -- Eros
+
+/obj/structure/flora/jungle/grass
+	name = "grass"
+	icon = 'icons/obj/flora/jungleflora.dmi'
+	anchored = 1
+
+/obj/structure/flora/jungle/grass/dense
+	icon_state = "grassa"
+
+/obj/structure/flora/jungle/grass/dense/New()
+	..()
+	icon_state = "grassa[rand(1, 5)]"
+
+/obj/structure/flora/jungle/grass/light
+	icon_state = "grassb"
+
+/obj/structure/flora/jungle/grass/light/New()
+	..()
+	icon_state = "grassb[rand(1, 5)]"

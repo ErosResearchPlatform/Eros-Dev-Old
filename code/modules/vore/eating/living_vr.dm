@@ -178,10 +178,10 @@
 	if(air_master.current_cycle%3 != 1)
 		return //The accursed timer
 
-	for (var/I in vore_organs)
-		var/datum/belly/B = vore_organs[I]
-		if(B.internal_contents.len)
-			B.process_Life() //AKA 'do bellymodes_vr.dm'
+//	for (var/I in vore_organs)
+//		var/datum/belly/B = vore_organs[I]
+//		if(B.internal_contents.len)
+//			B.process_Life() //AKA 'do bellymodes_vr.dm'
 
 	if(noisy > 0 && nutrition < 100 && prob(10))
 		var/growlsound = pick(hunger_sounds)

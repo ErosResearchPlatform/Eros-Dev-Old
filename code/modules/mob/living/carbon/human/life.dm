@@ -824,8 +824,9 @@
 
 			var/total_phoronloss = 0
 			for(var/obj/item/I in src)
-				if(I.contaminated || I.gurgled) //VOREStation Edit
-					if(check_belly(I)) continue //VOREStation Edit
+				if(I.contaminated) //Eros edit
+//				if(I.contaminated || I.gurgled) //VOREStation Edit
+//					if(check_belly(I)) continue //VOREStation Edit
 					if(src.species && src.species.get_bodytype() != "Vox")
 						total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 			if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)

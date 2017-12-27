@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Diffrent misc types of tiles
  * Contains:
  *		Prototype
@@ -201,7 +200,7 @@
 	throw_range = 20
 	flags = 0
 	no_variants = FALSE
-=======
+
 /* Diffrent misc types of tiles
  * Contains:
  *		Prototype
@@ -402,4 +401,3 @@
 	throw_range = 20
 	flags = 0
 	no_variants = FALSE
->>>>>>> a412c1861482c3caaa9d5f1a5098af1dafbefca7
