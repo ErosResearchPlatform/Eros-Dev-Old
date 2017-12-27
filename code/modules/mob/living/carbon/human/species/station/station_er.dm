@@ -60,7 +60,6 @@
 	num_alternate_languages = 3
 	secondary_langs = list(LANGUAGE_LAMIA)
 	name_language = LANGUAGE_LAMIA
-	color_mult = 1
 
 	min_age = 18
 	max_age = 110
@@ -72,8 +71,9 @@
 	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
-	flesh_color = "#AFA59E"
-	base_color = "#777777"
+	flesh_color = "#34AF10"
+	blood_color = "#7a1100"
+	base_color = "#066000"
 
 //	reagent_tag = IS_LAMIA		-- Do later.
 

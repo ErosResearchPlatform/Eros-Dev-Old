@@ -350,6 +350,19 @@
 	var/ani_state // State when flapping/animated
 	var/extra_overlay_w // Flapping state for extra overlay
 
+/datum/sprite_accessory/wing/shock //Unable to split the tail from the wings in the sprite, so let's just classify it as wings.
+	name = "pharoah hound tail (Shock Diamond)"
+	desc = ""
+	icon_state = "shock"
+	ckeys_allowed = list("icowom")
+
+/datum/sprite_accessory/wing/featheredlarge //Made by Natje!
+	name = "large feathered wings (colorable)"
+	desc = ""
+	icon_state = "feathered2"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 /datum/sprite_accessory/wing/spider_legs //Not really /WINGS/ but they protrude from the back, kinda. Might as well have them here.
 	name = "spider legs"
 	desc = ""
@@ -454,6 +467,13 @@
 	name = "xenomorph backplate"
 	desc = ""
 	icon_state = "snag-backplate"
+
+/datum/sprite_accessory/wing/nevrean
+	name = "nevrean wings/fantail"
+	desc = ""
+	icon_state = "nevrean_s"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
 
 /*
 ////////////////////////////
@@ -812,12 +832,6 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/tail/shock //Leaving this since it was too hard to split the wings from the tail.
-	name = "pharoah hound tail (Shock Diamond)"
-	desc = ""
-	icon_state = "shock"
-	ckeys_allowed = list("icowom")
-
 /datum/sprite_accessory/tail/snaketail
 	name = "snake tail, colorable"
 	desc = ""
@@ -1043,6 +1057,7 @@
 	icon = 'icons/mob/vore/taurs_vr.dmi'
 	do_colouration = 1 // Yes color, using tail color
 	color_blend_mode = ICON_MULTIPLY  // The sprites for taurs are designed for ICON_MULTIPLY
+	clothing_can_hide = 0
 
 /datum/sprite_accessory/tail/taur/roiz_long_lizard // Not ACTUALLY a taur, but it uses 32x64 so it wouldn't fit in tails.dmi, and having it as a tail bugs up the sprite.
 	name = "Long Lizard Tail (Roiz Lizden)"
@@ -1065,14 +1080,15 @@
 	extra_overlay = "synthwolf_markings"
 
 /datum/sprite_accessory/tail/taur/naga
-	name = "Naga"
+	name = "Lamia"	//Eros rename
 	icon_state = "naga_s"
 	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/taur/naga/naga_2c
-	name = "Naga dual-color"
+	name = "Lamia dual-color"	//Eros rename
 	icon_state = "naga_s"
 	extra_overlay = "naga_markings"
+	species_allowed = list("Lamia")
 
 /datum/sprite_accessory/tail/taur/horse
 	name = "Horse"
@@ -1101,10 +1117,9 @@
 	icon_state = "synthlizard_s"
 	extra_overlay = "synthlizard_markings"
 
-/datum/sprite_accessory/tail/taur/spider
+/*/datum/sprite_accessory/tail/taur/spider
 	name = "Spider"
-	icon_state = "spider_s"
-	species_allowed = list("Veirei")
+	icon_state = "spider_s"  - Removed for veirei */
 
 /datum/sprite_accessory/tail/taur/tents
 	name = "Tentacles"
@@ -1166,3 +1181,10 @@
 	ani_state = "alraune_closed_s"
 	ckeys_allowed = list("natje")
 	do_colouration = 0
+
+/datum/sprite_accessory/tail/taur/spider
+	name = "Veirei abdomen"
+	icon = 'icons/eros/mob/taurs_er.dmi'
+	icon_state = "veirei_s"
+	extra_overlay = "veirei_e"
+	species_allowed = list("Veirei")
